@@ -6,6 +6,7 @@ const path = require('path')
 
 // Import Routes
 const users = require('./routes/api/users')
+const posts = require('./routes/api/posts')
 
 // Initialize Express
 const app = express()
@@ -18,6 +19,9 @@ app.use(passport.initialize())
 // DB config
 const db = require('./config/keys').keys
 
+// Passport config
+require('./config/passport')(passport)
+
 // Connect to Mongodb
 mongoose
   .connect(db.url(), db.options)
@@ -26,6 +30,7 @@ mongoose
 
 // Use Routes
 app.use('/api/users', users)
+app.use('/api/posts', posts)
 
 // Server static assets
 if (process.env.NODE_ENV === 'production') {
