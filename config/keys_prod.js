@@ -1,10 +1,14 @@
 const keys = {
-  secret: process.env.SECRET_OR_KEY,
-  url : function() {
-    return process.env.MONGO_URI
+  mongo: {
+    url : function() {
+      return process.env.MONGO_URI
+    },
+    options : {
+      useNewUrlParser: true,
+    },
   },
-  options : {
-    useNewUrlParser: true,
+  jwt: {
+    secret: process.env.SECRET_OR_KEY,
   },
 }
 

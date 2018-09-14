@@ -21,7 +21,7 @@ router.post('/login', (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body)
   //Check Validation
   !isValid && res.status(400).json(errors)
-  
+
   const email = req.body.email
   const password = req.body.password
 
@@ -46,7 +46,7 @@ router.post('/login', (req, res) => {
             //Sign Token
             jwt.sign(
               payload,
-              keys.secret,
+              keys.jwt.secret,
               { expiresIn: 7000 },
               (err, token) => {
                 res.json({
