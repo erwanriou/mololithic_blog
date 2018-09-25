@@ -5,7 +5,7 @@ const passport = require('passport')
 const path = require('path')
 
 // Import Routes
-const users = require('./routes/api/admin')
+const admin = require('./routes/api/admin')
 const posts = require('./routes/api/posts')
 
 // Initialize Express

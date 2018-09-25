@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
-const User = require('../../models/User')
+const Admin = require('../../models/Admin')
 const Post = require('../../models/Post')
 const validatePostInput = require('../../validation/post')
 
@@ -40,7 +40,7 @@ router.post('/',  passport.authenticate('jwt', {session: false}), (req, res) => 
   }
   const newPost = new Post({
     ...req.body,
-    user: req.user.id,
+    admin: req.admin.id,
   })
 
   newPost

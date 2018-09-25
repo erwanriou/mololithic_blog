@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const gravatar = require('gravatar')
 const passport = require('passport')
 
-const User = require('../../models/User')
+const Admin = require('../../models/Admin')
 const keys = require('../../config/keys').keys
 const validateRegisterInput = require('../../validation/register')
 const validateLoginInput = require('../../validation/login')
