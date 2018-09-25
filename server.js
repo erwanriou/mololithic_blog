@@ -5,7 +5,7 @@ const passport = require('passport')
 const path = require('path')
 
 // Import Routes
-const users = require('./routes/api/users')
+const users = require('./routes/api/admin')
 const posts = require('./routes/api/posts')
 
 // Initialize Express
@@ -20,7 +20,7 @@ app.use(passport.initialize())
 const db = require('./config/keys').keys
 
 // Passport config
-require('./serivces/passport')(passport)
+require('./services/passport')(passport)
 
 // Connect to Mongodb
 mongoose
@@ -29,7 +29,7 @@ mongoose
   .catch(err => console.error(err))
 
 // Use Routes
-app.use('/api/users', users)
+app.use('/api/admin', admin)
 app.use('/api/posts', posts)
 
 // Server static assets
