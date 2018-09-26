@@ -20,7 +20,7 @@ app.use(passport.initialize())
 const db = require('./config/keys').keys
 
 // Passport config
-require('./services/passport')(passport)
+require('./services/passportJwtAdmin')(passport)
 
 // Connect to Mongodb
 mongoose
@@ -40,6 +40,6 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
+// Server Port
 const port =  process.env.PORT || 5000
-
 app.listen(port, () => console.log(`Server running on port ${port}`))

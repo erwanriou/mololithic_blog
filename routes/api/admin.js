@@ -10,14 +10,18 @@ const validateRegisterInput = require('../../validation/register')
 const validateLoginInput = require('../../validation/login')
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  res.status(200).json('usersAPI: We are currently connected to the user API of bebeyogini')
+// @route  POST api/users/register
+// @desc   Test route API
+// @access Private
+router.get('/',  passport.authenticate('jwt', {session: false}), async (req, res) => {
+  const admin =  await Admin.find()
+  res.status(200).json(admin)
 })
 
-// @route  GET api/users/login
-// @desc   Login User / Returning JWT Token
+// @route  POST api/admin/login
+// @desc   Login as user and generate token
 // @access Public
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body)
   //Check Validation
   !isValid && res.status(400).json(errors)
@@ -25,41 +29,33 @@ router.post('/login', (req, res) => {
   const email = req.body.email
   const password = req.body.password
 
-    //Find user by email
-  User.findOne({ email })
-    .then(user => {
-      // Check for users
-      if (!user) {
-        errors.email = 'User not found'
-        return res.status(400).json(errors)
-      }
-      // Check password
-      bcrypt.compare(password, user.password)
-        .then(isMatch => {
-          if (isMatch) {
-            // Define Payload
-            const payload = {
-              id: user.id,
-              name: user.name,
-              avatar: user.avatar
-            }
-            //Sign Token
-            jwt.sign(
-              payload,
-              keys.jwt.secret,
-              { expiresIn: 7000 },
-              (err, token) => {
-                res.json({
-                  success: true,
-                  token: 'Bearer ' + token
-                })
-              })
-          } else {
-            errors.email = 'Password incorrect'
-            return res.status(400).json(errors)
-          }
+  const user = await Admin.findOne({ email })
+  const match = await bcrypt.compareSync(password, user.passwordHash)
+
+  if (!user) {
+    errors.email = 'User not found'
+    return res.status(400).json(errors)
+  }
+  if (match) {
+    const payload = {
+      id: user.id,
+      name: user.name,
+      avatar: user.avatar
+    }
+    jwt.sign(
+      payload,
+      keys.jwt.secret,
+      { expiresIn: 7000 },
+      (err, token) => {
+        res.json({
+          success: true,
+          token: 'Bearer ' + token
         })
-    })
+      })
+  } else {
+    errors.email = 'Password incorrect'
+    return res.status(400).json(errors)
+  }
 })
 
 module.exports = router
