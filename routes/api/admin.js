@@ -14,7 +14,7 @@ const router = express.Router()
 // @desc   Test route API
 // @access Private
 router.get('/',  passport.authenticate('jwt', {session: false}), async (req, res) => {
-  const admin =  await Admin.find()
+  const admin =  await Admin.findById(req.user.id)
   res.status(200).json(admin)
 })
 
@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
           success: true,
           token: 'Bearer ' + token
         })
-      })
+    })
   } else {
     errors.email = 'Password incorrect'
     return res.status(400).json(errors)
