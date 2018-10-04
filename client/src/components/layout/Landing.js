@@ -4,7 +4,7 @@ class Landing extends React.Component {
   render() {
     return (
       <Fragment>
-        TESTING
+        Hello Word
       </Fragment>
     )
   }
