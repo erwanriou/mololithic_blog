@@ -1,0 +1,2 @@
+export const LOADING_DATA = 'LOADING_DATA'
+export const CLEAR_LOADING_DATA = 'CLEAR_LOADING_DATA'
