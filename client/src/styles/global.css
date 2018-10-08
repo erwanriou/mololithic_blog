@@ -2,8 +2,17 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
 }
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+
+.layout {
+  padding-top: 5rem;
 }

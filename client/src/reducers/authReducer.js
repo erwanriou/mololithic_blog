@@ -1,8 +1,9 @@
-import { LOADING_DATA, CLEAR_LOADING_DATA } from '../actions/types'
+import { LOADING_DATA, CLEAR_LOADING_DATA, USER_LOGIN } from '../actions/types'
 import isEmpty from '../utils/isEmpty'
 
 const initialState = {
-  isAuthenticated: false,
+  isUserAuthenticated: false,
+  isAdminAuthenticated: false,
   type: null,
   user: {},
   loading: false,
@@ -14,6 +15,13 @@ export default function authReducer (state = initialState, action) {
       return {
         ...state,
         loading: true,
+      }
+    case USER_LOGIN:
+      return {
+        ...state,
+        isAdminAuthenticated: !isEmpty(action.payload),
+        user: action.payload,
+        loading: false,
       }
     case CLEAR_LOADING_DATA:
       return {
