@@ -50,11 +50,11 @@ exports.keys = keys
 
 ## How it Work
 
-* Coming soon
+* This blog is a classic test/image blog where admin can add articles and display them public. User can register via oauth or create an account with password to be able to add comments to each articles. Each comments are publics. A future fonctionnality will be implemented later on with an e-commerce.
 
 ## Back End
 
-* Coming soon
+* Backend is hosted on a express/mongoDB server and with a redis cache. We manage auth with passport and email notifications with sendgrid.
 
 ## Middleware
 
@@ -62,4 +62,4 @@ exports.keys = keys
 
 ## Front End
 
-* Coming soon
+* The front-end is realised with React and Redux Technology
