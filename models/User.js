@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 const Schema = mongoose.Schema
 
 // Create Schema
-const AdminSchema = new Schema({
+const UserSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -27,14 +27,14 @@ const AdminSchema = new Schema({
   },
 })
 
-AdminSchema.plugin(uniqueValidator)
+UserSchema.plugin(uniqueValidator)
 
-AdminSchema.methods.validPassword = function(password) {
+UserSchema.methods.validPassword = function(password) {
   return bcrypt.compareSync(password, this.passwordHash)
 }
 
-AdminSchema.virtual("password").set(function(value) {
+UserSchema.virtual("password").set(function(value) {
   this.passwordHash = bcrypt.hashSync(value, 12)
 })
 
-module.exports = Admin = mongoose.model('admins', AdminSchema)
+module.exports = User = mongoose.model('users', UserSchema)
