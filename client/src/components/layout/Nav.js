@@ -1,10 +1,66 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { Link, withRouter } from 'react-router-dom'
 
+import { logout } from '../../actions/authActions'
 import icon from '../../utils/images/logobbyogini.png'
 
 class Nav extends React.Component {
+  handleLogout(e) {
+    e.preventDefault()
+    this.props.logout()
+  }
   render() {
+    const  { isAuthenticated, user } = this.props.auth
+
+    const authAdminLinks = (
+      <div className='usermenu'>
+        <Link
+          to='/dashboard-admin'>
+          Dashboard Admin
+        </Link>
+        <img
+          src={user.avatar}
+          alt={user.name}
+          style={{ width: '25px', marginRight: '5px'}}
+          title='You must have a Gravatar connect to you email to display an image'
+        />
+        <Link
+          to='/'
+          onClick={this.handleLogout.bind(this)}>
+          Logout
+        </Link>
+      </div>
+    )
+
+    const authUserLinks = (
+      <div className='usermenu'>
+        <Link
+          to='/dashboard'>
+          Dashboard
+        </Link>
+        <img
+          src={user.avatar}
+          alt={user.name}
+          style={{ width: '25px', marginRight: '5px'}}
+          title='You must have a Gravatar connect to you email to display an image'
+        />
+        <Link
+          to='/'
+          onClick={this.handleLogout.bind(this)}>
+          Logout
+        </Link>
+      </div>
+    )
+
+    const guestLinks = (
+      <div className='usermenu'>
+        <Link to='/register'>Sign Up</Link>
+        <Link to='/login'>Login</Link>
+      </div>
+    )
+
     return (
       <div className="nav">
         <div className="container">
@@ -13,9 +69,13 @@ class Nav extends React.Component {
               <img src={icon} alt="Icon logo"/>
               <h2>BBYogini</h2>
             </div>
-            <div className="auth">
-              <Link to='/Login'>Login</Link>
-            </div>
+
+            { isAuthenticated
+                ? user.role === 'admin'
+                  ? authAdminLinks
+                  : authUserLinks
+                : guestLinks }
+
           </div>
         </div>
       </div>
@@ -23,4 +83,12 @@ class Nav extends React.Component {
   }
 }
 
-export default Nav
+Nav.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+})
+
+export default withRouter(connect(mapStateToProps, { logout })(Nav))

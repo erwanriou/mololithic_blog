@@ -26,7 +26,7 @@ export const login = (userData, history) => async dispatch => {
           type: USER_LOGIN,
           payload: decoded,
         })
-        history.push('/dashboard-user')
+        history.push('/dashboard')
       break
     }
   } catch (e) {
@@ -36,4 +36,16 @@ export const login = (userData, history) => async dispatch => {
     })
   }
   dispatch(clearLoading())
+}
+
+// Log user out
+export const logout = () => dispatch => {
+  localStorage.removeItem('jwtToken')
+  setAuthToken(false)
+  dispatch(
+    dispatch({
+      type: USER_LOGOUT,
+      payload: {},
+    })
+  )
 }

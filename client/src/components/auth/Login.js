@@ -20,13 +20,13 @@ class Login extends React.Component {
     const { role } = this.props.auth.user
     role
       ? role === 'admin' && this.props.history.push('/dashboard-admin')
-      : role === 'user' && this.props.history.push('/dashboard-user')
+      : role === 'user' && this.props.history.push('/dashboard')
   }
   componentDidUpdate(prevProps) {
     const { role } = this.props.auth.user
     role
       ? role === 'admin' && this.props.history.push('/dashboard-admin')
-      : role === 'user' && this.props.history.push('/dashboard-user')
+      : role === 'user' && this.props.history.push('/dashboard')
   }
   handleSubmit(e) {
     e.preventDefault()

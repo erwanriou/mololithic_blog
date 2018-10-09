@@ -26,7 +26,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
-          <PrivateUserRoute exact path='/dashboard-user' component={DashBoardUser}/>
+          <PrivateUserRoute exact path='/dashboard' component={DashBoardUser}/>
           <PrivateAdminRoute exact path='/dashboard-admin' component={DashBoardAdmin}/>
         </Switch>
         <Footer />
