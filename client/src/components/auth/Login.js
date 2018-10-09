@@ -17,12 +17,16 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    const { isAdminAuthenticated } = this.props.auth
-    isAdminAuthenticated && this.props.history.push('/dashboard-admin')
+    const { role } = this.props.auth.user
+    role
+      ? role === 'admin' && this.props.history.push('/dashboard-admin')
+      : role === 'user' && this.props.history.push('/dashboard-user')
   }
   componentDidUpdate(prevProps) {
-    const { isAdminAuthenticated } = this.props.auth
-    isAdminAuthenticated && this.props.history.push('/dashboard-admin')
+    const { role } = this.props.auth.user
+    role
+      ? role === 'admin' && this.props.history.push('/dashboard-admin')
+      : role === 'user' && this.props.history.push('/dashboard-user')
   }
   handleSubmit(e) {
     e.preventDefault()
@@ -30,7 +34,10 @@ class Login extends React.Component {
       email: this.state.email,
       password: this.state.password,
     }
-    this.props.login(userData)
+    this.props.login(
+      userData,
+      this.props.history
+    )
   }
   handleQueryInput(e) {
     e.preventDefault()

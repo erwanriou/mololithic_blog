@@ -7,7 +7,7 @@ const PrivateUserRoute = ({ component: Component, auth, ...rest}) => (
   <Route
     {...rest}
     render = {props =>
-      auth.isUserAuthenticated === true
+      auth.isAuthenticated === true && auth.user.role === 'user'
       ? (<Component {...props} />)
       : (<Redirect to='/login' />)
     }

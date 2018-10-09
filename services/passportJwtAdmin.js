@@ -1,7 +1,7 @@
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 const mongoose = require('mongoose')
-const Admin = mongoose.model('admins')
+const User = mongoose.model('users')
 const keys = require('../config/keys').keys
 
 const opts = {}
@@ -12,9 +12,9 @@ module.exports = passport => {
   passport.use(
     new JwtStrategy(opts, async (jwt_payload, done) => {
       try {
-        const admin = await Admin.findById(jwt_payload.id)
-        admin
-          ? done(null, admin)
+        const user = await User.findById(jwt_payload.id)
+        user
+          ? done(null, user)
           : done(null, false, { message: "Invalid username/password" })
       } catch (e) {
         e => done(e)

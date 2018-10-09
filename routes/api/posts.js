@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const passport = require('passport')
 
-const Admin = require('../../models/Admin')
+const Admin = require('../../models/User')
 const Post = require('../../models/Post')
 const validatePostInput = require('../../validation/post')
 
