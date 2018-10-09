@@ -17,16 +17,23 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    const { role } = this.props.auth.user
-    role
-      ? role === 'admin' && this.props.history.push('/dashboard-admin')
-      : role === 'user' && this.props.history.push('/dashboard')
+    const { role, isAuthenticated } = this.props.auth.user
+    if (isAuthenticated && role === 'admin') {
+      this.props.history.push('/dashboard-admin')
+    } else if (isAuthenticated && role === 'user') {
+      role === 'user' && this.props.history.push('/dashboard')
+    }
   }
   componentDidUpdate(prevProps) {
-    const { role } = this.props.auth.user
-    role
-      ? role === 'admin' && this.props.history.push('/dashboard-admin')
-      : role === 'user' && this.props.history.push('/dashboard')
+    const { role, isAuthenticated } = this.props.auth.user
+    if (isAuthenticated && role === 'admin') {
+      this.props.history.push('/dashboard-admin')
+    } else if (isAuthenticated && role === 'user') {
+      role === 'user' && this.props.history.push('/dashboard')
+    }
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
+    }
   }
   handleSubmit(e) {
     e.preventDefault()
@@ -75,6 +82,7 @@ class Login extends React.Component {
                   value={email}
                   onChange={this.handleQueryInput}
                 />
+                { errors && (<p>{errors.email}</p>) }
                 <input
                   placeholder='Required Password'
                   name='password'
@@ -82,6 +90,7 @@ class Login extends React.Component {
                   value={password}
                   onChange={this.handleQueryInput}
                 />
+                { errors && (<p>{errors.password}</p>) }
                 <button type='submit'>
                   Login
                 </button>
@@ -99,6 +108,7 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
+  errors: state.errors,
 })
 
 export default withRouter(connect(mapStateToProps, { login })(Login))

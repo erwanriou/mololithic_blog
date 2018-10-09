@@ -28,6 +28,13 @@ export const login = (userData, history) => async dispatch => {
         })
         history.push('/dashboard')
       break
+      default:
+        dispatch({
+          type: USER_LOGIN,
+          payload: decoded,
+        })
+        history.push('/dashboard')
+      break
     }
   } catch (e) {
     dispatch({
