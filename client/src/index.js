@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import jwt_decode from 'jwt-decode'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { createStore } from 'redux'
+import { LocalizeProvider } from 'react-localize-redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from './components/App'
@@ -32,9 +33,11 @@ if (localStorage.jwtToken) {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
+    <LocalizeProvider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </LocalizeProvider>
   </Provider>,
   document.getElementById('root')
 )

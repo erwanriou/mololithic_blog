@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "subtitle" : [
+      "The yoga blog for begginers",
+      "El blog de yoga para principiantes"
+    ],
+    "about" : [
+      "ABOUT",
+      "SOBRE"
+    ],
+    "psychology" : [
+      "PSYCHOLOGY",
+      "PSICOLOGÍA"
+    ],
+    "contact" : [
+      "CONTACT",
+      "CONTACTO"
+    ],
+    "dashboard" : [
+      "dashboard",
+      "cuenta"
+    ],
+    "logout" : [
+      "logout",
+      "cerrar sesión"
+    ],
+    "login" : [
+      "login",
+      "iniciar sesión"
+    ],
+    "signup" : [
+      "sign up",
+      "regístrate"
+    ]
+  },
+  "footer": {
+    "copyrights": [
+      "Legal information and terms of use © ${date} AXA All Rights Reserved",
+      "Informations legal et termes d'utilisation © ${date} AXA tous droits réservé"
+    ]
+  }
+}

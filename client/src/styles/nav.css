@@ -8,6 +8,10 @@
 }
 .nav a {
   color: white;
+  transition: color 0.3s ease;
+}
+.nav a:hover {
+  color: #9e8b8b;
 }
 .nav .menu {
   display: flex;

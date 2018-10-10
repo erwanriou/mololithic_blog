@@ -45,19 +45,3 @@ main .title {
 .spinner img {
   width: 3rem;
 }
-/* Footer */
-footer {
-  z-index: 500;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #343a40;
-  height: 3rem;
-}
-footer p {
-  text-align: center;
-  color: white;
-}
