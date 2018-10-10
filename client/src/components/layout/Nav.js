@@ -45,13 +45,16 @@ class Nav extends React.Component {
       <div className="nav">
         <div className="container">
           <div className="menu">
-            <div className="title">
-              <img src={icon} alt="Icon logo"/>
-              <h2>BBYogini</h2>
+            <div className="brand">
+              <Link to='/'><img src={icon} alt="Icon logo"/></Link>
+              <div className="title">
+                <h2>Bebe Yogini</h2>
+                <h4>The yoga blog for begginers</h4>
+              </div>
             </div>
             { isAuthenticated
-                ? authLinks
-                : guestLinks }
+              ? authLinks
+              : guestLinks }
           </div>
         </div>
       </div>

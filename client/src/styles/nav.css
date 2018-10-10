@@ -1,25 +1,46 @@
 .nav {
   position: fixed;
-  z-index: 1000;
+  z-index: 100;
   width: 100%;
-  background-color: #f7def0;
-  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  background-color: #343a40;
+  box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
   height: 5rem;
 }
-
 .nav .menu {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin: 0 auto;
 }
-
-.nav .title {
+.nav .brand {
   display: flex;
-  -ms-align-items: center;
   align-items: center;
 }
-
-.nav .title img {
+.nav .brand img {
   width: 7rem;
+}
+.nav .brand .title {
+  color: white;
+}
+.nav .brand h4 {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+}
+.nav .usermenu {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  font-size: 1rem;
+}
+.nav .usermenu > :nth-child(1n) {
+  margin-left: 1rem;
+}
+.nav .usermenu img {
+  position: relative;
+  z-index: 101;
+  border-radius: 10rem;
+  height: 100%;
+}
+.nav .usermenu a {
+  color: white;
 }
