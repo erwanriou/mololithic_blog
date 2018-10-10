@@ -52,13 +52,19 @@ class Nav extends React.Component {
                 <h4>The yoga blog for begginers</h4>
               </div>
             </div>
+            <div className="mainmenu">
+              <Link to='/about'>ABOUT</Link>
+              <Link to='/yoga'>YOGA</Link>
+              <Link to='/psychology'>PSYCHOLOGY</Link>
+              <Link to='/contact'>CONTACT</Link>
+            </div>
             { isAuthenticated
-                ? loading
-                    ? <Spinner />
-                    : authLinks
-                : loading
-                    ?  <Spinner />
-                    : guestLinks
+              ? loading
+                  ? <Spinner />
+                  : authLinks
+              : loading
+                  ? <Spinner />
+                  : guestLinks
             }
           </div>
         </div>

@@ -6,6 +6,9 @@
   box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
   height: 5rem;
 }
+.nav a {
+  color: white;
+}
 .nav .menu {
   display: flex;
   justify-content: space-between;
@@ -31,6 +34,14 @@
   margin-top: 0.4rem;
   font-size: 0.9rem;
 }
+.nav .mainmenu {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+.nav .mainmenu a {
+  padding: 0 1rem;
+}
 .nav .usermenu {
   display: flex;
   align-items: center;
@@ -41,12 +52,6 @@
   margin-left: 1rem;
 }
 .nav .usermenu img {
-  position: relative;
-  z-index: 101;
   width: 2rem;
-  border-radius: 10rem;
-  height: 100%;
-}
-.nav .usermenu a {
-  color: white;
+  border-radius: 5rem;
 }
