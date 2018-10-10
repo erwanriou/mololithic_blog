@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router-dom'
 
 import { logout } from '../../actions/authActions'
 import icon from '../../utils/images/logobbyogini.png'
+import Spinner from '../common/Spinner'
 
 class Nav extends React.Component {
   handleLogout(e) {
@@ -12,7 +13,7 @@ class Nav extends React.Component {
     this.props.logout()
   }
   render() {
-    const  { isAuthenticated, user } = this.props.auth
+    const  { isAuthenticated, user, loading } = this.props.auth
 
     const authLinks = (
       <div className='usermenu'>
@@ -23,7 +24,6 @@ class Nav extends React.Component {
         <img
           src={user.avatar}
           alt={user.name}
-          style={{ width: '25px', marginRight: '5px'}}
           title='You must have a Gravatar connect to you email to display an image'
         />
         <Link
@@ -48,13 +48,18 @@ class Nav extends React.Component {
             <div className="brand">
               <Link to='/'><img src={icon} alt="Icon logo"/></Link>
               <div className="title">
-                <h2>Bebe Yogini</h2>
+                <h2><strong>B</strong>ebe <strong>Y</strong>ogini</h2>
                 <h4>The yoga blog for begginers</h4>
               </div>
             </div>
             { isAuthenticated
-              ? authLinks
-              : guestLinks }
+                ? loading
+                    ? <Spinner />
+                    : authLinks
+                : loading
+                    ?  <Spinner />
+                    : guestLinks
+            }
           </div>
         </div>
       </div>

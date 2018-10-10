@@ -16,6 +16,11 @@
   display: flex;
   align-items: center;
 }
+.nav strong {
+  background-color: #826262;
+  padding: 0 0.5rem;
+  border-radius: 10rem;
+}
 .nav .brand img {
   width: 7rem;
 }
@@ -23,7 +28,7 @@
   color: white;
 }
 .nav .brand h4 {
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
   font-size: 0.9rem;
 }
 .nav .usermenu {
@@ -38,6 +43,7 @@
 .nav .usermenu img {
   position: relative;
   z-index: 101;
+  width: 2rem;
   border-radius: 10rem;
   height: 100%;
 }

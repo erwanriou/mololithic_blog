@@ -16,6 +16,7 @@ import DashBoard from './dashboard/DashBoard'
 import '../styles/reset.css'
 import '../styles/global.css'
 import '../styles/nav.css'
+import '../styles/auth.css'
 
 class App extends React.Component {
   render() {
