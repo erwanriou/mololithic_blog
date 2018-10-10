@@ -17,22 +17,14 @@ class Login extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   componentDidMount() {
-    const { role, isAuthenticated } = this.props.auth.user
-    if (isAuthenticated && role === 'admin') {
-      this.props.history.push('/dashboard-admin')
-    } else if (isAuthenticated && role === 'user') {
-      role === 'user' && this.props.history.push('/dashboard')
-    }
+    const { isAuthenticated } = this.props.auth
+    isAuthenticated &&  this.props.history.push('/dashboard')
   }
   componentDidUpdate(prevProps) {
-    const { role, isAuthenticated } = this.props.auth.user
-    if (isAuthenticated && role === 'admin') {
-      this.props.history.push('/dashboard-admin')
-    } else if (isAuthenticated && role === 'user') {
-      role === 'user' && this.props.history.push('/dashboard')
-    }
+    const { isAuthenticated } = this.props.auth
+    isAuthenticated &&  this.props.history.push('/dashboard')
     if (prevProps.errors !== this.props.errors) {
-      this.setState({ errors: this.props.errors });
+      this.setState({ errors: this.props.errors })
     }
   }
   handleSubmit(e) {

@@ -12,7 +12,7 @@ import reducer from './reducers'
 import * as serviceWorker from './serviceWorker'
 
 import setAuthToken from './utils/setAuthToken'
-import { login, logout } from './actions/authActions'
+import { setCurrentUser, logout } from './actions/authActions'
 
 const store = createStore(reducer, composeWithDevTools(middleware))
 
@@ -20,7 +20,7 @@ if (localStorage.jwtToken) {
   const localToken = localStorage.jwtToken
   setAuthToken(localToken)
   const decoded = jwt_decode(localToken)
-  store.dispatch(login(decoded))
+  store.dispatch(setCurrentUser(decoded))
 
   // Automatic logout
   const currentTime = Date.now()/1000

@@ -2,16 +2,15 @@ import React , { Fragment } from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 // Auth
-import PrivateUserRoute from './common/PrivateUserRoute'
-import PrivateAdminRoute from './common/PrivateAdminRoute'
+import PrivateRoute from './common/PrivateRoute'
 
 // Components
 import Nav from './layout/Nav'
 import Landing from './layout/Landing'
 import Footer from './layout/Footer'
 import Login from './auth/Login'
-import DashBoardUser from './dashboard/DashBoardUser'
-import DashBoardAdmin from './dashboard/DashBoardAdmin'
+import DashBoard from './dashboard/DashBoard'
+
 
 // Styling
 import '../styles/reset.css'
@@ -26,8 +25,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
-          <PrivateUserRoute exact path='/dashboard' component={DashBoardUser}/>
-          <PrivateAdminRoute exact path='/dashboard-admin' component={DashBoardAdmin}/>
+          <PrivateRoute exact path='/dashboard' component={DashBoard}/>
         </Switch>
         <Footer />
       </Fragment>

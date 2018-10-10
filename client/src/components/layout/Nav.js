@@ -14,27 +14,7 @@ class Nav extends React.Component {
   render() {
     const  { isAuthenticated, user } = this.props.auth
 
-    const authAdminLinks = (
-      <div className='usermenu'>
-        <Link
-          to='/dashboard-admin'>
-          Dashboard Admin
-        </Link>
-        <img
-          src={user.avatar}
-          alt={user.name}
-          style={{ width: '25px', marginRight: '5px'}}
-          title='You must have a Gravatar connect to you email to display an image'
-        />
-        <Link
-          to='/'
-          onClick={this.handleLogout.bind(this)}>
-          Logout
-        </Link>
-      </div>
-    )
-
-    const authUserLinks = (
+    const authLinks = (
       <div className='usermenu'>
         <Link
           to='/dashboard'>
@@ -69,13 +49,9 @@ class Nav extends React.Component {
               <img src={icon} alt="Icon logo"/>
               <h2>BBYogini</h2>
             </div>
-
             { isAuthenticated
-                ? user.role === 'admin'
-                  ? authAdminLinks
-                  : authUserLinks
+                ? authLinks
                 : guestLinks }
-
           </div>
         </div>
       </div>

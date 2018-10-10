@@ -1,7 +1,7 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-import { ADMIN_LOGIN, USER_LOGIN, USER_LOGOUT, GET_ERRORS } from './types'
+import { USER_LOGIN, USER_LOGOUT, GET_ERRORS } from './types'
 import { loading, clearLoading } from './loadingActions'
 import setAuthToken from '../utils/setAuthToken'
 
@@ -13,29 +13,8 @@ export const login = (userData, history) => async dispatch => {
     localStorage.setItem('jwtToken', token)
     setAuthToken(token)
     const decoded = jwt_decode(token)
-    switch (decoded.role) {
-      case 'admin':
-        dispatch({
-          type: ADMIN_LOGIN,
-          payload: decoded,
-        })
-        history.push('/dashboard-admin')
-      break
-      case 'user':
-        dispatch({
-          type: USER_LOGIN,
-          payload: decoded,
-        })
-        history.push('/dashboard')
-      break
-      default:
-        dispatch({
-          type: USER_LOGIN,
-          payload: decoded,
-        })
-        history.push('/dashboard')
-      break
-    }
+    dispatch(setCurrentUser(decoded))
+    history.push('/dashboard')
   } catch (e) {
     dispatch({
       type: GET_ERRORS,
@@ -43,6 +22,14 @@ export const login = (userData, history) => async dispatch => {
     })
   }
   dispatch(clearLoading())
+}
+
+
+export const setCurrentUser = decoded => {
+  return {
+    type: USER_LOGIN,
+    payload: decoded,
+  }
 }
 
 // Log user out
