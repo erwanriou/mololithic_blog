@@ -1,4 +1,38 @@
 {
+  "login": {
+    "title": [
+      "Login in Bebe Yogini!",
+      "Inicia sesión en Bebe Yogini!"
+    ],
+    "subtitle": [
+      "You can choose by Sign-In with google, facebook or password authentification",
+      "Puede elegir iniciar sesión con la autenticación de google, facebook o contraseña"
+    ],
+    "google": [
+      "Sign In with google",
+      "Login con Google"
+    ],
+    "facebook": [
+      "Sign In with facebook",
+      "Login con facebook"
+    ],
+    "option": [
+      "Or Login here",
+      "O inicia sesión aquí"
+    ],
+    "login": [
+      "Login",
+      "Iniciar sesión"
+    ],
+    "noaccount": [
+      "You doen't have an account yet?",
+      "¿Aún no tienes una cuenta?"
+    ],
+    "register": [
+      "Register",
+      "Regístrate"
+    ]
+  },
   "nav": {
     "subtitle" : [
       "The yoga blog for begginers",

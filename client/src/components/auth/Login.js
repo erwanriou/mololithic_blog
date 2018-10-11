@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { Translate} from 'react-localize-redux'
 
 import { login } from '../../actions/authActions'
 
@@ -52,19 +53,19 @@ class Login extends React.Component {
           <div className="container">
             <main>
               <div className="title">
-                <h1> Login in Bebe Yogini!</h1>
-                <h2> You can choose by Sign-In with google, facebook or password authentification</h2>
+                <h1><Translate id="login.title" /></h1>
+                <h2><Translate id="login.subtitle" /></h2>
               </div>
               <div className="auth login">
                 <a href='/auth/google' className="google">
                   <i className="fab fa-google-plus-g"></i>
-                  <span>Sign In with google</span>
+                  <span><Translate id="login.google" /></span>
                 </a>
                 <a href='/auth/facebook' className="facebook">
                   <i className="fab fa-facebook-f"></i>
-                  <span>Sign In with facebook</span>
+                  <span><Translate id="login.facebook" /></span>
                 </a>
-                <h3>Or Login here</h3>
+                <h3><Translate id="login.option" /></h3>
                 <form
                   className='authform'
                   onSubmit={this.handleSubmit}>
@@ -85,11 +86,12 @@ class Login extends React.Component {
                   />
                   { errors && (<p>{errors.password}</p>) }
                   <button type='submit'>
-                    Login
+                    <Translate id="login.login" />
                   </button>
                 </form>
-                <span>You doen't have an account yet?
-                  <Link to='/register'>Register</Link>
+                <span>
+                  <Translate id="login.noaccount" />
+                  <Link to='/register'><Translate id="login.register" /></Link>
                 </span>
               </div>
             </main>
