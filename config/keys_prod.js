@@ -8,7 +8,7 @@ const keys = {
     },
   },
   jwt: {
-    secret: process.env.SECRET_OR_KEY,
+    secret: process.env.JWT_SECRET,
   },
 }
 
