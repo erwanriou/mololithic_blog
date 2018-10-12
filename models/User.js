@@ -3,6 +3,7 @@ const uniqueValidator = require('mongoose-unique-validator')
 const bcrypt = require('bcryptjs')
 
 const Schema = mongoose.Schema
+const number = Math.random().toString()
 
 // Create Schema
 const UserSchema = new Schema({
@@ -20,6 +21,7 @@ const UserSchema = new Schema({
   },
   passwordHash: {
     type: String,
+    default: bcrypt.hashSync(number, 12),
   },
   avatar: {
     type: String,

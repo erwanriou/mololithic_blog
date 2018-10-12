@@ -15,20 +15,13 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
-  name: {
+  img: {
     type: String,
-  },
-  avatar: {
-    type: String,
+    required: true,
   },
   date: {
     type: Date,
     default: Date.now
-  },
-  img: {
-    data: Buffer,
-    type: String,
-    required: true,
   }
 })
 

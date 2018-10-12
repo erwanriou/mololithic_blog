@@ -24,22 +24,16 @@ export const login = (userData, history) => async dispatch => {
   dispatch(clearLoading())
 }
 
-export const googleLogin = () => async dispatch => {
-  dispatch(loading())
+export const register = (userData, history) => async dispatch => {
   try {
-    const res = await axios.get('/auth/google/callback')
-    const { token } = res.data
-    localStorage.setItem('jwtToken', token)
-    setAuthToken(token)
-    const decoded = jwt_decode(token)
-    dispatch(setCurrentUser(decoded))
+    await axios.post('/api/users/register', userData)
+    history.push('/login')
   } catch (e) {
     dispatch({
       type: GET_ERRORS,
       payload: e.response.data,
     })
   }
-  dispatch(clearLoading())
 }
 
 export const setCurrentUser = decoded => {

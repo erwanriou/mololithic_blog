@@ -5,16 +5,16 @@
       "Inicia sesión en Bebe Yogini!"
     ],
     "subtitle": [
-      "You can choose by Sign-In with google, facebook or password authentification",
-      "Puede elegir iniciar sesión con la autenticación de google, facebook o contraseña"
+      "You can choose Sign-In with google, facebook or password authentification",
+      "Puede elegir iniciar sesión con google, facebook o correo electrónico"
     ],
     "google": [
       "Sign In with google",
-      "Login con Google"
+      "Seguir con Google"
     ],
     "facebook": [
       "Sign In with facebook",
-      "Login con facebook"
+      "Seguir con facebook"
     ],
     "option": [
       "Or Login here",
@@ -31,6 +31,40 @@
     "register": [
       "Register",
       "Regístrate"
+    ]
+  },
+  "register": {
+    "title": [
+      "Register in Bebe Yogini!",
+      "Registrate en Bebe Yogini!"
+    ],
+    "subtitle": [
+      "You can choose sign-up with google, facebook or password authentification",
+      "Puede elegir registrar con la autenticación de google, facebook o correo electrónico"
+    ],
+    "google": [
+      "Sign Up with google",
+      "Seguir con Google"
+    ],
+    "facebook": [
+      "Sign Up with facebook",
+      "Seguir con facebook"
+    ],
+    "option": [
+      "Or Sign Up here with email",
+      "O Registrarse con correo electrónico"
+    ],
+    "register": [
+      "Register",
+      "Registrate"
+    ],
+    "noaccount": [
+      "You already have an account?",
+      "¿Ya tienes una cuenta?"
+    ],
+    "login": [
+      "Login",
+      "Inicia sesión"
     ]
   },
   "nav": {

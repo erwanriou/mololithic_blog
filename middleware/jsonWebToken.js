@@ -14,14 +14,14 @@ exports.signToken = (req, res) => {
     { expiresIn: 7000 },
     (err, token) => {
       const htmlWithEmbeddedJWT =
-        `
-          <html>
-            <script>
-              window.localStorage.setItem('jwtToken', 'Bearer ${token}');
-              window.location.href = '/';
-            </script>
-          </html>
-        `
+      `
+        <html>
+          <script>
+            window.localStorage.setItem('jwtToken', 'Bearer ${token}');
+            window.location.href = '/';
+          </script>
+        </html>
+      `
       res.send(htmlWithEmbeddedJWT)
   })
 }

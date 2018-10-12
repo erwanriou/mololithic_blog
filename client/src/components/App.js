@@ -12,6 +12,7 @@ import Nav from './layout/Nav'
 import Landing from './layout/Landing'
 import Footer from './layout/Footer'
 import Login from './auth/Login'
+import Register from './auth/Register'
 import DashBoard from './dashboard/DashBoard'
 // Styling
 import '../styles/reset.css'
@@ -39,6 +40,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/register' component={Register}/>
           <PrivateRoute exact path='/dashboard' component={DashBoard}/>
         </Switch>
         <Footer />
