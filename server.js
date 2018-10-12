@@ -5,8 +5,14 @@ const passport = require('passport')
 const path = require('path')
 
 // Import Routes
+const google = require('./routes/auth/google')
+const facebook = require('./routes/auth/facebook')
 const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
+
+//import strategies
+require('./services/passportJwt')(passport)
+require('./services/passportGoogle')(passport)
 
 // Initialize Express
 const app = express()
@@ -19,9 +25,6 @@ app.use(passport.initialize())
 // DB config
 const db = require('./config/keys').keys
 
-// Passport config
-require('./services/passportJwtAdmin')(passport)
-
 // Connect to Mongodb
 mongoose
   .connect(db.mongo.url(), db.mongo.options)
@@ -29,6 +32,8 @@ mongoose
   .catch(err => console.error(err))
 
 // Use Routes
+app.use('/auth/google', google)
+app.use('/auth/facebook', facebook)
 app.use('/api/users', users)
 app.use('/api/posts', posts)
 
