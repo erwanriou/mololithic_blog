@@ -6,6 +6,10 @@ const Schema = mongoose.Schema
 
 // Create Schema
 const UserSchema = new Schema({
+  oauthId: {
+    type: String,
+    default: null,
+  },
   name: {
     type: String,
     required: true,
@@ -16,7 +20,6 @@ const UserSchema = new Schema({
   },
   passwordHash: {
     type: String,
-    required: true,
   },
   avatar: {
     type: String,

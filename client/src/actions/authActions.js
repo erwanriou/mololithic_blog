@@ -24,6 +24,24 @@ export const login = (userData, history) => async dispatch => {
   dispatch(clearLoading())
 }
 
+export const googleLogin = () => async dispatch => {
+  dispatch(loading())
+  try {
+    const res = await axios.get('/auth/google/callback')
+    const { token } = res.data
+    localStorage.setItem('jwtToken', token)
+    setAuthToken(token)
+    const decoded = jwt_decode(token)
+    dispatch(setCurrentUser(decoded))
+  } catch (e) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: e.response.data,
+    })
+  }
+  dispatch(clearLoading())
+}
+
 export const setCurrentUser = decoded => {
   return {
     type: USER_LOGIN,

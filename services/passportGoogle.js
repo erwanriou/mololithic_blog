@@ -19,7 +19,8 @@ module.exports = passport => {
         oauthId: profile.id,
         email: email,
         name: profile.displayName,
-        avatar: profile.photos[0].value
+        avatar: profile.photos[0].value,
+        role: 'user'
       })
       existingUser
         ? done(null, existingUser)

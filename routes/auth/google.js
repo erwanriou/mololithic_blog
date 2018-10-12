@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../../models/User')
 const keys = require('../../config/keys').keys
-
+const jsonWebToken = require('../../middleware/jsonWebToken')
 
 const router = express.Router()
 
@@ -20,22 +20,7 @@ router.get('/', passport.authenticate('google', {
 // @desc   Login user with google Oauth
 // @access Private
 router.get('/callback', passport.authenticate('google', {session: false}), (req, res) => {
-  const payload = {
-    id: user.id,
-    name: user.name,
-    avatar: user.avatar,
-    role: user.role,
-  }
-  jwt.sign(
-    payload,
-    keys.jwt.secret,
-    { expiresIn: 7000 },
-    (err, token) => {
-      res.json({
-        success: true,
-        token: 'Bearer ' + token
-      })
-  })
+  jsonWebToken.signToken(req, res)
 })
 
 module.exports = router
