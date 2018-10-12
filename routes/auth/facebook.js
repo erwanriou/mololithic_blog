@@ -10,6 +10,7 @@ const router = express.Router()
 // @desc   Register user with google Oauth
 // @access Public
 router.get('/', passport.authenticate('facebook', {
+  session: false,
   scope: ['email']
 }))
 
@@ -17,7 +18,22 @@ router.get('/', passport.authenticate('facebook', {
 // @desc   Login user with google Oauth
 // @access Private
 router.get('/callback', passport.authenticate('facebook'), (req, res) => {
-  res.redirect('/')
+  const payload = {
+    id: user.id,
+    name: user.name,
+    avatar: user.avatar,
+    role: user.role,
+  }
+  jwt.sign(
+    payload,
+    keys.jwt.secret,
+    { expiresIn: 7000 },
+    (err, token) => {
+      res.json({
+        success: true,
+        token: 'Bearer ' + token
+      })
+  })
 })
 
 module.exports = router
