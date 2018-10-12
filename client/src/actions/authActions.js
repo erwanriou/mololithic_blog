@@ -24,12 +24,6 @@ export const login = (userData, history) => async dispatch => {
   dispatch(clearLoading())
 }
 
-export const googleLogin = () => async dispatch => {
-  dispatch(loading())
-  const res = await axios.get('/auth/google')
-  dispatch(clearLoading())
-}
-
 export const setCurrentUser = decoded => {
   return {
     type: USER_LOGIN,

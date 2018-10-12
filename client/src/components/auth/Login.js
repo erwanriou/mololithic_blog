@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Translate } from 'react-localize-redux'
 
-import { login, googleLogin } from '../../actions/authActions'
+import { login } from '../../actions/authActions'
 
 class Login extends React.Component {
   constructor(props) {
@@ -16,7 +16,6 @@ class Login extends React.Component {
     }
     this.handleQueryInput = this.handleQueryInput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleGoogleSubmit = this.handleGoogleSubmit.bind(this)
   }
   componentDidMount() {
     const { isAuthenticated } = this.props.auth
@@ -39,10 +38,6 @@ class Login extends React.Component {
       userData,
       this.props.history
     )
-  }
-  handleGoogleSubmit(e) {
-    e.preventDefault()
-    this.props.googleLogin()
   }
   handleQueryInput(e) {
     e.preventDefault()
@@ -112,4 +107,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
 })
 
-export default withRouter(connect(mapStateToProps, { login, googleLogin })(Login))
+export default withRouter(connect(mapStateToProps, { login })(Login))
