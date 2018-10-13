@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import Banner from './Banner'
 
 class Landing extends React.Component {
   render() {
     return (
-      <Fragment>
-        Hello Word
-      </Fragment>
+      <div className="landing">
+        <Banner />
+      </div>
     )
   }
 }

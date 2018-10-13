@@ -1,9 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { withLocalize } from 'react-localize-redux'
 
 const Footer = ({ languages, activeLanguage, setActiveLanguage }) => {
   return (
     <footer>
+      <Link to='/privacy-policy'>Privacy Policy</Link>
       <div className="languages">
         <div className="language-list">
           {languages.map(language => (

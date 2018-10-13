@@ -1,0 +1,6 @@
+.landing .banner {
+  position: relative;
+  background: url('../utils/images/banner.jpg') repeat center;
+  background-size: cover;
+  height: 700px;
+}

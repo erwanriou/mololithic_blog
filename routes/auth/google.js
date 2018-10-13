@@ -19,8 +19,10 @@ router.get('/', passport.authenticate('google', {
 // @route  GET auth/google
 // @desc   Login user with google Oauth
 // @access Private
-router.get('/callback', passport.authenticate('google', {session: false}), (req, res) => {
-  jsonWebToken.signToken(req, res)
-})
+router.get(
+  '/callback',
+  passport.authenticate('google', {session: false}),
+  jsonWebToken.signToken
+)
 
 module.exports = router

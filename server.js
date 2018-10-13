@@ -13,6 +13,7 @@ const posts = require('./routes/api/posts')
 //import strategies
 require('./services/passportJwt')(passport)
 require('./services/passportGoogle')(passport)
+require('./services/passportFacebook')(passport)
 
 // Initialize Express
 const app = express()

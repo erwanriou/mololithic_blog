@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const keys = require('../config/keys').keys
 
-exports.signToken = (req, res) => {
+exports.signToken = (req, res, next) => {
   const payload = {
     id: req.user._id,
     name: req.user.name,

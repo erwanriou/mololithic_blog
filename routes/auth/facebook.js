@@ -3,6 +3,7 @@ const passport = require('passport')
 
 const User = require('../../models/User')
 const keys = require('../../config/keys').keys
+const jsonWebToken = require('../../middleware/jsonWebToken')
 
 const router = express.Router()
 
@@ -17,23 +18,10 @@ router.get('/', passport.authenticate('facebook', {
 // @route  GET auth/facebook
 // @desc   Login user with google Oauth
 // @access Private
-router.get('/callback', passport.authenticate('facebook'), (req, res) => {
-  const payload = {
-    id: user.id,
-    name: user.name,
-    avatar: user.avatar,
-    role: user.role,
-  }
-  jwt.sign(
-    payload,
-    keys.jwt.secret,
-    { expiresIn: 7000 },
-    (err, token) => {
-      res.json({
-        success: true,
-        token: 'Bearer ' + token
-      })
-  })
-})
+router.get(
+  '/callback',
+  passport.authenticate('facebook', {session: false}),
+  jsonWebToken.signToken
+)
 
 module.exports = router

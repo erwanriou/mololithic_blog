@@ -9,6 +9,9 @@ footer {
   background-color: #343a40;
   height: 3rem;
 }
+footer a {
+  color: white;
+}
 footer span {
   cursor: pointer;
   padding: 0 0.5rem;
