@@ -7,6 +7,7 @@ const path = require('path')
 // Import Routes
 const google = require('./routes/auth/google')
 const facebook = require('./routes/auth/facebook')
+const instagram = require('./routes/auth/instagram')
 const users = require('./routes/api/users')
 const posts = require('./routes/api/posts')
 
@@ -14,6 +15,7 @@ const posts = require('./routes/api/posts')
 require('./services/passportJwt')(passport)
 require('./services/passportGoogle')(passport)
 require('./services/passportFacebook')(passport)
+require('./services/passportInstagram')(passport)
 
 // Initialize Express
 const app = express()
@@ -35,6 +37,7 @@ mongoose
 // Use Routes
 app.use('/auth/google', google)
 app.use('/auth/facebook', facebook)
+app.use('/auth/instagram', instagram)
 app.use('/api/users', users)
 app.use('/api/posts', posts)
 

@@ -16,6 +16,10 @@
       "Sign In with facebook",
       "Seguir con facebook"
     ],
+    "instagram": [
+      "Sign In with instagram",
+      "Seguir con instagram"
+    ],
     "option": [
       "Or Login here",
       "O inicia sesión aquí"
@@ -49,6 +53,10 @@
     "facebook": [
       "Sign Up with facebook",
       "Seguir con facebook"
+    ],
+    "instagram": [
+      "Sign Up with instagram",
+      "Seguir con instagram"
     ],
     "option": [
       "Or Sign Up here with email",

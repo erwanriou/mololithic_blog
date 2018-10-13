@@ -70,6 +70,10 @@ class Register extends React.Component {
                   <i className="fab fa-facebook-f"></i>
                   <span><Translate id="register.facebook" /></span>
                 </a>
+                <a href='/auth/instagram' className="instagram">
+                  <i className="fab fa-instagram"></i>
+                  <span><Translate id="login.instagram" /></span>
+                </a>
                 <h3><Translate id="register.option" /></h3>
                 <form
                   className='authform'

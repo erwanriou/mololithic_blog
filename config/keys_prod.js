@@ -20,6 +20,11 @@ const keys = {
     clientSecret: process.env.FACEBOOK_SECRET_OR_KEY,
     callbackURL: process.env.FACEBOOK_CALLBACK,
   },
+  instagram: {
+    clientID: process.env.INSTAGRAM_CLIENT_ID,
+    clientSecret: process.env.INSTAGRAM_SECRET_OR_KEY,
+    callbackURL: process.env.INSTAGRAM_CALLBACK,
+  },
 }
 
 exports.keys = keys
