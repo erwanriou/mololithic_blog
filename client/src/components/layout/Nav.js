@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
-import { Translate} from 'react-localize-redux'
+import { Translate,  withLocalize } from 'react-localize-redux'
 
 import { logout } from '../../actions/authActions'
 import icon from '../../utils/images/logobbyogini.png'
@@ -15,7 +15,6 @@ class Nav extends React.Component {
   }
   render() {
     const  { isAuthenticated, user, loading } = this.props.auth
-
     const authLinks = (
       <div className='usermenu'>
         <Link
@@ -60,6 +59,9 @@ class Nav extends React.Component {
               </div>
             </div>
             <div className="mainmenu">
+              <Link to='/'>
+                <Translate id="nav.home" />
+              </Link>
               <Link to='/about'>
                 <Translate id="nav.about" />
               </Link>
@@ -68,9 +70,6 @@ class Nav extends React.Component {
               </Link>
               <Link to='/psychology'>
                 <Translate id="nav.psychology" />
-              </Link>
-              <Link to='/contact'>
-                <Translate id="nav.contact" />
               </Link>
             </div>
             { isAuthenticated
@@ -96,4 +95,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 })
 
-export default withRouter(connect(mapStateToProps, { logout })(Nav))
+export default withLocalize(withRouter(connect(mapStateToProps, { logout })(Nav)))

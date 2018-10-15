@@ -11,6 +11,14 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
+  featured: {
+    type: Boolean,
+    default: false,
+  },
+  asana: {
+    type: String,
+    required: true,
+  },
   text: {
     type: String,
     required: true,

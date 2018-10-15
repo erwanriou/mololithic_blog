@@ -38,7 +38,9 @@ class App extends React.Component {
   render() {
     return (
       <Fragment>
-        <Nav />
+        <Nav
+          setActiveLanguage={this.props.setActiveLanguage}
+          languages={this.props.languages}/>
         <Switch>
           <Route exact path='/' component={Landing}/>
           <Route exact path='/privacy-policy' component={Privacy}/>

@@ -80,6 +80,10 @@
       "The yoga blog for begginers",
       "El blog de yoga para principiantes"
     ],
+    "home" : [
+      "HOME",
+      "INICIO"
+    ],
     "about" : [
       "ABOUT",
       "SOBRE"
@@ -107,6 +111,32 @@
     "signup" : [
       "sign up",
       "regístrate"
+    ]
+  },
+  "banner": {
+    "quote": [
+      "Inhale the future...Exhale the past...",
+      "Inhala el futuro exhala el pasado..."
+    ],
+    "blog": [
+      "Blog",
+      "Blog"
+    ],
+    "school": [
+      "School",
+      "Escuela"
+    ],
+    "shop": [
+      "Shop",
+      "Tienda"
+    ],
+    "link": [
+      "Discover about yoga and psichology!",
+      "¡Descubre sobre yoga y psicología!"
+    ],
+    "soon": [
+      "Coming Soon!",
+      "¡Próximamente!"
     ]
   },
   "footer": {

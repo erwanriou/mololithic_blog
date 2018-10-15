@@ -12,37 +12,46 @@
   margin: 0 auto;
   width: 25rem;
 }
-.landing .title h1, .landing .title h2 {
+.landing .banner .title h2 {
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0;
-}
-.landing .title h2 {
+  padding: 2rem 0;
   font-style: italic;
 }
-.landing strong {
+.landing .banner .links {
   display: flex;
   justify-content: center;
-  background-color: #826262;
-  padding: 0 0.5rem;
-  width: 2rem;
-  color: white;
-  border-radius: 10rem;
 }
-.landing a {
+.landing .banner .links img {
+  height: 10rem;
+}
+.landing .banner a, .landing .banner span  {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin: 2rem auto;
   color: white;
-  background: #cc4b4b;
-  border-radius: 2rem;
   font-size: 1rem;
-  padding: 1rem;
-  width: 20rem;
+  padding: 3rem 2rem;
+  width: 17rem;
+  border-radius: 1rem;
   box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
   transition: all 0.3s ease;
+}
+.landing .banner a {
+  background: #cc4b4b;
+}
+.landing .banner span {
+  background: #cea0a0;
+  cursor: not-allowed;
 }
 .landing a:hover {
   box-shadow: 3px 3px 10px 0 rgba(46,61,73,.2);
   background: #732b2b;
+}
+.landing .banner h3 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }

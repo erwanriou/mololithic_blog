@@ -5,6 +5,7 @@ import { withLocalize } from 'react-localize-redux'
 const Footer = ({ languages, activeLanguage, setActiveLanguage }) => {
   return (
     <footer>
+      <Link to='/contact'>Contact</Link>
       <Link to='/privacy-policy'>Privacy Policy</Link>
       <div className="languages">
         <div className="language-list">

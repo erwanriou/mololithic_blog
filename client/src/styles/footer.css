@@ -11,6 +11,7 @@ footer {
 }
 footer a {
   color: white;
+  padding-right: 1rem;
 }
 footer span {
   cursor: pointer;
@@ -21,18 +22,4 @@ footer span {
 }
 footer span:hover {
   color: #9e8b8b;
-}
-footer .languages {
-  display: flex;
-  justify-content: flex-end;
-}
-footer .languages .language-list{
-  display: flex;
-  padding: 0 2rem;
-}
-footer .languages .language-list > :nth-child(0n+2):before {
-  content: '|';
-  line-height: 5px;
-  font-weight: 700;
-  padding: 0.2rem;
 }
