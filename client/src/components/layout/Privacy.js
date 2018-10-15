@@ -1,5 +1,4 @@
 import React from 'react'
-import Banner from './Banner'
 
 class Privacy extends React.Component {
   render() {

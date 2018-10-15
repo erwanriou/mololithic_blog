@@ -2,5 +2,47 @@
   position: relative;
   background: url('../utils/images/banner.jpg') repeat center;
   background-size: cover;
-  height: 700px;
+  height: 900px;
+}
+.landing .title {
+  margin-top: 7rem;
+}
+.landing .title img {
+  display: flex;
+  margin: 0 auto;
+  width: 25rem;
+}
+.landing .title h1, .landing .title h2 {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+.landing .title h2 {
+  font-style: italic;
+}
+.landing strong {
+  display: flex;
+  justify-content: center;
+  background-color: #826262;
+  padding: 0 0.5rem;
+  width: 2rem;
+  color: white;
+  border-radius: 10rem;
+}
+.landing a {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  color: white;
+  background: #cc4b4b;
+  border-radius: 2rem;
+  font-size: 1rem;
+  padding: 1rem;
+  width: 20rem;
+  box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
+  transition: all 0.3s ease;
+}
+.landing a:hover {
+  box-shadow: 3px 3px 10px 0 rgba(46,61,73,.2);
+  background: #732b2b;
 }

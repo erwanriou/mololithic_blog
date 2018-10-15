@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import icon from '../../utils/images/logobbyogini2.png'
 
 class Banner extends React.Component {
@@ -8,8 +8,11 @@ class Banner extends React.Component {
       <div className="banner">
         <div className="opacity">
           <div className="container">
-            <img src={icon} alt="logo bebeyogini"/>
-            <h1>Bebe Yogini</h1>
+            <div className="title">
+              <img src={icon} alt="logo bebeyogini"/>
+              <h2>Inhale the future...Exhale the past... </h2>
+            </div>
+            <Link to='/feed'>Discover the Blog!</Link>
           </div>
         </div>
       </div>
