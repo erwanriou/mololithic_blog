@@ -22,6 +22,7 @@ import '../styles/nav.css'
 import '../styles/landing.css'
 import '../styles/footer.css'
 import '../styles/auth.css'
+import '../styles/responsive.css'
 
 class App extends React.Component {
   constructor(props) {

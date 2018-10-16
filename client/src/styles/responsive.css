@@ -1,0 +1,69 @@
+@media only screen and ( max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+@media only screen and ( max-width: 900px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and ( max-width: 800px) {
+  .nav {
+    height: 7rem;
+  }
+  .nav .menu {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .nav .brand .title {
+    display: none;
+  }
+  .nav .usermenu {
+    position: absolute;
+    right: 1rem;
+    top: 1rem
+  }
+  main {
+    padding-top: 9rem;
+  }
+  main .title h2 {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+@media only screen and ( max-width: 600px) {
+  .layout .logo {
+    width: 10rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+@media only screen and ( max-width: 550px) {
+  .auth {
+    width: 20rem;
+  }
+}
+@media only screen and ( max-width: 450px) {
+  .nav .mainmenu {
+    font-size: 0.8rem;
+  }
+  .nav .usermenu {
+    font-size: 0.8rem;
+  }
+}
+/* Iphone 5 responsive */
+@media only screen and ( max-width: 320px) {
+  .auth {
+    width: 18rem;
+  }
+}
