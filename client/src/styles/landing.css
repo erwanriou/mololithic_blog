@@ -5,17 +5,18 @@
   height: 900px;
 }
 .landing .title {
-  margin-top: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 7rem 2rem 1rem 2rem;
+  background-color: #cc4b4b;
+  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
 }
 .landing .title img {
-  display: flex;
-  margin: 0 auto;
   width: 25rem;
 }
 .landing .title h2 {
-  display: flex;
-  justify-content: center;
-  padding: 2rem 0;
+  padding: 2rem 4rem;
   font-style: italic;
 }
 .landing .links {
@@ -35,7 +36,6 @@
   font-size: 1rem;
   padding: 3rem 2rem;
   width: 17rem;
-  border-radius: 1rem;
   box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
   transition: all 0.3s ease;
 }
