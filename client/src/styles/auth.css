@@ -30,7 +30,7 @@
   width: 1.5rem;
 }
 .auth .google span, .auth .facebook span, .auth .instagram span {
-  font-size: 1rem;
+  font-size: 0.8rem;
   width: 10rem;
   justify-content: center;
 }
