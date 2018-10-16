@@ -4,12 +4,28 @@
     padding: 0 1rem;
   }
 }
+@media only screen and ( max-width: 1100px) {
+  .landing .banner {
+    height: 700px;
+  }
+  .landing .banner .title {
+    display: none;
+  }
+  .landing .banner a, .landing .banner span  {
+    margin-top: 8rem;
+    width: 10rem;
+    height: 10rem;
+  }
+}
 @media only screen and ( max-width: 900px) {
   h1 {
     font-size: 2rem;
   }
   h2 {
     font-size: 1.2rem;
+  }
+  .nav .brand .title {
+    display: none;
   }
 }
 @media only screen and ( max-width: 800px) {
@@ -20,9 +36,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-  }
-  .nav .brand .title {
-    display: none;
   }
   .nav .usermenu {
     position: absolute;
@@ -36,21 +49,65 @@
     margin: 1rem 0;
     text-align: center;
   }
+  .landing .banner a, .landing .banner span  {
+    justify-content: flex-start;
+    margin-top: 12rem;
+    width: 7rem;
+    height: 7rem;
+  }
+  .landing .banner .links img {
+    height: 5rem;
+  }
+  .landing .banner p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
 }
 @media only screen and ( max-width: 600px) {
-  .layout .logo {
-    width: 10rem;
-  }
   h1 {
     font-size: 1.5rem;
   }
   h2 {
     font-size: 1rem;
   }
+  .landing .banner .links {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .landing .banner {
+    background: none;
+  }
+  .landing .banner a  {
+    justify-content: flex-start;
+    margin-top: 10rem;
+  }
+  .landing .banner span  {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+  .landing .banner a, .landing .banner span  {
+    width: 15rem;
+    height: 12rem;
+  }
+  .landing .banner .links img {
+    height: 10rem;
+  }
+  .landing .banner p {
+    font-size: 1rem;
+    text-align: center;
+  }
 }
 @media only screen and ( max-width: 550px) {
   .auth {
     width: 20rem;
+  }
+  .nav .brand img {
+    position: absolute;
+    display: block;
+    left: 0;
+  }
+  .nav .mainmenu {
+    padding-top: 5rem;
   }
 }
 @media only screen and ( max-width: 450px) {
@@ -65,5 +122,8 @@
 @media only screen and ( max-width: 320px) {
   .auth {
     width: 18rem;
+  }
+  .landing .banner a, .landing .banner span  {
+    width: 13rem;
   }
 }

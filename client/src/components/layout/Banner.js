@@ -23,17 +23,17 @@ class Banner extends React.Component {
               <Link to='/feed'>
               <h3>Blog</h3>
                 <img src={blog} alt="icon of the blog"/>
-                <Translate id="banner.link" />
+                <p><Translate id="banner.link" /></p>
               </Link>
               <span>
                 <h3>School</h3>
                 <img src={school} alt="icon of the blog"/>
-                <Translate id="banner.soon" />
+                <p><Translate id="banner.soon" /></p>
               </span>
               <span>
                 <h3>Shop</h3>
                 <img src={shop} alt="icon of the blog"/>
-                <Translate id="banner.soon" />
+                <p><Translate id="banner.soon" /></p>
               </span>
             </div>
           </div>
