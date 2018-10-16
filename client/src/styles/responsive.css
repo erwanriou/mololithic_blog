@@ -5,13 +5,13 @@
   }
 }
 @media only screen and ( max-width: 1100px) {
-  .landing .banner {
+  .landing {
     height: 700px;
   }
-  .landing .banner .title {
+  .landing .title {
     display: none;
   }
-  .landing .banner a, .landing .banner span  {
+  .landing a, .landing span  {
     margin-top: 8rem;
     width: 10rem;
     height: 10rem;
@@ -49,16 +49,16 @@
     margin: 1rem 0;
     text-align: center;
   }
-  .landing .banner a, .landing .banner span  {
+  .landing a, .landing span  {
     justify-content: flex-start;
     margin-top: 12rem;
     width: 7rem;
     height: 7rem;
   }
-  .landing .banner .links img {
+  .landing .links img {
     height: 5rem;
   }
-  .landing .banner p {
+  .landing p {
     font-size: 0.8rem;
     text-align: center;
   }
@@ -70,29 +70,29 @@
   h2 {
     font-size: 1rem;
   }
-  .landing .banner .links {
+  .landing .links {
     flex-direction: column;
     justify-content: flex-start;
   }
-  .landing .banner {
+  .landing {
     background: none;
   }
-  .landing .banner a  {
+  .landing a {
     justify-content: flex-start;
     margin-top: 10rem;
   }
-  .landing .banner span  {
+  .landing span  {
     justify-content: flex-start;
     margin-top: 0;
   }
-  .landing .banner a, .landing .banner span  {
+  .landing a, .landing span  {
     width: 15rem;
     height: 12rem;
   }
-  .landing .banner .links img {
+  .landing .links img {
     height: 10rem;
   }
-  .landing .banner p {
+  .landing p {
     font-size: 1rem;
     text-align: center;
   }
@@ -123,7 +123,7 @@
   .auth {
     width: 18rem;
   }
-  .landing .banner a, .landing .banner span  {
+  .landing a, .landing span  {
     width: 13rem;
   }
 }

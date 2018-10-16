@@ -1,4 +1,4 @@
-.landing .banner {
+.landing {
   position: relative;
   background: url('../utils/images/banner.jpg') repeat center;
   background-size: cover;
@@ -12,20 +12,20 @@
   margin: 0 auto;
   width: 25rem;
 }
-.landing .banner .title h2 {
+.landing .title h2 {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
   font-style: italic;
 }
-.landing .banner .links {
+.landing .links {
   display: flex;
   justify-content: center;
 }
-.landing .banner .links img {
+.landing .links img {
   height: 10rem;
 }
-.landing .banner a, .landing .banner span  {
+.landing a, .landing span  {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,10 +39,10 @@
   box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
   transition: all 0.3s ease;
 }
-.landing .banner a {
+.landing a {
   background: #cc4b4b;
 }
-.landing .banner span {
+.landing span {
   background: #cea0a0;
   cursor: not-allowed;
 }
@@ -50,7 +50,7 @@
   box-shadow: 3px 3px 10px 0 rgba(46,61,73,.2);
   background: #732b2b;
 }
-.landing .banner h3 {
+.landing h3 {
   font-weight: 500;
   font-size: 1.2rem;
   text-transform: uppercase;
