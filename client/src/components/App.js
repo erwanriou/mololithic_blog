@@ -1,7 +1,9 @@
 import React , { Fragment } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { withLocalize } from 'react-localize-redux'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { logout } from './../actions/authActions'
 
 // Import Translations
 import globalTranslations from '../translations/globalTranslations.json'
@@ -36,6 +38,10 @@ class App extends React.Component {
       options: { renderToStaticMarkup }
     })
   }
+  componentDidUpdate(prevProps) {
+    const { isActive } = this.props
+    !isActive && this.props.logout()
+  }
   render() {
     return (
       <Fragment>
@@ -55,4 +61,8 @@ class App extends React.Component {
   }
 }
 
-export default withLocalize(App)
+const mapStateToProps = (state) => ({
+  isActive: state.isActive,
+})
+
+export default withLocalize(withRouter(connect(mapStateToProps, { logout })(App)))

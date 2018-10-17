@@ -6,7 +6,7 @@
 }
 @media only screen and ( max-width: 1100px) {
   .landing {
-    height: 700px;
+    height: 800px;
   }
   .landing .title {
     display: none;
@@ -75,7 +75,7 @@
     justify-content: flex-start;
   }
   .landing {
-    background: none;
+    height: 1200px;
   }
   .landing a {
     justify-content: flex-start;

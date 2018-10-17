@@ -10,14 +10,25 @@ import shop from '../../utils/images/shop.png'
 class Landing extends React.Component {
   render() {
     return (
-      <div className="landing">
+      <div className="landing layout">
         <div className="opacity">
           <div className="container">
-            <div className="title">
+            <div className="banner">
               <img src={icon} alt="logo bebeyogini"/>
-              <h2>
-                <Translate id="landing.quote" />
-              </h2>
+              <div className="title">
+                <h1><Translate id="landing.title" /></h1>
+                <h2><Translate id="landing.quote" /></h2>
+                <div className="subtitle">
+                  <div className="box">
+                    <h2><Translate id="landing.level" /></h2>
+                    <p><Translate id="landing.leveltext" /></p>
+                  </div>
+                  <div className="box">
+                    <h2><Translate id="landing.style" /></h2>
+                    <p><Translate id="landing.styletext" /></p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="links">
               <Link to='/feed'>

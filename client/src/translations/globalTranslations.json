@@ -114,9 +114,29 @@
     ]
   },
   "landing": {
+    "title": [
+      "BEBE YOGINI",
+      "BEBE YOGINI"
+    ],
     "quote": [
-      "Inhale the future...Exhale the past...",
-      "Inhala el futuro exhala el pasado..."
+      "The yoga blog for begginers - FIND YOUR BALANCE ",
+      "El blog de yoga para principiantes - ENCUENTRA TU EQUILIBRIO"
+    ],
+    "level": [
+      "FOR EVERYONE",
+      "TODOS LOS NIVELES"
+    ],
+    "leveltext": [
+      "We want to share our yoga to everyone.",
+      "Queremos compartir nuestro yoga con todos."
+    ],
+    "style": [
+      "MULTI STYLES",
+      "DIFERENTES ESTILOS"
+    ],
+    "styletext": [
+      "Choose the yoga style that best suits you",
+      "Elige tu estilo de yoga que más te convenga."
     ],
     "blog": [
       "Blog",

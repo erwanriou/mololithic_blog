@@ -1,23 +1,48 @@
-.landing {
-  position: relative;
-  background: url('../utils/images/banner.jpg') repeat center;
-  background-size: cover;
-  height: 900px;
-}
-.landing .title {
+.landing .banner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin: 7rem 2rem 1rem 2rem;
   background-color: #cc4b4b;
   box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  justify-content: space-between;
 }
-.landing .title img {
-  width: 25rem;
+.landing .banner img {
+  height: 15rem;
 }
-.landing .title h2 {
-  padding: 2rem 4rem;
-  font-style: italic;
+.landing .banner .title {
+  display: block;
+  margin-right: 3rem;
+}
+.landing .banner .title h1 {
+  padding-top: 3rem;
+  color: white;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: right;
+}
+.landing .banner .title h2 {
+  font-size: 1.5rem;
+  text-align: right;
+}
+.landing .banner .subtitle {
+  display: flex;
+  margin-top: 2rem;
+}
+.landing .banner .subtitle h2 {
+  color: white;
+}
+.landing .banner .subtitle .box {
+  background-color: #eb8181;
+  margin-left: 3rem;
+  width: 20rem;
+  padding: 0.5rem;
+}
+.landing .banner .subtitle h2 {
+  font-size: 1.5rem;
+  text-align: right;
+}
+.landing .banner .subtitle p {
+  font-size: 1rem;
+  text-align: right;
 }
 .landing .links {
   display: flex;
