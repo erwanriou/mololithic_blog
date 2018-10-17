@@ -3,6 +3,13 @@
     max-width: 100%;
     padding: 0 1rem;
   }
+  .landing .banner .subtitle {
+    display: block;
+  }
+  .landing .banner .subtitle .box {
+    margin: 2rem 0;
+    width: auto;
+  }
 }
 @media only screen and ( max-width: 1100px) {
   .landing {
@@ -12,7 +19,7 @@
     display: none;
   }
   .landing a, .landing span  {
-    margin-top: 8rem;
+    margin-top: 3rem;
     width: 10rem;
     height: 10rem;
   }
@@ -49,11 +56,25 @@
     margin: 1rem 0;
     text-align: center;
   }
+  .landing .banner {
+    display: block;
+    margin-top: 9rem;
+    height: 20rem;
+  }
+  .landing .banner img {
+    display: none;
+  }
+  .landing .banner .title {
+    margin: 0 2rem;
+  }
+  .landing .banner .subtitle .box {
+    margin: 1rem;
+  }
   .landing a, .landing span  {
     justify-content: flex-start;
-    margin-top: 12rem;
     width: 7rem;
     height: 7rem;
+    margin-top: 1rem;
   }
   .landing .links img {
     height: 5rem;
@@ -79,7 +100,7 @@
   }
   .landing a {
     justify-content: flex-start;
-    margin-top: 10rem;
+    margin-top: 2rem;
   }
   .landing span  {
     justify-content: flex-start;
@@ -109,6 +130,9 @@
   .nav .mainmenu {
     padding-top: 5rem;
   }
+  .landing .banner {
+    height: 25rem;
+  }
 }
 @media only screen and ( max-width: 450px) {
   .nav .mainmenu {
@@ -116,6 +140,12 @@
   }
   .nav .usermenu {
     font-size: 0.8rem;
+  }
+  .landing .banner {
+    display: none;
+  }
+  .landing .links {
+    margin-top: 7rem;
   }
 }
 /* Iphone 5 responsive */
