@@ -1,46 +1,66 @@
-.landing .banner {
+.banner {
+  position: relative;
+  z-index: 1;
+  background: url('../utils/images/banner.jpg') center;
+  background-size: cover;
+  height: 700px;
+}
+.banner .filter {
+  top: 0;
+  background: rgba(154, 96, 96, 0.8);
+  height: 100%;
+  width: 50%;
+  display: grid;
+  align-content: end;
+  justify-content: right;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+}
+.landing .header {
   display: flex;
-  margin: 7rem 2rem 1rem 2rem;
+  margin: 3rem 2rem 1rem 2rem;
   background-color: #cc4b4b;
   box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
   justify-content: space-between;
 }
-.landing .banner img {
-  height: 15rem;
+.landing .header img {
+  height: 16rem;
+  color: white;
 }
-.landing .banner .title {
+.landing .header .title {
   display: block;
   margin-right: 3rem;
 }
-.landing .banner .title h1 {
+.landing .header .title h1 {
   padding-top: 3rem;
   color: white;
   font-weight: 400;
   font-size: 2.5rem;
   text-align: right;
 }
-.landing .banner .title h2 {
+.landing .header .title h2 {
   font-size: 1.5rem;
   text-align: right;
 }
-.landing .banner .subtitle {
+.landing .header .subtitle {
   display: flex;
   margin-top: 2rem;
 }
-.landing .banner .subtitle h2 {
+.landing .header .subtitle h2 {
   color: white;
 }
-.landing .banner .subtitle .box {
+.landing .header .subtitle .box {
   background-color: #eb8181;
   margin-left: 3rem;
   width: 20rem;
   padding: 0.5rem;
 }
-.landing .banner .subtitle h2 {
+.landing .header .subtitle h2 {
   font-size: 1.5rem;
   text-align: right;
 }
-.landing .banner .subtitle p {
+.landing .header .subtitle p {
   font-size: 1rem;
   text-align: right;
 }

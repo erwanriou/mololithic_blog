@@ -3,10 +3,10 @@
     max-width: 100%;
     padding: 0 1rem;
   }
-  .landing .banner .subtitle {
+  .landing .header .subtitle {
     display: block;
   }
-  .landing .banner .subtitle .box {
+  .landing .header .subtitle .box {
     margin: 2rem 0;
     width: auto;
   }
@@ -56,18 +56,21 @@
     margin: 1rem 0;
     text-align: center;
   }
-  .landing .banner {
+  .banner {
+    display: none;
+  }
+  .landing .header {
     display: block;
     margin-top: 9rem;
     height: 20rem;
   }
-  .landing .banner img {
+  .landing .header img {
     display: none;
   }
-  .landing .banner .title {
+  .landing .header .title {
     margin: 0 2rem;
   }
-  .landing .banner .subtitle .box {
+  .landing .header .subtitle .box {
     margin: 1rem;
   }
   .landing a, .landing span  {
@@ -130,7 +133,7 @@
   .nav .mainmenu {
     padding-top: 5rem;
   }
-  .landing .banner {
+  .landing .header {
     height: 25rem;
   }
 }
@@ -141,7 +144,7 @@
   .nav .usermenu {
     font-size: 0.8rem;
   }
-  .landing .banner {
+  .landing .header {
     display: none;
   }
   .landing .links {
