@@ -4,7 +4,7 @@ const passport = require('passport')
 const AWS = require('aws-sdk')
 const uuid = require('uuid/v1')
 
-const keys = require('../../config/keys')
+const keys = require('../../config/keys').keys
 
 const User = require('../../models/User')
 const Post = require('../../models/Post')

@@ -138,6 +138,9 @@
   }
 }
 @media only screen and ( max-width: 450px) {
+  .nav .brand h2 {
+    display: none;
+  }
   .nav .mainmenu {
     font-size: 0.8rem;
   }
