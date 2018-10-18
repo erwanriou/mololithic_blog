@@ -49,15 +49,10 @@ class Nav extends React.Component {
       <div className="nav">
         <div className="container">
           <div className="menu">
-            <div className="brand">
-              <Link to='/'><img src={icon} alt="Icon logo"/></Link>
-              <div className="title">
-                <h2><strong>B</strong>ebe <strong>Y</strong>ogini</h2>
-                <h4>
-                  <Translate id="nav.subtitle" />
-                </h4>
-              </div>
-            </div>
+            <Link className="brand" to='/'>
+              <img src={icon} alt="Icon logo"/>
+              <h2>BEBE YOGINI</h2>
+            </Link>
             <div className="mainmenu">
               <Link to='/'>
                 <Translate id="nav.home" />
