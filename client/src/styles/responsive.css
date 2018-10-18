@@ -56,15 +56,13 @@
     margin: 1rem 0;
     text-align: center;
   }
-  .banner {
-    display: none;
-  }
+
   .landing .header {
     display: block;
     margin-top: 9rem;
     height: 20rem;
   }
-  .landing .header img {
+  .landing .header i {
     display: none;
   }
   .landing .header .title {
@@ -122,6 +120,9 @@
   }
 }
 @media only screen and ( max-width: 550px) {
+  .banner {
+    display: none;
+  }
   .auth {
     width: 20rem;
   }

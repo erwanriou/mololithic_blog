@@ -4,7 +4,6 @@ import { Translate } from 'react-localize-redux'
 
 import Banner from './Banner'
 
-import icon from '../../utils/images/balance.png'
 import blog from '../../utils/images/blog.png'
 import school from '../../utils/images/school.png'
 import shop from '../../utils/images/shop.png'
@@ -18,7 +17,7 @@ class Landing extends React.Component {
           <div className="opacity">
             <div className="container">
               <div className="header">
-                <img src={icon} alt="find your balance icon"/>
+                <i className="fas fa-ellipsis-h"></i>
                 <div className="title">
                   <h1><Translate id="landing.quote" /></h1>
                   <h2><Translate id="landing.subtitle" /></h2>

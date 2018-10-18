@@ -113,11 +113,17 @@
       "regístrate"
     ]
   },
-  "landing": {
+  "banner": {
     "title": [
       "BEBE YOGINI",
       "BEBE YOGINI"
     ],
+    "subtitle": [
+      "Yoga center & blog for everyone",
+      "Centro de yoga y blog para todos."
+    ]
+  },
+  "landing": {
     "subtitle": [
       "Bebeyogini, it's the yoga...",
       "Bebeyogini, es el yoga ..."
