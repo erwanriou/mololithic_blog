@@ -25,6 +25,10 @@ const keys = {
     clientSecret: process.env.INSTAGRAM_SECRET_OR_KEY,
     callbackURL: process.env.INSTAGRAM_CALLBACK,
   },
+  aws: {
+    clientID: process.env.AWS_CLIENT_KEY,
+    clientSecret: process.env.AWS_CLIENT_SECRET,
+  },
 }
 
 exports.keys = keys

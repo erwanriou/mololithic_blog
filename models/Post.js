@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 // Create Schema
 const PostSchema = new Schema({
-  user: {
+  _user: {
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
@@ -19,11 +19,11 @@ const PostSchema = new Schema({
     type: String,
     required: true,
   },
-  text: {
+  body: {
     type: String,
     required: true,
   },
-  img: {
+  imageUrl: {
     type: String,
     required: true,
   },
