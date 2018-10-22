@@ -45,23 +45,40 @@ class DashBoard extends React.Component {
       <Fragment>
         <div className="dashboard-nav">
           <div className="container">
-            <button
-              onClick={this.handleToggleAdmin}
-              style={{fontWeight: !this.state.isToggle ? '400' : '100'}}>
-              {user.role[0]}
-            </button>
-            { user.role[1] &&
-              <button
-                onClick={this.handleToggleUser}
-                style={{fontWeight: !this.state.isToggle ? '400' : '100'}}>
-                {user.role[1]}
-              </button>
-            }
+            <div className="menu">
+              { user.role.length > 1 &&
+                <div className="roles">
+                  <button
+                    onClick={this.handleToggleUser}
+                    style={{
+                      fontWeight: !this.state.isToggle ? '400' : '100',
+                      color: !this.state.isToggle ? 'black' : 'white',
+                      border: !this.state.isToggle ? '1px solid white' : 'none',
+                      backgroundColor: !this.state.isToggle ? '#de8989' : '#cf6161'
+                    }}>
+                    {user.role[0]}
+                  </button>
+                  <button
+                    onClick={this.handleToggleAdmin}
+                    style={{
+                      fontWeight: !this.state.isToggle ? '100' : '400',
+                      color: !this.state.isToggle ? 'white' : 'black',
+                      border: !this.state.isToggle ? 'none' : '1px solid white',
+                      backgroundColor: !this.state.isToggle ? '#cf6161' : '#de8989'
+                    }}>
+                    {user.role[1]}
+                  </button>
+                </div>
+              }
+              <div className="user">
+                <p>Welcome {user.name}!</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="dashboard">
           <div className="container">
-            {this.state.isToggle === true
+            {this.state.isToggle === false
               ? dashboardContents[0]
               : dashboardContents[1]
             }

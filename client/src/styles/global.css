@@ -22,6 +22,9 @@ main .title {
   align-items: center;
   padding-bottom: 2rem;
 }
+.flex {
+  display: flex;
+}
 .layout {
   position: relative;
   z-index: 1;
