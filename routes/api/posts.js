@@ -56,5 +56,4 @@ router.get('/upload', passport.authenticate('jwt', {session: false}), (req, res)
   }, (err, url) => res.send({ key, url }))
 })
 
-
 module.exports = router

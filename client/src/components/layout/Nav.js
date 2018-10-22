@@ -54,8 +54,8 @@ class Nav extends React.Component {
               <h2>BEBE YOGINI</h2>
             </Link>
             <div className="mainmenu">
-              <Link to='/'>
-                <Translate id="nav.home" />
+              <Link to='/feed'>
+                <Translate id="nav.blog" />
               </Link>
               <Link to='/about'>
                 <Translate id="nav.about" />
