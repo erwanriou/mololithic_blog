@@ -6,3 +6,6 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS'
 
 export const USER_LOGIN = 'USER_LOGIN'
 export const USER_LOGOUT = 'USER_LOGOUT'
+
+export const POSTS_FETCHED = 'POST_FETCHED'
+export const POST_FETCHED = 'POST_FETCHED'

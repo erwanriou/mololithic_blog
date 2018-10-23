@@ -22,7 +22,14 @@ const router = express.Router()
 // @route  GET api/posts
 // @desc   Get all posts
 // @access Public
-
+router.get('/', async (req, res) => {
+  try {
+    posts = await Post.find()
+    res.status(200).json(posts)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
 
 // @route  POST api/posts
 // @desc   Create a post

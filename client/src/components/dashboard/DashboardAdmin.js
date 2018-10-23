@@ -1,13 +1,33 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import isEmpty from '../../utils/isEmpty'
+import Spinner from '../common/Spinner'
+import PostAdminItem from '../post/PostAdminItem'
 
 class DashboardAdmin extends React.Component {
   render() {
+    const { posts, loading } = this.props.posts
+    let postContent
+
+    isEmpty(posts) || loading
+      ? postContent = <Spinner />
+      : postContent = (
+          <div className="admin-post-list">
+            {posts.map(post => <h3 key={post._id}>{post.title}</h3>)}
+          </div>
+        )
+
     return (
       <main>
-        <h1>ADMIN DASHBOARD CONTENT</h1>
+        <h2>List of created posts</h2>
+        {postContent}
       </main>
     )
   }
 }
+const mapStateToProps = (state) => ({
+  posts: state.posts,
+})
 
-export default DashboardAdmin
+export default connect(mapStateToProps)(DashboardAdmin)

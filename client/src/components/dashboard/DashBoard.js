@@ -39,6 +39,7 @@ class DashBoard extends React.Component {
         default:
           dashboardContents.push(<Spinner key={role}/>)
       }
+      return role
     })
 
     return (
