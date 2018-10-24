@@ -54,7 +54,6 @@ class DashBoard extends React.Component {
                     style={{
                       fontWeight: !this.state.isToggle ? '400' : '100',
                       color: !this.state.isToggle ? 'black' : 'white',
-                      border: !this.state.isToggle ? '1px solid white' : 'none',
                       backgroundColor: !this.state.isToggle ? '#de8989' : '#cf6161'
                     }}>
                     {user.role[0]}
@@ -64,7 +63,6 @@ class DashBoard extends React.Component {
                     style={{
                       fontWeight: !this.state.isToggle ? '100' : '400',
                       color: !this.state.isToggle ? 'white' : 'black',
-                      border: !this.state.isToggle ? 'none' : '1px solid white',
                       backgroundColor: !this.state.isToggle ? '#cf6161' : '#de8989'
                     }}>
                     {user.role[1]}

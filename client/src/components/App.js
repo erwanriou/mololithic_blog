@@ -18,6 +18,8 @@ import Footer from './layout/Footer'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import DashBoard from './dashboard/DashBoard'
+import PostNew from './post/PostNew'
+
 // Styling
 import '../styles/reset.css'
 import '../styles/global.css'
@@ -59,6 +61,7 @@ class App extends React.Component {
           <Route exact path='/login' component={Login}/>
           <Route exact path='/register' component={Register}/>
           <PrivateRoute exact path='/dashboard' component={DashBoard}/>
+          <PrivateRoute exact path='/dashboard/new-post' component={PostNew}/>
         </Switch>
         <Footer />
       </Fragment>

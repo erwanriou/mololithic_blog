@@ -19,3 +19,11 @@ export const fetchPosts = () => async dispatch => {
   }
   dispatch(clearLoading())
 }
+
+export const sendPost = (newPost, history) => async dispatch => {
+  dispatch(loading())
+  const res = await axios.post('/api/posts/new', newPost)
+  history.push('/dashboard')
+  dispatch(fetchPosts())
+  dispatch(clearLoading())
+}
