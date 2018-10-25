@@ -19,10 +19,22 @@ export const fetchPosts = () => async dispatch => {
   dispatch(clearLoading())
 }
 
-export const sendPost = (newPost, history) => async dispatch => {
+export const sendPost = (newPost, file, history) => async dispatch => {
   dispatch(loading())
-  const res = await axios.post("/api/posts/new", newPost)
+  const uploadConfig = await axios.get("/api/posts/upload")
+  await axios.put(uploadConfig.data.url, file, {
+    headers: {
+      ContentType: file.type
+    }
+  })
+  const res = await axios.post("/api/posts", {
+    ...newPost,
+    imageUrl: uploadConfig.data.key
+  })
   history.push("/dashboard")
-  dispatch(fetchPosts())
+  dispatch({
+    type: POSTS_FETCHED,
+    payload: res.data
+  })
   dispatch(clearLoading())
 }

@@ -18,7 +18,25 @@ const s3 = new AWS.S3({
 })
 
 const router = express.Router()
-
+// @route  GET api/posts/upload
+// @desc   Upload an image on amazone server API
+// @access Private
+router.get(
+  "/upload",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const key = `${req.user.id}/${uuid()}.jpeg`
+    s3.getSignedUrl(
+      "putObject",
+      {
+        Bucket: "bebeyogini",
+        ContentType: "image/jpeg",
+        Key: key
+      },
+      (err, url) => res.send({ key, url })
+    )
+  }
+)
 // @route  GET api/posts
 // @desc   Get all posts
 // @access Public
@@ -41,7 +59,7 @@ router.post(
     const { errors, isValid } = validatePostInput(req.body)
     //Check Validation
     !isValid && res.status(400).json(errors)
-    req.user.role !== "admin" &&
+    req.user.role.includes("admin") === false &&
       res
         .status(403)
         .json({ error: "You doesnt have admin right to create a post" })
@@ -55,26 +73,6 @@ router.post(
     } catch (err) {
       res.status(400).json(err)
     }
-  }
-)
-
-// @route  GET api/posts/upload
-// @desc   Upload an image on amazone server API
-// @access Private
-router.get(
-  "/upload",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    const key = `${req.user.id}/${uuid()}.jpeg`
-    s3.getSignedUrl(
-      "putObject",
-      {
-        Bucket: "bebeyogini",
-        ContentType: "image/jpeg",
-        Key: key
-      },
-      (err, url) => res.send({ key, url })
-    )
   }
 )
 

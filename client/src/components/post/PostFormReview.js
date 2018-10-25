@@ -8,18 +8,22 @@ import { sendPost } from "../../actions/postActions"
 class PostFormReview extends React.Component {
   constructor(props) {
     super(props)
+    this.state = { file: null }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.onFileChange = this.onFileChange.bind(this)
+  }
+  onFileChange(event) {
+    this.setState({ file: event.target.files[0] })
   }
   handleSubmit(e) {
     e.preventDefault()
     const { values } = this.props.form.postForm
     const newPost = {
       title: values.title,
-      subject: values.subject,
       body: values.body,
-      recipients: values.emails
+      asana: values.asana
     }
-    this.props.sendSurvey(newPost, this.props.history)
+    this.props.sendPost(newPost, this.state.file, this.props.history)
   }
 
   render() {
@@ -37,6 +41,8 @@ class PostFormReview extends React.Component {
       <Fragment>
         <form onSubmit={this.handleSubmit}>
           {reviewFields}
+          <h5>Add An Image</h5>
+          <input type="file" accept="image/*" onChange={this.onFileChange} />
           <a onClick={onCancel}>
             <i className="fas fa-angle-left" />
             <span>Back</span>
