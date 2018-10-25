@@ -1,20 +1,13 @@
-import React, { Fragment } from 'react'
-import classnames from 'classnames'
-import PropTypes from 'prop-types'
+import React, { Fragment } from "react"
+import classnames from "classnames"
+import PropTypes from "prop-types"
 
-const InputGroup = ({
-  name,
-  placeholder,
-  type,
-  value,
-  error,
-  onChange,
-}) => {
+const InputGroup = ({ name, placeholder, type, value, error, onChange }) => {
   return (
     <Fragment>
       <input
-        className={classnames('', {
-          'invalid': error
+        className={classnames("", {
+          invalid: error
         })}
         name={name}
         value={value}
@@ -22,7 +15,7 @@ const InputGroup = ({
         onChange={onChange}
         placeholder={placeholder}
       />
-      { error && (<p>{error}</p>) }
+      {error && <p>{error}</p>}
     </Fragment>
   )
 }
@@ -33,10 +26,10 @@ InputGroup.proptypes = {
   value: PropTypes.string.isRequired,
   error: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 }
 InputGroup.defaultProps = {
-  type: 'text'
+  type: "text"
 }
 
 export default InputGroup

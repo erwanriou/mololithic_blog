@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
-import { Translate,  withLocalize } from 'react-localize-redux'
+import React from "react"
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { Link, withRouter } from "react-router-dom"
+import { Translate, withLocalize } from "react-localize-redux"
 
-import { logout } from '../../actions/authActions'
-import icon from '../../utils/images/logobbyogini.png'
-import Spinner from '../common/Spinner'
+import { logout } from "../../actions/authActions"
+import icon from "../../utils/images/logobbyogini.png"
+import Spinner from "../common/Spinner"
 
 class Nav extends React.Component {
   handleLogout(e) {
@@ -14,67 +14,61 @@ class Nav extends React.Component {
     this.props.logout()
   }
   render() {
-    const  { isAuthenticated, user, loading } = this.props.auth
-    const authLinks = (
-      <div className='usermenu'>
-        <Link
-          to='/dashboard'>
-          <Translate id="nav.dashboard" />
-        </Link>
-        <img
-          src={user.avatar}
-          alt={user.name}
-          title='You must have a Gravatar connect to you email to display an image'
-        />
-        <Link
-          to='/'
-          onClick={this.handleLogout.bind(this)}>
-          <Translate id="nav.logout" />
-        </Link>
-      </div>
-    )
+    const { isAuthenticated, user, loading } = this.props.auth
+    let content
 
-    const guestLinks = (
-      <div className='usermenu'>
-        <Link to='/register'>
-          <Translate id="nav.signup" />
-        </Link>
-        <Link to='/login'>
-          <Translate id="nav.login" />
-        </Link>
-      </div>
-    )
+    !isAuthenticated
+      ? loading === true
+        ? (content = <Spinner />)
+        : (content = (
+            <div className="usermenu">
+              <Link to="/register">
+                <Translate id="nav.signup" />
+              </Link>
+              <Link to="/login">
+                <Translate id="nav.login" />
+              </Link>
+            </div>
+          ))
+      : loading === true
+        ? (content = <Spinner />)
+        : (content = (
+            <div className="usermenu">
+              <Link to="/dashboard">
+                <Translate id="nav.dashboard" />
+              </Link>
+              <img
+                src={user.avatar}
+                alt={user.name}
+                title="You must have a Gravatar connect to you email to display an image"
+              />
+              <Link to="/" onClick={this.handleLogout.bind(this)}>
+                <Translate id="nav.logout" />
+              </Link>
+            </div>
+          ))
 
     return (
       <div className="nav">
         <div className="container">
           <div className="menu">
-            <Link className="brand" to='/'>
-              <img src={icon} alt="Icon logo"/>
+            <Link className="brand" to="/">
+              <img src={icon} alt="Icon logo" />
               <h2>BEBE YOGINI</h2>
             </Link>
             <div className="mainmenu">
-              <Link to='/feed'>
+              <Link to="/feed">
                 <Translate id="nav.blog" />
               </Link>
-              <Link to='/about'>
+              <Link to="/about">
                 <Translate id="nav.about" />
               </Link>
-              <Link to='/yoga'>
-                YOGA
-              </Link>
-              <Link to='/psychology'>
+              <Link to="/yoga">YOGA</Link>
+              <Link to="/psychology">
                 <Translate id="nav.psychology" />
               </Link>
             </div>
-            { isAuthenticated
-              ? loading
-                  ? <Spinner />
-                  : authLinks
-              : loading
-                  ? <Spinner />
-                  : guestLinks
-            }
+            {content}
           </div>
         </div>
       </div>
@@ -86,8 +80,15 @@ Nav.propTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 }
-const mapStateToProps = (state) => ({
-  auth: state.auth,
+const mapStateToProps = state => ({
+  auth: state.auth
 })
 
-export default withLocalize(withRouter(connect(mapStateToProps, { logout })(Nav)))
+export default withLocalize(
+  withRouter(
+    connect(
+      mapStateToProps,
+      { logout }
+    )(Nav)
+  )
+)

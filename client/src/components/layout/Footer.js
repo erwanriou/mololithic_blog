@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { withLocalize } from 'react-localize-redux'
+import React from "react"
+import { Link } from "react-router-dom"
+import { withLocalize } from "react-localize-redux"
 
 const Footer = ({ languages, activeLanguage, setActiveLanguage }) => {
   return (
     <footer>
-      <Link to='/contact'>Contact</Link>
-      <Link to='/privacy-policy'>Privacy Policy</Link>
+      <Link to="/contact">Contact</Link>
+      <Link to="/privacy-policy">Privacy Policy</Link>
       <div className="languages">
         <div className="language-list">
           {languages.map(language => (
@@ -21,6 +21,5 @@ const Footer = ({ languages, activeLanguage, setActiveLanguage }) => {
     </footer>
   )
 }
-
 
 export default withLocalize(Footer)

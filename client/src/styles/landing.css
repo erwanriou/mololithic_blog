@@ -1,7 +1,7 @@
 .banner {
   position: relative;
   z-index: 1;
-  background: url('../utils/images/banner.jpg') center;
+  background: url("../utils/images/banner.jpg") center;
   background-size: cover;
   height: 700px;
 }
@@ -11,7 +11,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(128deg,#b33e3ebf 55%,#81747480 0,#cfadb1c7);
+  background: linear-gradient(128deg, #b33e3ebf 55%, #81747480 0, #cfadb1c7);
   z-index: 1;
 }
 .banner .title {
@@ -30,7 +30,7 @@
 .banner .title h1 {
   color: white;
   background-color: #ff000096;
-  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
   text-align: right;
   margin-bottom: 1rem;
 }
@@ -41,7 +41,7 @@
   display: flex;
   margin: 3rem 2rem 1rem 2rem;
   background-color: #cc4b4b;
-  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
   justify-content: space-between;
 }
 .landing .header i {
@@ -97,7 +97,8 @@
 .landing .links img {
   height: 10rem;
 }
-.landing a, .landing span  {
+.landing a,
+.landing span {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +108,7 @@
   font-size: 1rem;
   padding: 3rem 2rem;
   width: 17rem;
-  box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
+  box-shadow: 5px 10px 25px 0 rgba(46, 61, 73, 0.2);
   transition: all 0.3s ease;
 }
 .landing a {
@@ -118,7 +119,7 @@
   cursor: not-allowed;
 }
 .landing a:hover {
-  box-shadow: 3px 3px 10px 0 rgba(46,61,73,.2);
+  box-shadow: 3px 3px 10px 0 rgba(46, 61, 73, 0.2);
   background: #732b2b;
 }
 .landing h3 {

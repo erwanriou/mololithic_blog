@@ -1,20 +1,19 @@
-const jwt = require('jsonwebtoken')
-const keys = require('../config/keys').keys
+const jwt = require("jsonwebtoken")
+const keys = require("../config/keys").keys
 
 exports.signToken = (req, res, next) => {
   const payload = {
     id: req.user._id,
     name: req.user.name,
     avatar: req.user.avatar,
-    role: req.user.role,
+    role: req.user.role
   }
   const token = jwt.sign(
     payload,
     keys.jwt.secret,
     { expiresIn: 7000 },
     (err, token) => {
-      const htmlWithEmbeddedJWT =
-      `
+      const htmlWithEmbeddedJWT = `
         <html>
           <script>
             window.localStorage.setItem('jwtToken', 'Bearer ${token}');
@@ -23,5 +22,6 @@ exports.signToken = (req, res, next) => {
         </html>
       `
       res.send(htmlWithEmbeddedJWT)
-  })
+    }
+  )
 }

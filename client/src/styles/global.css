@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 12px;
   font-weight: 100;
 }
@@ -28,7 +28,7 @@ main .title {
 .layout {
   position: relative;
   z-index: 1;
-  background: url('../utils/images/yogabackground.jpg') repeat;
+  background: url("../utils/images/yogabackground.jpg") repeat;
   background-size: auto;
   height: 950px;
 }
@@ -52,12 +52,12 @@ main .title {
   display: flex;
   justify-content: flex-end;
 }
-.languages .language-list{
+.languages .language-list {
   display: flex;
   padding: 0 2rem;
 }
-.languages .language-list > :nth-child(0n+2):before {
-  content: '|';
+.languages .language-list > :nth-child(0n + 2):before {
+  content: "|";
   line-height: 5px;
   font-weight: 700;
   padding: 0.2rem;

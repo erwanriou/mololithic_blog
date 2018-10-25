@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react"
 
-const PostField = ({ input, label, meta: { error, touched} }) => {
+const PostField = ({ input, label, meta: { error, touched } }) => {
   return (
-    <div className='field'>
+    <div className="field">
       <label>{label}</label>
       <input {...input} />
-      <span>{ touched && error }</span>
+      <span>{touched && error}</span>
     </div>
   )
 }

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
-const uniqueValidator = require('mongoose-unique-validator')
-const bcrypt = require('bcryptjs')
+const mongoose = require("mongoose")
+const uniqueValidator = require("mongoose-unique-validator")
+const bcrypt = require("bcryptjs")
 
 const Schema = mongoose.Schema
 const number = Math.random().toString()
@@ -9,31 +9,31 @@ const number = Math.random().toString()
 const UserSchema = new Schema({
   oauthId: {
     type: String,
-    default: null,
+    default: null
   },
   name: {
     type: String,
-    required: true,
+    required: true
   },
   email: {
     type: String,
-    default: null,
+    default: null
   },
   passwordHash: {
     type: String,
-    default: bcrypt.hashSync(number, 12),
+    default: bcrypt.hashSync(number, 12)
   },
   avatar: {
-    type: String,
+    type: String
   },
   role: {
     type: [String],
-    default: 'user',
+    default: "user"
   },
   date: {
     type: Date,
-    default: Date.now,
-  },
+    default: Date.now
+  }
 })
 
 UserSchema.plugin(uniqueValidator)
@@ -46,4 +46,4 @@ UserSchema.virtual("password").set(function(value) {
   this.passwordHash = bcrypt.hashSync(value, 12)
 })
 
-module.exports = User = mongoose.model('users', UserSchema)
+module.exports = User = mongoose.model("users", UserSchema)

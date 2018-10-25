@@ -5,7 +5,7 @@
   background: #cc4b4b;
   margin-top: 3rem;
   border-top: 1px solid #b3b3b3;
-  box-shadow: 5px 10px 25px 0 rgba(46,61,73,.2);
+  box-shadow: 5px 10px 25px 0 rgba(46, 61, 73, 0.2);
 }
 .dashboard-nav .menu {
   position: relative;
@@ -15,7 +15,8 @@
   justify-content: space-between;
   width: 100%;
 }
-.dashboard-nav .menu .roles, .dashboard-nav .menu .user {
+.dashboard-nav .menu .roles,
+.dashboard-nav .menu .user {
   display: flex;
   align-items: center;
 }
@@ -25,7 +26,7 @@
 }
 .dashboard-nav .menu .roles button {
   font-size: 1rem;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
   width: 10rem;

@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, { Fragment } from "react"
+import { withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 
-import PostInputFields from './PostInputFields'
-import { sendPost } from '../../actions/postActions'
+import PostInputFields from "./PostInputFields"
+import { sendPost } from "../../actions/postActions"
 
 class PostFormReview extends React.Component {
   constructor(props) {
@@ -17,12 +17,9 @@ class PostFormReview extends React.Component {
       title: values.title,
       subject: values.subject,
       body: values.body,
-      recipients: values.emails,
+      recipients: values.emails
     }
-    this.props.sendSurvey(
-      newPost,
-      this.props.history
-    )
+    this.props.sendSurvey(newPost, this.props.history)
   }
 
   render() {
@@ -30,7 +27,7 @@ class PostFormReview extends React.Component {
     const { values } = this.props.form.postForm
 
     const reviewFields = PostInputFields.map(({ name, label }) => (
-      <div key={name} className='field'>
+      <div key={name} className="field">
         <label>{label}</label>
         <p>{values[name]}</p>
       </div>
@@ -41,12 +38,12 @@ class PostFormReview extends React.Component {
         <form onSubmit={this.handleSubmit}>
           {reviewFields}
           <a onClick={onCancel}>
-            <i className="fas fa-angle-left"></i>
+            <i className="fas fa-angle-left" />
             <span>Back</span>
           </a>
-          <button type='submit'>
+          <button type="submit">
             <span>Submit</span>
-            <i className="fas fa-paper-plane"></i>
+            <i className="fas fa-paper-plane" />
           </button>
         </form>
       </Fragment>
@@ -54,8 +51,13 @@ class PostFormReview extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  form: state.form,
+const mapStateToProps = state => ({
+  form: state.form
 })
 
-export default withRouter(connect(mapStateToProps, { sendPost })(PostFormReview))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { sendPost }
+  )(PostFormReview)
+)

@@ -1,34 +1,34 @@
-import React , { Fragment } from 'react'
-import { renderToStaticMarkup } from 'react-dom/server'
-import { withLocalize } from 'react-localize-redux'
-import { Route, Switch, withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { logout } from './../actions/authActions'
-import { fetchPosts } from './../actions/postActions'
+import React, { Fragment } from "react"
+import { renderToStaticMarkup } from "react-dom/server"
+import { withLocalize } from "react-localize-redux"
+import { Route, Switch, withRouter } from "react-router-dom"
+import { connect } from "react-redux"
+import { logout } from "./../actions/authActions"
+import { fetchPosts } from "./../actions/postActions"
 
 // Import Translations
-import globalTranslations from '../translations/globalTranslations.json'
+import globalTranslations from "../translations/globalTranslations.json"
 // Auth
-import PrivateRoute from './common/PrivateRoute'
+import PrivateRoute from "./common/PrivateRoute"
 // Components
-import Nav from './layout/Nav'
-import Landing from './layout/Landing'
-import Privacy from './layout/Privacy'
-import Footer from './layout/Footer'
-import Login from './auth/Login'
-import Register from './auth/Register'
-import DashBoard from './dashboard/DashBoard'
-import PostNew from './post/PostNew'
+import Nav from "./layout/Nav"
+import Landing from "./layout/Landing"
+import Privacy from "./layout/Privacy"
+import Footer from "./layout/Footer"
+import Login from "./auth/Login"
+import Register from "./auth/Register"
+import DashBoard from "./dashboard/DashBoard"
+import PostNew from "./post/PostNew"
 
 // Styling
-import '../styles/reset.css'
-import '../styles/global.css'
-import '../styles/nav.css'
-import '../styles/dashboard.css'
-import '../styles/landing.css'
-import '../styles/footer.css'
-import '../styles/auth.css'
-import '../styles/responsive.css'
+import "../styles/reset.css"
+import "../styles/global.css"
+import "../styles/nav.css"
+import "../styles/dashboard.css"
+import "../styles/landing.css"
+import "../styles/footer.css"
+import "../styles/auth.css"
+import "../styles/responsive.css"
 
 class App extends React.Component {
   constructor(props) {
@@ -54,14 +54,15 @@ class App extends React.Component {
       <Fragment>
         <Nav
           setActiveLanguage={this.props.setActiveLanguage}
-          languages={this.props.languages}/>
+          languages={this.props.languages}
+        />
         <Switch>
-          <Route exact path='/' component={Landing}/>
-          <Route exact path='/privacy-policy' component={Privacy}/>
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/register' component={Register}/>
-          <PrivateRoute exact path='/dashboard' component={DashBoard}/>
-          <PrivateRoute exact path='/dashboard/new-post' component={PostNew}/>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/privacy-policy" component={Privacy} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <PrivateRoute exact path="/dashboard" component={DashBoard} />
+          <PrivateRoute exact path="/dashboard/new-post" component={PostNew} />
         </Switch>
         <Footer />
       </Fragment>
@@ -69,8 +70,15 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  isActive: state.isActive,
+const mapStateToProps = state => ({
+  isActive: state.isActive
 })
 
-export default withLocalize(withRouter(connect(mapStateToProps, { logout, fetchPosts })(App)))
+export default withLocalize(
+  withRouter(
+    connect(
+      mapStateToProps,
+      { logout, fetchPosts }
+    )(App)
+  )
+)

@@ -1,37 +1,37 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 // Create Schema
 const PostSchema = new Schema({
   _user: {
     type: Schema.Types.ObjectId,
-    ref: 'users',
+    ref: "users"
   },
   title: {
     type: String,
-    required: true,
+    required: true
   },
   featured: {
     type: Boolean,
-    default: false,
+    default: false
   },
   asana: {
     type: String,
-    required: true,
+    required: true
   },
   body: {
     type: String,
-    required: true,
+    required: true
   },
   imageUrl: {
     type: String,
-    required: true,
+    required: true
   },
   likes: [
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: "users"
       }
     }
   ],
@@ -39,17 +39,17 @@ const PostSchema = new Schema({
     {
       user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: "users"
       },
       text: {
         type: String,
-        required: true,
+        required: true
       },
       name: {
-        type: String,
+        type: String
       },
       avatar: {
-        type: String,
+        type: String
       },
       date: {
         type: Date,
@@ -63,4 +63,4 @@ const PostSchema = new Schema({
   }
 })
 
-module.exports = Post = mongoose.model('post', PostSchema)
+module.exports = Post = mongoose.model("post", PostSchema)

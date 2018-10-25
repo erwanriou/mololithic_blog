@@ -1,24 +1,24 @@
-import axios from 'axios'
-import jwt_decode from 'jwt-decode'
+import axios from "axios"
+import jwt_decode from "jwt-decode"
 
-import { USER_LOGIN, USER_LOGOUT, GET_ERRORS } from './types'
-import { loading, clearLoading } from './loadingActions'
-import setAuthToken from '../utils/setAuthToken'
+import { USER_LOGIN, USER_LOGOUT, GET_ERRORS } from "./types"
+import { loading, clearLoading } from "./loadingActions"
+import setAuthToken from "../utils/setAuthToken"
 
 export const login = (userData, history) => async dispatch => {
   dispatch(loading())
   try {
-    const res = await axios.post('/api/users/login', userData)
+    const res = await axios.post("/api/users/login", userData)
     const { token } = res.data
-    localStorage.setItem('jwtToken', token)
+    localStorage.setItem("jwtToken", token)
     setAuthToken(token)
     const decoded = jwt_decode(token)
     dispatch(setCurrentUser(decoded))
-    history.push('/dashboard')
+    history.push("/dashboard")
   } catch (e) {
     dispatch({
       type: GET_ERRORS,
-      payload: e.response.data,
+      payload: e.response.data
     })
   }
   dispatch(clearLoading())
@@ -26,12 +26,12 @@ export const login = (userData, history) => async dispatch => {
 
 export const register = (userData, history) => async dispatch => {
   try {
-    await axios.post('/api/users/register', userData)
-    history.push('/login')
+    await axios.post("/api/users/register", userData)
+    history.push("/login")
   } catch (e) {
     dispatch({
       type: GET_ERRORS,
-      payload: e.response.data,
+      payload: e.response.data
     })
   }
 }
@@ -39,18 +39,18 @@ export const register = (userData, history) => async dispatch => {
 export const setCurrentUser = decoded => {
   return {
     type: USER_LOGIN,
-    payload: decoded,
+    payload: decoded
   }
 }
 
 // Log user out
 export const logout = () => dispatch => {
-  localStorage.removeItem('jwtToken')
+  localStorage.removeItem("jwtToken")
   setAuthToken(false)
   dispatch(
     dispatch({
       type: USER_LOGOUT,
-      payload: {},
+      payload: {}
     })
   )
 }

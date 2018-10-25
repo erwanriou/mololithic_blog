@@ -1,7 +1,7 @@
-import React from 'react'
-import { Translate } from 'react-localize-redux'
+import React from "react"
+import { Translate } from "react-localize-redux"
 
-import logo from '../../utils/images/logobbyogini3.png'
+import logo from "../../utils/images/logobbyogini3.png"
 
 class Banner extends React.Component {
   render() {
@@ -10,9 +10,13 @@ class Banner extends React.Component {
         <div className="filter">
           <div className="container">
             <div className="title">
-              <img src={logo} alt="The logo of bebeyogini"/>
-              <h1><Translate id="banner.title" /></h1>
-              <h2><Translate id="banner.subtitle" /></h2>
+              <img src={logo} alt="The logo of bebeyogini" />
+              <h1>
+                <Translate id="banner.title" />
+              </h1>
+              <h2>
+                <Translate id="banner.subtitle" />
+              </h2>
             </div>
           </div>
         </div>
@@ -20,4 +24,4 @@ class Banner extends React.Component {
     )
   }
 }
- export default Banner
+export default Banner

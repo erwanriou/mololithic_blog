@@ -7,7 +7,7 @@
   width: 30rem;
   background-color: white;
   border: 1px solid #dedede;
-  box-shadow: 5px 5px 25px 0 rgba(46,61,73,.2);
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
 }
 .login {
   height: 34rem;
@@ -15,7 +15,9 @@
 .register {
   height: 42rem;
 }
-.auth .google, .auth .facebook, .auth .instagram {
+.auth .google,
+.auth .facebook,
+.auth .instagram {
   display: flex;
   align-items: center;
   margin-top: 1rem;
@@ -23,18 +25,27 @@
   overflow: hidden;
   height: 3rem;
 }
-.auth .google i, .auth .facebook i, .auth .instagram i {
+.auth .google i,
+.auth .facebook i,
+.auth .instagram i {
   border-right: 1px solid white;
   justify-content: center;
   font-size: 1.5rem;
   width: 1.5rem;
 }
-.auth .google span, .auth .facebook span, .auth .instagram span {
+.auth .google span,
+.auth .facebook span,
+.auth .instagram span {
   font-size: 0.8rem;
   width: 10rem;
   justify-content: center;
 }
-.auth .google i, .auth .google span, .auth .facebook i, .auth .facebook span, .auth .instagram  i, .auth .instagram span {
+.auth .google i,
+.auth .google span,
+.auth .facebook i,
+.auth .facebook span,
+.auth .instagram i,
+.auth .instagram span {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -42,19 +53,22 @@
   padding: 1rem;
   height: 2rem;
 }
-.auth .google i, .auth .google span {
+.auth .google i,
+.auth .google span {
   background-color: #ec4b4b;
 }
 .auth .google span:hover {
   background-color: #f97e7e;
 }
-.auth .facebook i, .auth .facebook span {
+.auth .facebook i,
+.auth .facebook span {
   background-color: #27476f;
 }
 .auth .facebook span:hover {
   background-color: #55759e;
 }
-.auth .instagram i, .auth .instagram span {
+.auth .instagram i,
+.auth .instagram span {
   background-color: #e44487;
 }
 .auth .instagram span:hover {
@@ -90,8 +104,9 @@
 .authform button:hover {
   background-color: #394d69;
 }
-.authform input:focus, .authformform button:focus {
-  outline:none;
+.authform input:focus,
+.authformform button:focus {
+  outline: none;
   border: 1px solid #8d8def;
 }
 .authform p {

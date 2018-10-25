@@ -1,4 +1,4 @@
-@media only screen and ( max-width: 1200px) {
+@media only screen and (max-width: 1200px) {
   .container {
     max-width: 100%;
     padding: 0 1rem;
@@ -11,20 +11,21 @@
     width: auto;
   }
 }
-@media only screen and ( max-width: 1100px) {
+@media only screen and (max-width: 1100px) {
   .landing {
     height: 800px;
   }
   .landing .title {
     display: none;
   }
-  .landing a, .landing span  {
+  .landing a,
+  .landing span {
     margin-top: 3rem;
     width: 10rem;
     height: 10rem;
   }
 }
-@media only screen and ( max-width: 900px) {
+@media only screen and (max-width: 900px) {
   h1 {
     font-size: 2rem;
   }
@@ -35,7 +36,7 @@
     display: none;
   }
 }
-@media only screen and ( max-width: 800px) {
+@media only screen and (max-width: 800px) {
   .nav {
     height: 7rem;
   }
@@ -47,7 +48,7 @@
   .nav .usermenu {
     position: absolute;
     right: 1rem;
-    top: 1rem
+    top: 1rem;
   }
   main {
     padding-top: 9rem;
@@ -70,7 +71,8 @@
   .landing .header .subtitle .box {
     margin: 1rem;
   }
-  .landing a, .landing span  {
+  .landing a,
+  .landing span {
     justify-content: flex-start;
     width: 7rem;
     height: 7rem;
@@ -84,7 +86,7 @@
     text-align: center;
   }
 }
-@media only screen and ( max-width: 600px) {
+@media only screen and (max-width: 600px) {
   h1 {
     font-size: 1.5rem;
   }
@@ -102,11 +104,12 @@
     justify-content: flex-start;
     margin-top: 2rem;
   }
-  .landing span  {
+  .landing span {
     justify-content: flex-start;
     margin-top: 0;
   }
-  .landing a, .landing span  {
+  .landing a,
+  .landing span {
     width: 15rem;
     height: 12rem;
   }
@@ -118,7 +121,7 @@
     text-align: center;
   }
 }
-@media only screen and ( max-width: 550px) {
+@media only screen and (max-width: 550px) {
   .banner {
     overflow: hidden;
   }
@@ -137,7 +140,7 @@
     height: 25rem;
   }
 }
-@media only screen and ( max-width: 450px) {
+@media only screen and (max-width: 450px) {
   .nav .brand h2 {
     display: none;
   }
@@ -152,11 +155,12 @@
   }
 }
 /* Iphone 5 responsive */
-@media only screen and ( max-width: 320px) {
+@media only screen and (max-width: 320px) {
   .auth {
     width: 18rem;
   }
-  .landing a, .landing span  {
+  .landing a,
+  .landing span {
     width: 13rem;
   }
 }
