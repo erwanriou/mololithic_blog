@@ -1,5 +1,5 @@
 import axios from "axios"
-import { POSTS_FETCHED, POST_FETCHED, GET_ERRORS } from "./types"
+import { POSTS_FETCHED, GET_ERRORS } from "./types"
 import { loading, clearLoading } from "./loadingActions"
 
 export const fetchPosts = () => async dispatch => {
@@ -19,7 +19,7 @@ export const fetchPosts = () => async dispatch => {
   dispatch(clearLoading())
 }
 
-export const sendPost = (newPost, file, history) => async dispatch => {
+export const sendPost = (values, file, history) => async dispatch => {
   dispatch(loading())
   const uploadConfig = await axios.get("/api/posts/upload")
   await axios.put(uploadConfig.data.url, file, {
@@ -28,7 +28,7 @@ export const sendPost = (newPost, file, history) => async dispatch => {
     }
   })
   const res = await axios.post("/api/posts", {
-    ...newPost,
+    ...values,
     imageUrl: uploadConfig.data.key
   })
   history.push("/dashboard")
@@ -36,5 +36,4 @@ export const sendPost = (newPost, file, history) => async dispatch => {
     type: POSTS_FETCHED,
     payload: res.data
   })
-  dispatch(clearLoading())
 }

@@ -25,10 +25,10 @@ class DashBoard extends React.Component {
     })
   }
   render() {
-    const { user, loading } = this.props.auth
+    const { user } = this.props.auth
     let dashboardContents = []
 
-    user.role.map(role => {
+    user.role.sort().map(role => {
       switch (role) {
         case "admin":
           dashboardContents.push(<DashboardAdmin key={role} />)

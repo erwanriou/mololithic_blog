@@ -1,8 +1,7 @@
 import {
   LOADING_DATA,
   CLEAR_LOADING_DATA,
-  POSTS_FETCHED,
-  POST_FETCHED
+  POSTS_FETCHED
 } from "../actions/types"
 
 const initialState = {

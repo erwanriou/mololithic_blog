@@ -18,7 +18,7 @@
   "author": "Erwan Riou",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.337.0",
+    "aws-sdk": "^2.343.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.1",
@@ -33,6 +33,7 @@
     "passport-google-oauth20": "^1.0.0",
     "passport-instagram": "^1.0.0",
     "passport-jwt": "^4.0.0",
+    "uuid": "^3.3.2",
     "validator": "^10.6.0"
   },
   "devDependencies": {

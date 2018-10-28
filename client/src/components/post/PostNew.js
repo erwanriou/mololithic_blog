@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { reduxForm } from "redux-form"
 
 import PostForm from "./PostForm"
@@ -13,7 +13,7 @@ class PostNew extends React.Component {
     }
   }
   render() {
-    const { showForm, showFormReview } = this.state
+    const { showFormReview } = this.state
     let createPost
 
     showFormReview

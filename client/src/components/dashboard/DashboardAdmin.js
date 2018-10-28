@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom"
 
 import isEmpty from "../../utils/isEmpty"
 import Spinner from "../common/Spinner"
-import PostAdminItem from "../post/PostAdminItem"
 
 class DashboardAdmin extends React.Component {
   render() {
