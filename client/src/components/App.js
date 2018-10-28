@@ -4,7 +4,6 @@ import { withLocalize } from "react-localize-redux"
 import { Route, Switch, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { logout } from "./../actions/authActions"
-import { fetchPosts } from "./../actions/postActions"
 
 // Import Translations
 import globalTranslations from "../translations/globalTranslations.json"
@@ -42,9 +41,7 @@ class App extends React.Component {
       options: { renderToStaticMarkup }
     })
   }
-  componentDidMount() {
-    this.props.fetchPosts()
-  }
+
   componentDidUpdate(prevProps) {
     const { isActive } = this.props
     !isActive && this.props.logout()
@@ -78,7 +75,7 @@ export default withLocalize(
   withRouter(
     connect(
       mapStateToProps,
-      { logout, fetchPosts }
+      { logout }
     )(App)
   )
 )
