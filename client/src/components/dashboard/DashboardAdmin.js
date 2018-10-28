@@ -14,17 +14,19 @@ class DashboardAdmin extends React.Component {
     isEmpty(posts) || loading
       ? (postContent = <Spinner />)
       : (postContent = (
-          <div className="admin-post-list">
-            <PostList posts={posts} pathname={this.props.location.pathname} />
-          </div>
+          <PostList posts={posts} pathname={this.props.location.pathname} />
         ))
 
     return (
       <main>
-        <h2>New Post</h2>
-        <Link to="/dashboard/new-post">Create a new post</Link>
-        <h2>List of created posts</h2>
-        {postContent}
+        <div className="create-post">
+          <h2>New Post</h2>
+          <Link to="/dashboard/new-post">Create a new post</Link>
+        </div>
+        <div className="admin-posts">
+          <h2>List of created posts</h2>
+          {postContent}
+        </div>
       </main>
     )
   }

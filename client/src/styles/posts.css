@@ -1,0 +1,52 @@
+.posts {
+  padding-top: 3rem;
+}
+.posts .posts-list {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #cc4b4b;
+}
+.posts .posts-list .post-item {
+  position: relative;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  color: white;
+  width: 20%;
+  height: 21rem;
+}
+.posts .posts-list .post-item img {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.posts .posts-list .post-item .absolute {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.posts .posts-list .post-item .absolute h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.posts .posts-list .post-item .absolute h3 {
+  font-size: 1.5rem;
+}
+.posts .posts-list .post-item:hover img {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+.posts .posts-list .post-item:hover .absolute {
+  display: flex;
+}

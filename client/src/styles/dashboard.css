@@ -31,3 +31,56 @@
   cursor: pointer;
   width: 10rem;
 }
+.dashboard .create-post {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ececec;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+.dashboard .create-post a {
+  display: flex;
+  background-color: #cc4b4b;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 5px 10px 15px 0 rgba(46, 61, 73, 0.1);
+}
+.dashboard .posts-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.dashboard .posts-list .post-admin-item {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 5px 10px 15px 0 rgba(46, 61, 73, 0.1);
+  color: black;
+  width: 15rem;
+  height: 21rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+.dashboard .posts-list .post-admin-item h3 {
+  margin: 1rem 0;
+}
+.dashboard .posts-list .post-admin-item .post-admin-image {
+  position: relative;
+  overflow: hidden;
+  height: 15rem;
+}
+.dashboard .posts-list .post-admin-item img {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  width: 100%;
+  height: auto;
+}

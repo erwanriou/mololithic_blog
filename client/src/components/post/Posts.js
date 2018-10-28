@@ -19,7 +19,7 @@ class Posts extends React.Component {
             loading={loading}
           />
         ))
-    return <main className="posts">{Postcontent}</main>
+    return <div className="posts">{Postcontent}</div>
   }
 }
 
