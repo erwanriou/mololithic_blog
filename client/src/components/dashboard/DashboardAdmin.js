@@ -2,15 +2,11 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link, withRouter } from "react-router-dom"
 
-import { fetchPosts } from "../../actions/postActions"
-
+import PostList from "../post/PostList"
 import isEmpty from "../../utils/isEmpty"
 import Spinner from "../common/Spinner"
 
 class DashboardAdmin extends React.Component {
-  componentDidMount() {
-    this.props.fetchPosts()
-  }
   render() {
     const { posts, loading } = this.props.posts
     let postContent
@@ -19,18 +15,16 @@ class DashboardAdmin extends React.Component {
       ? (postContent = <Spinner />)
       : (postContent = (
           <div className="admin-post-list">
-            {posts.map(post => (
-              <h3 key={post._id}>{post.title}</h3>
-            ))}
+            <PostList posts={posts} pathname={this.props.location.pathname} />
           </div>
         ))
 
     return (
       <main>
-        <h2>List of created posts</h2>
-        {postContent}
         <h2>New Post</h2>
         <Link to="/dashboard/new-post">Create a new post</Link>
+        <h2>List of created posts</h2>
+        {postContent}
       </main>
     )
   }
@@ -39,9 +33,4 @@ const mapStateToProps = state => ({
   posts: state.posts
 })
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { fetchPosts }
-  )(DashboardAdmin)
-)
+export default withRouter(connect(mapStateToProps)(DashboardAdmin))

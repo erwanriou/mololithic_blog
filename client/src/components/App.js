@@ -4,6 +4,7 @@ import { withLocalize } from "react-localize-redux"
 import { Route, Switch, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { logout } from "./../actions/authActions"
+import { fetchPosts } from "./../actions/postActions"
 
 // Import Translations
 import globalTranslations from "../translations/globalTranslations.json"
@@ -16,8 +17,9 @@ import Privacy from "./layout/Privacy"
 import Footer from "./layout/Footer"
 import Login from "./auth/Login"
 import Register from "./auth/Register"
-import DashBoard from "./dashboard/DashBoard"
+import Dashboard from "./dashboard/Dashboard"
 import PostNew from "./post/PostNew"
+import Posts from "./post/Posts"
 
 // Styling
 import "../styles/reset.css"
@@ -41,7 +43,9 @@ class App extends React.Component {
       options: { renderToStaticMarkup }
     })
   }
-
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
   componentDidUpdate(prevProps) {
     const { isActive } = this.props
     !isActive && this.props.logout()
@@ -58,7 +62,8 @@ class App extends React.Component {
           <Route exact path="/privacy-policy" component={Privacy} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
-          <PrivateRoute exact path="/dashboard" component={DashBoard} />
+          <Route exact path="/feed" component={Posts} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/dashboard/new-post" component={PostNew} />
         </Switch>
         <Footer />
@@ -75,7 +80,7 @@ export default withLocalize(
   withRouter(
     connect(
       mapStateToProps,
-      { logout }
+      { logout, fetchPosts }
     )(App)
   )
 )
