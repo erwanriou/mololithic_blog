@@ -14,7 +14,6 @@ const s3 = new AWS.S3({
   accessKeyId: keys.aws.clientID,
   secretAccessKey: keys.aws.clientSecret,
   signatureVersion: "v4",
-  endpoint: "s3.eu-west-3.amazonaws.com",
   region: "eu-west-3"
 })
 
@@ -32,7 +31,7 @@ router.get(
       {
         Bucket: "bebeyogini",
         ContentType: "image/jpeg",
-        Key: key
+        Key: key.toString()
       },
       (err, url) => res.send({ key, url })
     )

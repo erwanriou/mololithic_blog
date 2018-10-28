@@ -16,7 +16,6 @@ class PostFormReview extends React.Component {
   }
   onFileChange(event) {
     this.setState({ file: event.target.files[0] })
-    console.log(event.target.files)
   }
   handleSubmit(e) {
     e.preventDefault()

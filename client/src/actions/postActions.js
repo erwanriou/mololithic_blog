@@ -22,18 +22,21 @@ export const fetchPosts = () => async dispatch => {
 export const sendPost = (values, file, history) => async dispatch => {
   dispatch(loading())
   const uploadConfig = await axios.get("/api/posts/upload")
+  delete axios.defaults.headers.common["Authorization"]
   await axios.put(uploadConfig.data.url, file, {
     headers: {
       ContentType: file.type
     }
   })
+  const token = localStorage.getItem("jwtToken")
+  axios.defaults.headers.common["Authorization"] = token
   const res = await axios.post("/api/posts", {
     ...values,
     imageUrl: uploadConfig.data.key
   })
-  history.push("/dashboard")
   dispatch({
     type: POSTS_FETCHED,
     payload: res.data
   })
+  history.push("/dashboard")
 }
