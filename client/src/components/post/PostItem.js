@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
-
+import Moment from "react-moment"
 class PostItem extends React.Component {
   render() {
     const { post } = this.props
@@ -20,7 +20,9 @@ class PostItem extends React.Component {
             <h3>{post.asana}</h3>
           </div>
           <div className="date">
-            <p>{post.date}</p>
+            <p>
+              <Moment format="YYYY.MM.DD">{post.date}</Moment>
+            </p>
           </div>
         </div>
       </Link>
