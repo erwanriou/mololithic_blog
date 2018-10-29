@@ -1,0 +1,57 @@
+.create-post-form {
+  margin-top: 5rem;
+  box-shadow: 5px 10px 25px 0 rgba(46, 61, 73, 0.2);
+  background-color: white;
+  padding: 1.5rem;
+  font-size: 1rem;
+}
+.create-post-form h2 {
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #ececec;
+}
+.create-post-form .field {
+  display: flex;
+  flex-direction: column;
+}
+.create-post-form .field input,
+.create-post-form .field textarea {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ececec;
+  padding: 0.5rem;
+}
+.create-post-form .field input {
+  width: 20rem;
+}
+.create-post-form .field label {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.create-post-form .field span {
+  font-weight: 500;
+  color: red;
+  margin-bottom: 1rem;
+}
+.create-post-form .actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.create-post-form .actions button,
+.create-post-form .actions a {
+  padding: 1rem 2rem;
+  color: white;
+  margin-left: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.create-post-form .actions a {
+  background: #cc4b4b73;
+}
+.create-post-form .actions button {
+  background: #cc4b4b;
+  cursor: pointer;
+}
+.create-post-form .actions button i {
+  margin-left: 0.5rem;
+}

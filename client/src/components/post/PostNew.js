@@ -18,8 +18,8 @@ class PostNew extends React.Component {
 
     showFormReview
       ? (createPost = (
-          <div className="createpostform">
-            <h2>Review your survey before sending it!</h2>
+          <div className="create-post-form">
+            <h2>Review your post</h2>
             <PostFormReview
               onCancel={() => {
                 this.setState({ showFormReview: false })
@@ -28,8 +28,8 @@ class PostNew extends React.Component {
           </div>
         ))
       : (createPost = (
-          <div className="createpostform">
-            <h2>Fill out the Survey form to create your email campaign!</h2>
+          <div className="create-post-form">
+            <h2>Create a Post</h2>
             <PostForm
               onPostSubmit={() => {
                 this.setState({ showFormReview: true })
@@ -39,9 +39,11 @@ class PostNew extends React.Component {
         ))
 
     return (
-      <main>
-        <div className="container">{createPost}</div>
-      </main>
+      <div className="layout">
+        <div className="opacity">
+          <div className="container">{createPost}</div>
+        </div>
+      </div>
     )
   }
 }
