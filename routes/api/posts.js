@@ -26,15 +26,19 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const key = `${req.user.id}/${uuid()}.jpeg`
-    s3.getSignedUrl(
-      "putObject",
-      {
-        Bucket: "bebeyogini",
-        ContentType: "image/jpeg",
-        Key: key.toString()
-      },
-      (err, url) => res.send({ key, url })
-    )
+    req.user.role.includes("admin") === false
+      ? (valid = res
+          .status(403)
+          .json({ error: "You doesnt have admin right to create a post" }))
+      : s3.getSignedUrl(
+          "putObject",
+          {
+            Bucket: "bebeyogini",
+            ContentType: "image/jpeg",
+            Key: key.toString()
+          },
+          (err, url) => res.send({ key, url })
+        )
   }
 )
 // @route  GET api/posts
@@ -59,14 +63,15 @@ router.post(
     const { errors, isValid } = validatePostInput(req.body)
     //Check Validation
     !isValid && res.status(400).json(errors)
-    req.user.role.includes("admin") === false &&
-      res
-        .status(403)
-        .json({ error: "You doesnt have admin right to create a post" })
-    const newPost = new Post({
-      ...req.body,
-      _user: req.user.id
-    })
+    let newPost
+    req.user.role.includes("admin") === false
+      ? (valid = res
+          .status(403)
+          .json({ error: "You doesnt have admin right to create a post" }))
+      : (newPost = new Post({
+          ...req.body,
+          _user: req.user.id
+        }))
     try {
       await newPost.save()
       res.json({ post: "Post created with success!" })
