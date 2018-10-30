@@ -10,6 +10,7 @@ import { fetchPosts } from "./../actions/postActions"
 import globalTranslations from "../translations/globalTranslations.json"
 // Auth
 import PrivateRoute from "./common/PrivateRoute"
+import PrivateAdminRoute from "./common/PrivateAdminRoute"
 // Components
 import Nav from "./layout/Nav"
 import Landing from "./layout/Landing"
@@ -66,7 +67,11 @@ class App extends React.Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/feed" component={Posts} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/dashboard/new-post" component={PostNew} />
+          <PrivateAdminRoute
+            exact
+            path="/dashboard/new-post"
+            component={PostNew}
+          />
         </Switch>
         <Footer />
       </Fragment>
