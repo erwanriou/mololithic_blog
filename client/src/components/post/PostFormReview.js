@@ -22,7 +22,7 @@ class PostFormReview extends React.Component {
     const { values } = this.props.form.postForm
     this.props.sendPost(values, this.state.file, this.props.history)
   }
-
+  handleRender() {}
   render() {
     const { onCancel, form } = this.props
     const { values } = this.props.form.postForm
@@ -38,16 +38,30 @@ class PostFormReview extends React.Component {
       <Fragment>
         <form onSubmit={this.handleSubmit}>
           {reviewFields}
-          <h5>Add An Image</h5>
-          <input type="file" accept="image/*" onChange={this.onFileChange} />
-          <span onClick={onCancel}>
-            <i className="fas fa-angle-left" />
-            <span>Back</span>
-          </span>
-          <button type="submit">
-            <span>Submit</span>
-            <i className="fas fa-paper-plane" />
-          </button>
+          <div className="review">
+            <div className="send-image">
+              <label className="fileContainer">
+                <i className="fas fa-cloud-upload-alt" />
+                Add An Image
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={this.onFileChange}
+                  className="inputfile"
+                />
+              </label>
+            </div>
+            <div className="actions">
+              <div className="back" onClick={onCancel}>
+                <i className="fas fa-angle-left" />
+                <span>Back</span>
+              </div>
+              <button type="submit">
+                <span>Submit</span>
+                <i className="fas fa-paper-plane" />
+              </button>
+            </div>
+          </div>
         </form>
       </Fragment>
     )

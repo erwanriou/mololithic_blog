@@ -41,6 +41,7 @@
   margin-bottom: 1rem;
 }
 .posts .posts-list .post-item .absolute h3 {
+  padding: 1rem;
   font-size: 1.5rem;
 }
 .posts .posts-list .post-item:hover img {
