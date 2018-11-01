@@ -43,7 +43,7 @@
   margin-top: 1rem;
   font-weight: 500;
 }
-.create-post-form .field span {
+.create-post-form .field h5 {
   font-weight: 500;
   color: red;
   margin-bottom: 1rem;
@@ -75,6 +75,16 @@
 }
 .create-post-form .actions .back i {
   margin-right: 0.5rem;
+}
+.create-post-form .quill {
+  margin-top: 1rem;
+}
+.create-post-form .ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+  border: 1px solid #ececec;
+}
+.create-post-form .ql-editor {
+  min-height: 15rem;
 }
 .fileContainer {
   overflow: hidden;

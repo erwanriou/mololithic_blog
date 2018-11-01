@@ -30,7 +30,7 @@ class PostFormReview extends React.Component {
     const reviewFields = PostInputFields.map(({ name, label }) => (
       <div key={name} className="field">
         <label>{label}</label>
-        <p>{values[name]}</p>
+        <p dangerouslySetInnerHTML={{ __html: values[name] }} />
       </div>
     ))
 
