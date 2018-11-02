@@ -13,7 +13,7 @@ import PrivateRoute from "./common/PrivateRoute"
 import PrivateAdminRoute from "./common/PrivateAdminRoute"
 // Components
 import Nav from "./layout/Nav"
-import Landing from "./layout/Landing"
+import Landing from "./landing/Landing"
 import Privacy from "./layout/Privacy"
 import Footer from "./layout/Footer"
 import Login from "./auth/Login"
