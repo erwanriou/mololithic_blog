@@ -1,12 +1,14 @@
 import React from "react"
-import ReactQuill from "react-quill"
-import "react-quill/dist/quill.snow.css"
 
 const PostField = ({ input, label, textarea, meta: { error, touched } }) => {
   return (
     <div className="field">
       <label>{label}</label>
-      {textarea ? <ReactQuill {...input} /> : <input {...input} />}
+      {textarea ? (
+        <textarea {...input} cols="30" rows="10" />
+      ) : (
+        <input {...input} />
+      )}
       <h5>{touched && error}</h5>
     </div>
   )
