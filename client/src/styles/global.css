@@ -62,3 +62,13 @@ main .title {
   font-weight: 700;
   padding: 0.2rem;
 }
+/* Overwrite css config from select library */
+.css-vj8t7z,
+.css-2o5izw,
+.css-15k3avv {
+  border-radius: 0 !important;
+  border: 1px solid #d2cfcf !important;
+}
+.css-1492t68 {
+  font-size: 0.9rem !important;
+}

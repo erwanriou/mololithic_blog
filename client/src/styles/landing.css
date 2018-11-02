@@ -142,6 +142,7 @@
 }
 .landing .posts-list .post-landing-item img {
   position: absolute;
+  filter: opacity(0.5);
   z-index: 0;
   top: 0;
   width: 100%;
@@ -158,4 +159,13 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+.landing .posts-list .post-landing-item .absolute h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.landing .posts-list .post-landing-item .absolute h3 {
+  padding: 1rem;
+  font-size: 1rem;
 }
