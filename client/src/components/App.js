@@ -7,7 +7,9 @@ import { logout } from "./../actions/authActions"
 import { fetchPosts } from "./../actions/postActions"
 
 // Import Translations
-import globalTranslations from "../translations/globalTranslations.json"
+import englishTranslations from "../translations/en.translations.json"
+import frenchTranslations from "../translations/fr.translations.json"
+import spanishTranslations from "../translations/es.translations.json"
 // Auth
 import PrivateRoute from "./common/PrivateRoute"
 import PrivateRoleRoute from "./common/PrivateRoleRoute"
@@ -42,9 +44,11 @@ class App extends React.Component {
         { name: "English", code: "en" },
         { name: "Spanish", code: "es" }
       ],
-      translation: globalTranslations,
+      translation: englishTranslations,
       options: { renderToStaticMarkup }
     })
+    this.props.addTranslationForLanguage(frenchTranslations, "fr")
+    this.props.addTranslationForLanguage(spanishTranslations, "es")
   }
   componentDidMount() {
     this.props.fetchPosts()

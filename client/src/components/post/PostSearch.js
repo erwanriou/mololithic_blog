@@ -10,7 +10,7 @@ class PostSearch extends React.Component {
       <div className="post-search">
         <div className="container">
           <input
-            type="text"
+            type="search"
             placeholder="search"
             onChange={event => handleUpdateQuery(event.target.value)}
             value={query}

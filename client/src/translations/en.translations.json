@@ -1,0 +1,63 @@
+{
+  "login": {
+    "title": "Login in Bebe Yogini!",
+    "subtitle": "You can choose Sign-In with google, facebook or password authentification",
+
+    "google": "Sign In with google",
+    "facebook": "Sign In with facebook",
+    "instagram": "Sign In with instagram",
+    "option": "Or Login here",
+    "login": "Login",
+    "noaccount": "You doen't have an account yet?",
+
+    "register": "Register"
+  },
+  "register": {
+    "title": "Register in Bebe Yogini!",
+    "subtitle": "You can choose sign-up with google, facebook or password authentification",
+
+    "google": "Sign Up with google",
+    "facebook": "Sign Up with facebook",
+    "instagram": "Sign Up with instagram",
+    "option": "Or Sign Up here with email",
+
+    "register": "Register",
+    "noaccount": "You already have an account?",
+    "login": "Login"
+  },
+  "nav": {
+    "subtitle": "The yoga blog for begginers",
+
+    "blog": "BLOG",
+    "about": "ABOUT",
+    "psychology": "PSYCHOLOGY",
+    "contact": "CONTACT",
+    "dashboard": "dashboard",
+    "logout": "logout",
+    "login": "login",
+    "signup": "sign up"
+  },
+  "banner": {
+    "title": "BEBE YOGINI",
+    "subtitle": "Yoga center & blog for everyone"
+  },
+  "landing": {
+    "subtitle": "Bebeyogini, it's the yoga...",
+    "quote": "FIND YOUR BALANCE",
+    "level": "FOR EVERYONE",
+    "leveltext": "We want to share our yoga to everyone.",
+
+    "style": "MULTI STYLES",
+    "styletext": "Choose the yoga style that best suits you",
+
+    "blog": "Blog",
+    "school": "School",
+    "shop": "Shop",
+    "link": "Discover about yoga and psychology!",
+
+    "soon": "Coming Soon!"
+  },
+  "footer": {
+    "copyrights": "Legal information and terms of use © ${date} Bebeyogini All Rights Reserved"
+  }
+}

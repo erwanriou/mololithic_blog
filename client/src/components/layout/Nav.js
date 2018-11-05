@@ -22,10 +22,10 @@ class Nav extends React.Component {
         ? (content = <Spinner />)
         : (content = (
             <div className="usermenu">
-              <Link to="/register">
+              <Link className="noselect" to="/register">
                 <Translate id="nav.signup" />
               </Link>
-              <Link to="/login">
+              <Link className="noselect" to="/login">
                 <Translate id="nav.login" />
               </Link>
             </div>
@@ -34,15 +34,20 @@ class Nav extends React.Component {
         ? (content = <Spinner />)
         : (content = (
             <div className="usermenu">
-              <Link to="/dashboard">
+              <Link className="noselect" to="/dashboard">
                 <Translate id="nav.dashboard" />
               </Link>
               <img
+                className="noselect"
                 src={user.avatar}
                 alt={user.name}
                 title="You must have a Gravatar connect to you email to display an image"
               />
-              <Link to="/" onClick={this.handleLogout.bind(this)}>
+              <Link
+                className="noselect"
+                to="/"
+                onClick={this.handleLogout.bind(this)}
+              >
                 <Translate id="nav.logout" />
               </Link>
             </div>
@@ -52,19 +57,21 @@ class Nav extends React.Component {
       <div className="nav">
         <div className="container">
           <div className="menu">
-            <Link className="brand" to="/">
+            <Link className="noselect" className="brand" to="/">
               <img src={icon} alt="Icon logo" />
               <h2>BEBE YOGINI</h2>
             </Link>
             <div className="mainmenu">
-              <Link to="/feed">
+              <Link className="noselect" to="/feed">
                 <Translate id="nav.blog" />
               </Link>
-              <Link to="/about">
+              <Link className="noselect" to="/about">
                 <Translate id="nav.about" />
               </Link>
-              <Link to="/yoga">YOGA</Link>
-              <Link to="/psychology">
+              <Link className="noselect" to="/yoga">
+                YOGA
+              </Link>
+              <Link className="noselect" to="/psychology">
                 <Translate id="nav.psychology" />
               </Link>
             </div>

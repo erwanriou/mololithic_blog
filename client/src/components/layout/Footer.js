@@ -11,7 +11,10 @@ const Footer = ({ languages, activeLanguage, setActiveLanguage }) => {
         <div className="language-list">
           {languages.map(language => (
             <div key={language.code}>
-              <span onClick={() => setActiveLanguage(language.code)}>
+              <span
+                className="noselect"
+                onClick={() => setActiveLanguage(language.code)}
+              >
                 {language.code}
               </span>
             </div>
