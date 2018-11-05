@@ -8,18 +8,18 @@ class PostList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      searchQuery: "",
-      results: []
+      query: ""
     }
-    this.handleChange = this.handleChange.bind(this)
+    this.handleUpdateQuery = this.handleUpdateQuery.bind(this)
   }
-  handleChange(e) {
-    e.preventDefault()
-    this.setState({ searchQuery: e.target.value })
+  handleUpdateQuery(query) {
+    this.setState({
+      query: query
+    })
   }
   render() {
     const { pathname, posts } = this.props
-    const { searchQuery, results } = this.state
+    const { query } = this.state
     let Postcontent
     switch (pathname) {
       case "/dashboard":
@@ -35,14 +35,17 @@ class PostList extends React.Component {
         Postcontent = (
           <Fragment>
             <PostSearch
-              searchQuery={searchQuery}
-              handleChange={this.handleChange}
+              query={query}
+              handleUpdateQuery={this.handleUpdateQuery}
             />
             <div className="posts-list">
               {posts
                 .sort((a, b) => {
                   return new Date(b.date) - new Date(a.date)
                 })
+                .filter(post =>
+                  post.title.toLowerCase().includes(query.toLowerCase())
+                )
                 .map(post => (
                   <PostItem post={post} key={post._id} />
                 ))}

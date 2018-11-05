@@ -15,7 +15,8 @@ class PostSearch extends React.Component {
           <input
             type="text"
             placeholder="search"
-            onChange={this.props.handleChange}
+            onChange={event => this.props.handleUpdateQuery(event.target.value)}
+            value={this.props.query}
           />
         </div>
       </div>
