@@ -6,7 +6,7 @@ exports.signToken = (req, res, next) => {
     id: req.user._id,
     name: req.user.name,
     avatar: req.user.avatar,
-    role: req.user.role
+    authorities: req.user.authorities
   }
   const token = jwt.sign(
     payload,

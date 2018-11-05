@@ -1,12 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import isEmpty from "../../utils/isEmpty"
-import Spinner from "../common/Spinner"
-
 class PostSearch extends React.Component {
   render() {
-    const { searchQuery } = this.props
+    const { query, handleUpdateQuery } = this.props
     const { posts } = this.props.posts
 
     return (
@@ -15,8 +12,8 @@ class PostSearch extends React.Component {
           <input
             type="text"
             placeholder="search"
-            onChange={event => this.props.handleUpdateQuery(event.target.value)}
-            value={this.props.query}
+            onChange={event => handleUpdateQuery(event.target.value)}
+            value={query}
           />
         </div>
       </div>

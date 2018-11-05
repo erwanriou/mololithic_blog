@@ -26,9 +26,9 @@ const UserSchema = new Schema({
   avatar: {
     type: String
   },
-  role: {
+  authorities: {
     type: [String],
-    default: "user"
+    default: "ROLE_USER"
   },
   date: {
     type: Date,

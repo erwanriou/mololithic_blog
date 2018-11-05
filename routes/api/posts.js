@@ -26,7 +26,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const key = `${req.user.id}/${uuid()}.jpeg`
-    req.user.role.includes("admin") === false
+    req.user.authorities.includes("ROLE_ADMIN") === false
       ? (valid = res
           .status(403)
           .json({ error: "You doesnt have admin right to create a post" }))

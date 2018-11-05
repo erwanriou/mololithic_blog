@@ -45,7 +45,7 @@ router.post("/login", async (req, res) => {
       id: user.id,
       name: user.name,
       avatar: user.avatar,
-      role: user.role
+      authorities: user.authorities
     }
     jwt.sign(payload, keys.jwt.secret, { expiresIn: 7000 }, (err, token) => {
       res.json({

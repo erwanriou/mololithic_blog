@@ -10,7 +10,7 @@ import { fetchPosts } from "./../actions/postActions"
 import globalTranslations from "../translations/globalTranslations.json"
 // Auth
 import PrivateRoute from "./common/PrivateRoute"
-import PrivateAdminRoute from "./common/PrivateAdminRoute"
+import PrivateRoleRoute from "./common/PrivateRoleRoute"
 // Components
 import Nav from "./layout/Nav"
 import Landing from "./landing/Landing"
@@ -67,8 +67,9 @@ class App extends React.Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/feed" component={Posts} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateAdminRoute
+          <PrivateRoleRoute
             exact
+            roles="ROLE_ADMIN"
             path="/dashboard/new-post"
             component={PostNew}
           />

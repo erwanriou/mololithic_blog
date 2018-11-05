@@ -28,12 +28,12 @@ class DashBoard extends React.Component {
     const { user } = this.props.auth
     let dashboardContents = []
 
-    user.role.sort().map(role => {
+    user.authorities.sort().map(role => {
       switch (role) {
-        case "admin":
+        case "ROLE_ADMIN":
           dashboardContents.push(<DashboardAdmin key={role} />)
           break
-        case "user":
+        case "ROLE_USER":
           dashboardContents.push(<DashboardUser key={role} />)
           break
         default:
@@ -47,7 +47,7 @@ class DashBoard extends React.Component {
         <div className="dashboard-nav">
           <div className="container">
             <div className="menu">
-              {user.role.length > 1 && (
+              {user.authorities.length > 1 && (
                 <div className="roles">
                   <button
                     onClick={this.handleToggleUser}
@@ -59,7 +59,7 @@ class DashBoard extends React.Component {
                         : "#cf6161"
                     }}
                   >
-                    {user.role[0]}
+                    {user.authorities[0]}
                   </button>
                   <button
                     onClick={this.handleToggleAdmin}
@@ -71,7 +71,7 @@ class DashBoard extends React.Component {
                         : "#de8989"
                     }}
                   >
-                    {user.role[1]}
+                    {user.authorities[1]}
                   </button>
                 </div>
               )}
