@@ -1,5 +1,6 @@
 import React from "react"
 import { reduxForm } from "redux-form"
+import { connect } from "react-redux"
 
 import PostForm from "./PostForm"
 import PostFormReview from "./PostFormReview"
@@ -9,11 +10,17 @@ class PostNew extends React.Component {
     super(props)
     this.state = {
       showForm: true,
-      showFormReview: false
+      showFormReview: false,
+      selectedOption: null
     }
+    this.handleSelectChange = this.handleSelectChange.bind(this)
+  }
+  handleSelectChange(selectedOption) {
+    this.setState({ selectedOption })
   }
   render() {
     const { showFormReview } = this.state
+    const { posts } = this.props.posts
     let createPost
 
     showFormReview
@@ -31,6 +38,8 @@ class PostNew extends React.Component {
           <div className="create-post-form">
             <h2>Create a Post</h2>
             <PostForm
+              posts={posts}
+              handleSelectChange={this.handleSelectChange}
               onPostSubmit={() => {
                 this.setState({ showFormReview: true })
               }}
@@ -48,4 +57,9 @@ class PostNew extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  posts: state.posts
+})
+
+PostNew = connect(mapStateToProps)(PostNew)
 export default reduxForm({ form: "postForm" })(PostNew)

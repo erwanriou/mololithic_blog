@@ -111,3 +111,7 @@
   text-align: right;
   top: 0;
 }
+.select {
+  margin-bottom: 2rem;
+  width: 22rem;
+}
