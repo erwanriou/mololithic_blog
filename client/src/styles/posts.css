@@ -1,13 +1,34 @@
 .posts {
-  padding-top: 8rem;
+  padding-top: 3rem;
 }
 .posts .posts-list {
   display: flex;
   flex-wrap: wrap;
   background-color: #cc4b4b;
 }
-.posts .post-search {
+.post-search-icon {
   position: fixed;
+  display: flex;
+  align-items: center;
+  background-color: #b53f3f;
+  box-shadow: 5px 10px 50px 0 rgba(46, 61, 73, 0.3);
+  z-index: 10;
+  cursor: pointer;
+  margin: 2rem 15rem 0 0;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-size: 1.5rem;
+  right: 0;
+}
+.post-search-icon i {
+  margin-left: 1rem;
+  font-size: 1rem;
+}
+.posts .post-search-tool {
+  position: fixed;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
   z-index: 10;
   width: 100%;
   top: 3rem;
@@ -16,6 +37,23 @@
   border-bottom: 1px solid #ececec;
   height: 5rem;
   box-shadow: 5px 10px 50px 0 rgba(46, 61, 73, 0.3);
+  transition: all 0.5s ease;
+}
+.posts .post-search-tool .search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.posts .post-search-tool .search input {
+  padding: 0.5rem;
+  border: 1px solid #e9e9e9;
+  width: 15rem;
+}
+.posts .post-search-tool .search button {
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: white;
 }
 .posts .posts-list .post-item {
   position: relative;
