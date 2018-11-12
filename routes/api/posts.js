@@ -64,7 +64,7 @@ router.post(
     //Check Validation
     !isValid && res.status(400).json(errors)
     let newPost
-    req.user.role.includes("admin") === false
+    req.user.authorities.includes("ROLE_ADMIN") === false
       ? (valid = res
           .status(403)
           .json({ error: "You doesnt have admin right to create a post" }))
