@@ -23,6 +23,7 @@ import Register from "./auth/Register"
 import Dashboard from "./dashboard/Dashboard"
 import PostNew from "./post/PostNew"
 import Posts from "./post/Posts"
+import Post from "./post/Post"
 
 // Styling
 import "../styles/reset.css"
@@ -70,6 +71,7 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/feed" component={Posts} />
+          <Route exact path="/feed/:postTitle" component={Post} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoleRoute
             exact
