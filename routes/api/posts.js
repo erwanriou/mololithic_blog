@@ -18,6 +18,7 @@ const s3 = new AWS.S3({
 })
 
 const router = express.Router()
+
 // @route  GET api/posts/upload
 // @desc   Upload an image on amazone server API
 // @access Private
@@ -48,6 +49,26 @@ router.get("/", async (req, res) => {
   try {
     posts = await Post.find()
     res.status(200).json(posts)
+  } catch (err) {
+    res.status(400).json(err)
+  }
+})
+
+// @route  GET api/posts/:title
+// @desc   Get post by title
+// @access Public
+router.get("/:title", async (req, res) => {
+  try {
+    const postTitle = req.params.title
+      .toLowerCase()
+      .split("-")
+      .join(" ")
+    post = await Post.findOne({
+      title: {
+        $regex: new RegExp(postTitle, "i")
+      }
+    })
+    res.status(200).json(post)
   } catch (err) {
     res.status(400).json(err)
   }

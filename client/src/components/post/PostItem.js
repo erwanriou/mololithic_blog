@@ -9,7 +9,7 @@ class PostItem extends React.Component {
       .split(" ")
       .join("-")
     return (
-      <Link to={`/feed/${seoUrl}`} className="post-item">
+      <Link to={{ pathname: `/feed/${seoUrl}` }} className="post-item">
         <img
           src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${post.imageUrl}`}
           alt={post.title}

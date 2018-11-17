@@ -3,6 +3,8 @@ import { renderToStaticMarkup } from "react-dom/server"
 import { withLocalize } from "react-localize-redux"
 import { Route, Switch, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
+
+// Import Actions
 import { logout } from "./../actions/authActions"
 import { fetchPosts } from "./../actions/postActions"
 
@@ -71,7 +73,7 @@ class App extends React.Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/feed" component={Posts} />
-          <Route exact path="/feed/:postTitle" component={Post} />
+          <Route exact path="/feed/:posttitle" component={Post} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoleRoute
             exact
