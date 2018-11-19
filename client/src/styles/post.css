@@ -1,0 +1,22 @@
+.post {
+  position: relative;
+  z-index: 1;
+  background: url("../utils/images/yogabackground.jpg") repeat;
+  background-size: auto;
+  height: stretch;
+}
+.post .post-content {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem auto;
+}
+.post .post-content .post-image {
+}
+.post .post-content .post-image img {
+  width: 600px;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+}
+.post .post-content .content {
+  background: white;
+  box-shadow: 5px 5px 25px 0 rgba(46, 61, 73, 0.2);
+}

@@ -15,19 +15,20 @@ class Post extends React.Component {
     const { post } = this.props.posts
     return (
       <div className="post">
-        <div className="container">
-          <main>
-            <div className="post-content">
-              <div className="post-image">
-                <img
-                  src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${
-                    post.imageUrl
-                  }`}
-                  alt={post.title}
-                />
-              </div>
+        <div className="opacity">
+          <div className="container post-content">
+            <div className="post-image">
+              <img
+                src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${
+                  post.imageUrl
+                }`}
+                alt={post.title}
+              />
             </div>
-          </main>
+            <div className="content">
+              <h1>{post.title}</h1>
+            </div>
+          </div>
         </div>
       </div>
     )

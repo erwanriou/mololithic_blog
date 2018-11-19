@@ -19,7 +19,6 @@ class PostSearch extends React.Component {
   render() {
     const { toggle } = this.state
     const { query, handleUpdateQuery } = this.props
-    const { posts } = this.props.posts
 
     return (
       <Fragment>
