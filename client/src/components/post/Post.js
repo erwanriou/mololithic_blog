@@ -27,6 +27,8 @@ class Post extends React.Component {
             </div>
             <div className="content">
               <h1>{post.title}</h1>
+              <h2>{post.asana}</h2>
+              <p>{post.body}</p>
             </div>
           </div>
         </div>

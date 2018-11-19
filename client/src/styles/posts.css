@@ -14,11 +14,34 @@
   box-shadow: 5px 10px 50px 0 rgba(46, 61, 73, 0.3);
   z-index: 10;
   cursor: pointer;
-  margin: 2rem 15rem 0 0;
+  margin: 1rem 0;
   padding: 0.5rem 1rem;
   color: white;
   font-size: 1.5rem;
-  right: 0;
+  right: 20%;
+}
+.post-search-icon:after,
+.post-search-icon:before {
+  bottom: 100%;
+  left: 80%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.post-search-icon:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-bottom-color: #b53f3f;
+  border-width: 7px;
+  margin-left: -7px;
+}
+.post-search-icon:before {
+  border-color: rgba(229, 229, 229, 0);
+  border-bottom-color: #b53f3f;
+  border-width: 8px;
+  margin-left: -8px;
 }
 .post-search-icon i {
   margin-left: 1rem;
@@ -32,9 +55,7 @@
   z-index: 10;
   width: 100%;
   top: 3rem;
-  background-color: white;
-  border-top: 1px solid #a9a9a9;
-  border-bottom: 1px solid #ececec;
+  background-color: #ca535394;
   height: 5rem;
   box-shadow: 5px 10px 50px 0 rgba(46, 61, 73, 0.3);
   transition: all 0.5s ease;
@@ -50,10 +71,11 @@
   border: 1px solid #e9e9e9;
   width: 15rem;
 }
-.posts .post-search-tool .search button {
+.posts .post-search-tool .search span {
   cursor: pointer;
   font-size: 2rem;
-  background-color: white;
+  color: white;
+  background-color: #ffffff00;
 }
 .posts .posts-list .post-item {
   position: relative;

@@ -8,8 +8,21 @@ class PostSearch extends React.Component {
       toggle: false
     }
     this.handleToggle = this.handleToggle.bind(this)
+    this.handleKey = this.handleKey.bind(this)
   }
-
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKey, false)
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKey, false)
+  }
+  handleKey(event) {
+    if (event.keyCode === 27) {
+      this.setState({
+        toggle: false
+      })
+    }
+  }
   handleToggle() {
     this.setState({
       toggle: !this.state.toggle
@@ -47,7 +60,9 @@ class PostSearch extends React.Component {
                 value={query}
               />
               <div className="close">
-                <button onClick={this.handleToggle}>X</button>
+                <span className="noselect" onClick={this.handleToggle}>
+                  X
+                </span>
               </div>
             </div>
           </div>
