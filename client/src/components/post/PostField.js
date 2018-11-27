@@ -1,21 +1,38 @@
 import React from "react"
 
 const PostField = ({
-  input,
-  label,
   value,
+  label,
+  onChange,
+  name,
+  type,
+  placeholder,
   textarea,
-  meta: { error, touched }
+  error
 }) => {
   return (
     <div className="field">
       <label>{label}</label>
       {textarea ? (
-        <textarea {...input} value={value} cols="30" rows="10" />
+        <textarea
+          value={value}
+          onChange={onChange}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          cols="30"
+          rows="10"
+        />
       ) : (
-        <input {...input} value={value} />
+        <input
+          value={value}
+          onChange={onChange}
+          name={name}
+          type={type}
+          placeholder={placeholder}
+        />
       )}
-      <h5>{touched && error}</h5>
+      <h5>{error}</h5>
     </div>
   )
 }

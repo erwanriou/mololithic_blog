@@ -1,15 +1,17 @@
+.layout-create-post {
+  position: relative;
+  z-index: 1;
+  background: url("../utils/images/yogabackground.jpg") repeat;
+  background-size: auto;
+  height: 900px;
+  overflow: hidden;
+}
 .create-post-form {
   margin-top: 5rem;
   box-shadow: 5px 10px 25px 0 rgba(46, 61, 73, 0.2);
   background-color: white;
   padding: 1.5rem;
   font-size: 1rem;
-}
-.create-post-form .review {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
 }
 .create-post-form h2 {
   padding-bottom: 1rem;

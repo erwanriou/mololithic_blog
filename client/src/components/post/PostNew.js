@@ -1,6 +1,5 @@
 import React from "react"
 import Select from "react-select"
-import { reduxForm, Field } from "redux-form"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import { Translate } from "react-localize-redux"
@@ -16,70 +15,107 @@ class PostNew extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      titleField: undefined,
+      asanaField: undefined,
+      bodyField: undefined,
       selectedOption: null,
-      file: null
+      file: null,
+      errors: {}
     }
     this.handleSelectChange = this.handleSelectChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleQueryInput = this.handleQueryInput.bind(this)
     this.onFileChange = this.onFileChange.bind(this)
+    this.handleResetForm = this.handleResetForm.bind(this)
+    this.handleKey = this.handleKey.bind(this)
   }
   componentDidMount() {
     const { postid } = this.props.match.params
-    this.props.fetchEditPost(postid)
+    postid && this.props.fetchEditPost(postid)
+    document.addEventListener("keydown", this.handleKey, false)
+  }
+  componentDidUpdate() {
+    isEmpty(this.state.titleField) &&
+      this.props.post.title &&
+      this.setState({
+        titleField: this.props.post.title,
+        asanaField: this.props.post.asana,
+        bodyField: this.props.post.body
+      })
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKey, false)
+  }
+  handleKey(event) {
+    if (event.keyCode === 27) {
+      this.handleResetForm()
+      this.props.history.push("/dashboard")
+    }
   }
   onFileChange(event) {
     this.setState({ file: event.target.files[0] })
   }
-
   handleSelectChange(selectedOption) {
     this.setState({ selectedOption })
   }
+  handleResetForm() {
+    this.setState({ ...this.state })
+  }
+  handleQueryInput(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
   handleSubmit(e) {
     e.preventDefault()
-    const { values } = this.props.form.postForm
-    this.props.sendPost(values, this.state.file, this.props.history)
+    const newPost = {
+      title: this.state.titleField,
+      asana: this.state.asanaField,
+      body: this.state.bodyField
+    }
+    this.props.sendPost(newPost, this.state.file, this.props.history)
   }
   render() {
     const { postid } = this.props.match.params
-    const { posts } = this.props
-    const { onCancel, form } = this.props
+    const { titleField, asanaField, bodyField, errors } = this.state
     return (
-      <div className="layout">
+      <div className="layout-create-post">
         <div className="opacity">
           <div className="container">
             <div className="create-post-form">
               {postid ? <h2>Edit a Post</h2> : <h2>Create a Post</h2>}
               <form onSubmit={this.handleSubmit}>
-                <Field
+                <PostField
                   textarea={false}
-                  component={PostField}
                   type="text"
                   label="The title of your post"
-                  name="title"
-                  values={this.props.posts.post.title}
+                  name="titleField"
+                  value={titleField || ""}
+                  onChange={this.handleQueryInput}
+                  error={errors.status}
                 />
-                <Field
+                <PostField
                   textarea={false}
-                  component={PostField}
                   type="text"
                   label="The Name of the asana"
-                  name="asana"
+                  value={asanaField || ""}
+                  onChange={this.handleQueryInput}
+                  name="asanaField"
                 />
-                <Field
+                <PostField
                   textarea={true}
-                  component={PostField}
                   type="text"
                   label="The content of your post"
-                  name="body"
+                  value={bodyField || ""}
+                  onChange={this.handleQueryInput}
+                  name="bodyField"
                 />
                 <div className="field">
                   <Translate>
                     {({ translate }) => (
                       <Select
                         className="select"
-                        placeholder={translate(
-                          "departments.manage-departments.select"
-                        )}
+                        placeholder={translate("to.translate")}
                         // options={}
                         name="tags"
                         isMulti
@@ -118,12 +154,10 @@ class PostNew extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  posts: state.posts,
-  form: state.form
+  post: state.posts.post
 })
 
-PostNew = connect(
+export default connect(
   mapStateToProps,
   { fetchEditPost, sendPost }
 )(PostNew)
-export default reduxForm({ form: "postForm" })(PostNew)
