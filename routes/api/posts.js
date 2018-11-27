@@ -54,8 +54,8 @@ router.get("/", async (req, res) => {
   }
 })
 
-// @route  GET api/posts/:title
-// @desc   Get post by title
+// @route  GET api/posts/:id
+// @desc   Get post by id
 // @access Public
 router.get("/:title", async (req, res) => {
   try {
@@ -73,6 +73,22 @@ router.get("/:title", async (req, res) => {
     res.status(400).json(err)
   }
 })
+
+// @route  GET api/posts/:title
+// @desc   Get post by title
+// @access Public
+router.get(
+  "/edit/:id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      post = await Post.findById(req.params.id)
+      res.status(200).json(post)
+    } catch (err) {
+      res.status(400).json(err)
+    }
+  }
+)
 
 // @route  POST api/posts
 // @desc   Create a post

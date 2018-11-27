@@ -22,6 +22,7 @@ export default function postReducer(state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        post: {},
         loading: false
       }
     case POST_FETCHED:

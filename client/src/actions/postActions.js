@@ -36,6 +36,23 @@ export const fetchPost = title => async dispatch => {
   dispatch(clearLoading())
 }
 
+export const fetchEditPost = id => async dispatch => {
+  dispatch(loading())
+  try {
+    const res = await axios.get(`/api/posts/edit/${id}`)
+    dispatch({
+      type: POST_FETCHED,
+      payload: res.data
+    })
+  } catch (e) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: e.response.data
+    })
+  }
+  dispatch(clearLoading())
+}
+
 export const sendPost = (values, file, history) => async dispatch => {
   dispatch(loading())
   const uploadConfig = await axios.get("/api/posts/upload")

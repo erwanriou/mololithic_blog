@@ -82,6 +82,12 @@ class App extends React.Component {
             path="/dashboard/new-post"
             component={PostNew}
           />
+          <PrivateRoleRoute
+            exact
+            roles="ROLE_ADMIN"
+            path="/dashboard/edit-post/:postid"
+            component={PostNew}
+          />
         </Switch>
         <Footer />
       </Fragment>
