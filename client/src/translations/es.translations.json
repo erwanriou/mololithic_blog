@@ -2,7 +2,6 @@
   "login": {
     "title": "Inicia sesión en Bebe Yogini!",
     "subtitle": "Puede elegir iniciar sesión con google, facebook o correo electrónico",
-
     "google": "Seguir con google",
     "facebook": "Seguir con facebook",
     "instagram": "Seguir con instagram",
@@ -14,19 +13,17 @@
   "register": {
     "title": "Registrate en Bebe Yogini!",
     "subtitle": "Puede elegir registrar con la autenticación de google, facebook o correo electrónico",
-
     "google": "Seguir con google",
     "facebook": "Seguir con facebook",
     "instagram": "Seguir con instagram",
     "option": "O Registrarse con correo electrónico",
-
     "register": "Registrate",
     "noaccount": "¿Ya tienes una cuenta?",
     "login": "Inicia sesión"
   },
   "nav": {
     "subtitle": "El blog de yoga para principiantes",
-
+    "home": "HOME",
     "blog": "BLOG",
     "about": "SOBRE",
     "psychology": "PSICOLOGÍA",
@@ -45,15 +42,12 @@
     "quote": "ENCUENTRA TU EQUILIBRIO",
     "level": "TODOS LOS NIVELES",
     "leveltext": "Queremos compartir nuestro yoga con todos.",
-
     "style": "DIFERENTES ESTILOS",
     "styletext": "Elige el estilo de yoga más apropiado para ti",
-
     "blog": "Blog",
     "school": "Escuela",
     "shop": "Tienda",
     "link": "¡Descubre sobre yoga y psicología!",
-
     "soon": "¡Próximamente!"
   },
   "footer": {

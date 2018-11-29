@@ -35,7 +35,7 @@ class PostNew extends React.Component {
     document.addEventListener("keydown", this.handleKey, false)
   }
   componentDidUpdate() {
-    isEmpty(this.state.titleField) &&
+    this.state.titleField === undefined &&
       this.props.post.title &&
       this.setState({
         titleField: this.props.post.title,
