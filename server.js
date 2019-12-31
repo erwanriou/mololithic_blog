@@ -25,9 +25,6 @@ require("./services/passportGoogle")(passport)
 require("./services/passportFacebook")(passport)
 require("./services/passportInstagram")(passport)
 
-// Import Middleware
-// const httpsRedirect = require("./middleware/httpsRedirect");
-
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -47,7 +44,6 @@ app.use("/api/posts", posts)
 // Server static assets
 if (process.env.NODE_ENV === "production") {
   app.enable("trust proxy")
-  app.use(httpsRedirect)
   app.use(express.static("client/build"))
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
