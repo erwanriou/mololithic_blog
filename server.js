@@ -12,6 +12,9 @@ const server = http.Server(app)
 // Import Database
 const mlab = require("./services/mlab")
 
+// Import security
+const helmet = require("helmet")
+
 // Import Routes
 const google = require("./routes/auth/google")
 const facebook = require("./routes/auth/facebook")
@@ -29,6 +32,8 @@ require("./services/passportInstagram")(passport)
 const wwwRedirect = require("./middleware/wwwRedirect")
 
 // Middleware
+app.use(helmet())
+app.disable("x-powered-by")
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(passport.initialize())
