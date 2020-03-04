@@ -81,6 +81,22 @@
   overflow: hidden;
   height: 15rem;
 }
+.dashboard .posts-list .post-admin-item .delete-button {
+  position: absolute;
+  background: none;
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.dashboard .posts-list .post-admin-item .delete-button:hover {
+  color: black;
+}
 .dashboard .posts-list .post-admin-item img {
   position: relative;
   overflow: hidden;

@@ -2,6 +2,10 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link, withRouter } from "react-router-dom"
 
+// IMPORT ACTIONS
+import { deletePost } from "../../actions/postActions"
+
+// IMPORT COMPONENTS
 import PostList from "../post/PostList"
 import isEmpty from "../../utils/isEmpty"
 import Spinner from "../common/Spinner"
@@ -14,7 +18,11 @@ class DashboardAdmin extends React.Component {
     isEmpty(posts) || loading
       ? (postContent = <Spinner />)
       : (postContent = (
-          <PostList posts={posts} pathname={this.props.location.pathname} />
+          <PostList
+            posts={posts}
+            pathname={this.props.location.pathname}
+            handleDeletePost={this.props.deletePost}
+          />
         ))
 
     return (
@@ -35,4 +43,9 @@ const mapStateToProps = state => ({
   posts: state.posts
 })
 
-export default withRouter(connect(mapStateToProps)(DashboardAdmin))
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { deletePost }
+  )(DashboardAdmin)
+)

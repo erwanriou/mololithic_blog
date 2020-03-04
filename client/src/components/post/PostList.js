@@ -18,7 +18,7 @@ class PostList extends React.Component {
     })
   }
   render() {
-    const { pathname, posts } = this.props
+    const { pathname, posts, handleDeletePost } = this.props
     const { query } = this.state
     let Postcontent
     switch (pathname) {
@@ -26,7 +26,11 @@ class PostList extends React.Component {
         Postcontent = (
           <div className="posts-list">
             {posts.map(post => (
-              <PostAdminItem post={post} key={post._id} />
+              <PostAdminItem
+                handleDeletePost={handleDeletePost}
+                post={post}
+                key={post._id}
+              />
             ))}
           </div>
         )

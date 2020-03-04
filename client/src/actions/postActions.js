@@ -22,7 +22,7 @@ export const fetchPosts = () => async dispatch => {
 export const fetchPost = title => async dispatch => {
   dispatch(loading())
   try {
-    const res = await axios.get(`/api/posts/${title}`)
+    const res = await axios.get(`/api/posts/post/${title}`)
     dispatch({
       type: POST_FETCHED,
       payload: res.data
@@ -51,6 +51,24 @@ export const fetchEditPost = id => async dispatch => {
     })
   }
   dispatch(clearLoading())
+}
+
+// DELETE POST BY ID
+export const deletePost = id => async dispatch => {
+  dispatch(loading())
+  try {
+    await axios.delete(`/api/posts/delete/${id}`)
+    const res = await axios.get("/api/posts")
+    dispatch({
+      type: POSTS_FETCHED,
+      payload: res.data
+    })
+  } catch (e) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: e.response.data
+    })
+  }
 }
 
 export const sendPost = (values, file, history) => async dispatch => {

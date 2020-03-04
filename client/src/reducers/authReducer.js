@@ -1,5 +1,5 @@
 import {
-  LOADING_DATA,
+  LOADING_AUTH_DATA,
   CLEAR_LOADING_DATA,
   USER_LOGIN,
   USER_LOGOUT
@@ -14,7 +14,7 @@ const initialState = {
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case LOADING_DATA:
+    case LOADING_AUTH_DATA:
       return {
         ...state,
         loading: true

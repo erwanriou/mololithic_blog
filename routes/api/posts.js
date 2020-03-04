@@ -10,6 +10,9 @@ const User = require("../../models/User")
 const Post = require("../../models/Post")
 const validatePostInput = require("../../validation/post")
 
+// IMPORT MIDDLEWARE
+const isAdmin = require("../../middleware/isAdmin")
+
 const s3 = new AWS.S3({
   accessKeyId: keys.aws.clientID,
   secretAccessKey: keys.aws.clientSecret,
@@ -25,6 +28,7 @@ const router = express.Router()
 router.get(
   "/upload",
   passport.authenticate("jwt", { session: false }),
+  isAdmin,
   (req, res) => {
     const key = `${req.user.id}/${uuid()}.jpeg`
     req.user.authorities.includes("ROLE_ADMIN") === false
@@ -57,7 +61,7 @@ router.get("/", async (req, res) => {
 // @route  GET api/posts/:id
 // @desc   Get post by id
 // @access Public
-router.get("/:title", async (req, res) => {
+router.get("/post/:title", async (req, res) => {
   try {
     const postTitle = req.params.title
       .toLowerCase()
@@ -74,16 +78,35 @@ router.get("/:title", async (req, res) => {
   }
 })
 
-// @route  GET api/posts/:title
+// @route  GET api/posts/edit/:id
 // @desc   Get post by title
 // @access Public
 router.get(
   "/edit/:id",
   passport.authenticate("jwt", { session: false }),
+  isAdmin,
   async (req, res) => {
     try {
-      post = await Post.findById(req.params.id)
+      const post = await Post.findById(req.params.id)
       res.status(200).json(post)
+    } catch (err) {
+      res.status(400).json(err)
+    }
+  }
+)
+
+// @route  GET api/posts/delete/:id
+// @desc   Get post by title
+// @access Public
+router.delete(
+  "/delete/:id",
+  passport.authenticate("jwt", { session: false }),
+  isAdmin,
+  async (req, res) => {
+    try {
+      await Post.findByIdAndRemove(req.params.id)
+
+      res.status(200).json({ delete: "success" })
     } catch (err) {
       res.status(400).json(err)
     }
@@ -96,20 +119,16 @@ router.get(
 router.post(
   "/",
   passport.authenticate("jwt", { session: false }),
+  isAdmin,
   async (req, res) => {
-    const { errors, isValid } = validatePostInput(req.body)
-    //Check Validation
-    !isValid && res.status(400).json(errors)
-    let newPost
-    req.user.authorities.includes("ROLE_ADMIN") === false
-      ? (valid = res
-          .status(403)
-          .json({ error: "You doesnt have admin right to create a post" }))
-      : (newPost = new Post({
-          ...req.body,
-          _user: req.user.id
-        }))
     try {
+      const { errors, isValid } = validatePostInput(req.body)
+      //Check Validation
+      !isValid && res.status(400).json(errors)
+      let newPost = new Post({
+        ...req.body,
+        _user: req.user.id
+      })
       await newPost.save()
       res.json({ post: "Post created with success!" })
     } catch (err) {
