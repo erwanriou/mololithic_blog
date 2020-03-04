@@ -1,15 +1,12 @@
 import React from "react"
-import Select from "react-select"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
-import { Translate } from "react-localize-redux"
 
 //import actions
 import { fetchEditPost, sendPost } from "../../actions/postActions"
 
 import PostField from "./PostField"
 import isEmpty from "../../utils/isEmpty"
-import Spinner from "../common/Spinner"
 
 class PostNew extends React.Component {
   constructor(props) {
@@ -18,7 +15,7 @@ class PostNew extends React.Component {
       titleField: undefined,
       asanaField: undefined,
       bodyField: undefined,
-      selectedOption: null,
+      postId: undefined,
       file: null,
       errors: {}
     }
@@ -34,13 +31,19 @@ class PostNew extends React.Component {
     postid && this.props.fetchEditPost(postid)
     document.addEventListener("keydown", this.handleKey, false)
   }
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    const { postid } = this.props.match.params
+    !isEmpty(this.props.post) &&
+      this.props.post !== prevProps.post &&
+      this.props.fetchEditPost(postid)
+
     this.state.titleField === undefined &&
       this.props.post.title &&
       this.setState({
         titleField: this.props.post.title,
         asanaField: this.props.post.asana,
-        bodyField: this.props.post.body
+        bodyField: this.props.post.body,
+        postId: this.props.post._id
       })
   }
   componentWillUnmount() {
@@ -68,13 +71,24 @@ class PostNew extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    const newPost = {
-      title: this.state.titleField,
-      asana: this.state.asanaField,
-      body: this.state.bodyField
-    }
-    this.props.sendPost(newPost, this.state.file, this.props.history)
+
+    const { titleField, asanaField, bodyField, postId, file } = this.state
+
+    const newPost = isEmpty(postId)
+      ? {
+          title: titleField,
+          asana: asanaField,
+          body: bodyField
+        }
+      : {
+          title: titleField,
+          asana: asanaField,
+          body: bodyField,
+          _id: postId
+        }
+    this.props.sendPost(newPost, file, this.props.history)
   }
+  render
   render() {
     const { postid } = this.props.match.params
     const { titleField, asanaField, bodyField, errors } = this.state
@@ -110,21 +124,6 @@ class PostNew extends React.Component {
                   onChange={this.handleQueryInput}
                   name="bodyField"
                 />
-                <div className="field">
-                  <Translate>
-                    {({ translate }) => (
-                      <Select
-                        className="select"
-                        placeholder={translate("to.translate")}
-                        // options={}
-                        name="tags"
-                        isMulti
-                        value={this.props.tags}
-                        onChange={this.handleSelectChange}
-                      />
-                    )}
-                  </Translate>
-                </div>
                 <div className="send-image">
                   <label className="fileContainer">
                     <i className="fas fa-cloud-upload-alt" />

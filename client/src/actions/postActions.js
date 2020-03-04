@@ -2,6 +2,8 @@ import axios from "axios"
 import { POSTS_FETCHED, POST_FETCHED, GET_ERRORS } from "./types"
 import { loading, clearLoading } from "./loadingActions"
 
+import isEmpty from "../utils/isEmpty"
+
 export const fetchPosts = () => async dispatch => {
   dispatch(loading())
   try {
@@ -73,19 +75,27 @@ export const deletePost = id => async dispatch => {
 
 export const sendPost = (values, file, history) => async dispatch => {
   dispatch(loading())
-  const uploadConfig = await axios.get("/api/posts/upload")
-  delete axios.defaults.headers.common["Authorization"]
-  await axios.put(uploadConfig.data.url, file, {
-    headers: {
-      ContentType: file.type
-    }
-  })
-  const token = localStorage.getItem("jwtToken")
-  axios.defaults.headers.common["Authorization"] = token
-  await axios.post("/api/posts", {
-    ...values,
-    imageUrl: uploadConfig.data.key
-  })
+  if (file !== null) {
+    const uploadConfig = await axios.get("/api/posts/upload")
+    delete axios.defaults.headers.common["Authorization"]
+
+    await axios.put(uploadConfig.data.url, file, {
+      headers: {
+        ContentType: file.type
+      }
+    })
+
+    const token = localStorage.getItem("jwtToken")
+    axios.defaults.headers.common["Authorization"] = token
+    await axios.post("/api/posts/new", {
+      ...values,
+      imageUrl: uploadConfig.data.key
+    })
+  } else {
+    await axios.post("/api/posts/new", {
+      ...values
+    })
+  }
   dispatch(fetchPosts())
   history.push("/dashboard")
 }

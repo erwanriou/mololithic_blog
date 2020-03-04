@@ -117,20 +117,33 @@ router.delete(
 // @desc   Create a post
 // @access Private
 router.post(
-  "/",
+  "/new",
   passport.authenticate("jwt", { session: false }),
   isAdmin,
   async (req, res) => {
+    // CHECK IF POST EXIST
+    let post = await Post.findOne({ _id: req.body._id })
+    const { errors, isValid } = validatePostInput(req.body)
+    // CHECK VALIDATIONS
+    !isValid && res.status(400).json(errors)
+
     try {
-      const { errors, isValid } = validatePostInput(req.body)
-      //Check Validation
-      !isValid && res.status(400).json(errors)
-      let newPost = new Post({
+      const postFields = {
         ...req.body,
         _user: req.user.id
-      })
-      await newPost.save()
-      res.json({ post: "Post created with success!" })
+      }
+      if (post) {
+        const updatedPost = await Post.findOneAndUpdate(
+          { _id: req.body._id },
+          { $set: { ...postFields } },
+          { new: true }
+        )
+        return res.status(201).json(updatedPost)
+      }
+
+      // CREATE POST
+      post = await new Post(postFields).save()
+      res.status(201).json(post)
     } catch (err) {
       res.status(400).json(err)
     }
