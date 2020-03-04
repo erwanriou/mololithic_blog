@@ -63,7 +63,7 @@ class Register extends React.Component {
                 </h2>
               </div>
               <div className="auth register">
-                <a href="/auth/google" className="google">
+                {/* <a href="/auth/google" className="google">
                   <i className="fab fa-google-plus-g" />
                   <span>
                     <Translate id="register.google" />
@@ -83,7 +83,7 @@ class Register extends React.Component {
                 </a>
                 <h3>
                   <Translate id="register.option" />
-                </h3>
+                </h3> */}
                 <form className="authform" onSubmit={this.handleSubmit}>
                   <InputGroup
                     placeholder="Your name"

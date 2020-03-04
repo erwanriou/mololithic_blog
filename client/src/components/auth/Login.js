@@ -59,7 +59,7 @@ class Login extends React.Component {
                 </h2>
               </div>
               <div className="auth login">
-                <a href="/auth/google" className="google">
+                {/* <a href="/auth/google" className="google">
                   <i className="fab fa-google-plus-g" />
                   <span>
                     <Translate id="login.google" />
@@ -79,7 +79,7 @@ class Login extends React.Component {
                 </a>
                 <h3>
                   <Translate id="login.option" />
-                </h3>
+                </h3> */}
                 <form className="authform" onSubmit={this.handleSubmit}>
                   <InputGroup
                     placeholder="Your Email"
