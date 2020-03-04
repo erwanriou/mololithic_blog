@@ -62,7 +62,7 @@ class PostList extends React.Component {
           <div className="posts-list">
             {posts
               .sort((a, b) => {
-                return new Date(a.date) - new Date(b.date)
+                return new Date(b.date) - new Date(a.date)
               })
               .slice(0, 3)
               .map(post => (
