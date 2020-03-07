@@ -1,6 +1,6 @@
 import React from "react"
 
-class Privacy extends React.Component {
+class InfoPrivacy extends React.Component {
   render() {
     return (
       <main className="privacy">
@@ -12,4 +12,4 @@ class Privacy extends React.Component {
   }
 }
 
-export default Privacy
+export default InfoPrivacy

@@ -1,8 +1,10 @@
 import React, { Fragment } from "react"
-import PostItem from "./PostItem"
-import PostAdminItem from "./PostAdminItem"
+
+// IMPORT COMPONENTS
 import PostSearch from "./PostSearch"
+import PostItem from "./PostItem"
 import PostLandingItem from "./PostLandingItem"
+import PostAdminItem from "../../dashboard/admin/PostAdminItem"
 
 class PostList extends React.Component {
   constructor(props) {
@@ -18,11 +20,12 @@ class PostList extends React.Component {
     })
   }
   render() {
-    const { pathname, posts, handleDeletePost } = this.props
+    const { pathname, posts, handleDeletePost, translate } = this.props
     const { query } = this.state
+
     let Postcontent
     switch (pathname) {
-      case "/dashboard":
+      case "/dashboard/main":
         Postcontent = (
           <div className="posts-list">
             {posts.map(post => (
@@ -35,7 +38,7 @@ class PostList extends React.Component {
           </div>
         )
         break
-      case "/feed":
+      case translate("meta.blog.url"):
         Postcontent = (
           <Fragment>
             <PostSearch
@@ -51,7 +54,7 @@ class PostList extends React.Component {
                   post.title.toLowerCase().includes(query.toLowerCase())
                 )
                 .map(post => (
-                  <PostItem post={post} key={post._id} />
+                  <PostItem post={post} key={post._id} translate={translate} />
                 ))}
             </div>
           </Fragment>
@@ -66,7 +69,11 @@ class PostList extends React.Component {
               })
               .slice(0, 3)
               .map(post => (
-                <PostLandingItem post={post} key={post._id} />
+                <PostLandingItem
+                  post={post}
+                  key={post._id}
+                  translate={translate}
+                />
               ))}
           </div>
         )

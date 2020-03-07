@@ -6,11 +6,12 @@ import blog from "@utils/images/blog.png"
 import school from "@utils/images/school.png"
 import shop from "@utils/images/shop.png"
 
-class LandingLinks extends React.Component {
+class HomeLinks extends React.Component {
   render() {
+    const { translate } = this.props
     return (
       <div className="links">
-        <Link to="/feed">
+        <Link to={translate("meta.blog.url")}>
           <h3>
             <Translate id="landing.blog" />
           </h3>
@@ -42,4 +43,4 @@ class LandingLinks extends React.Component {
   }
 }
 
-export default LandingLinks
+export default HomeLinks

@@ -1,7 +1,7 @@
 .banner {
   position: relative;
   z-index: 1;
-  background: url("../utils/images/banner.jpg") center;
+  background: url("../../utils/images/banner.jpg") center;
   background-size: cover;
   height: 700px;
 }

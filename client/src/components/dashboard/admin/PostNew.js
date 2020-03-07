@@ -17,42 +17,46 @@ class PostNew extends React.Component {
       bodyField: undefined,
       postId: undefined,
       file: null,
-      errors: {}
+      errors: {},
+      fetched: false
     }
     this.handleSelectChange = this.handleSelectChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleQueryInput = this.handleQueryInput.bind(this)
+    this.updatePost = this.updatePost.bind(this)
     this.onFileChange = this.onFileChange.bind(this)
     this.handleResetForm = this.handleResetForm.bind(this)
     this.handleKey = this.handleKey.bind(this)
   }
   componentDidMount() {
-    const { postid } = this.props.match.params
-    postid && this.props.fetchEditPost(postid)
+    const { postId } = this.props.match.params
+    postId && this.props.fetchEditPost(postId)
     document.addEventListener("keydown", this.handleKey, false)
   }
   componentDidUpdate(prevProps) {
-    const { postid } = this.props.match.params
-    !isEmpty(this.props.post) &&
+    const { postId } = this.props.match.params
+    const { fetched } = this.state
+    !fetched &&
+      !isEmpty(this.props.post) &&
       this.props.post !== prevProps.post &&
-      this.props.fetchEditPost(postid)
-
-    this.state.titleField === undefined &&
-      this.props.post.title &&
-      this.setState({
-        titleField: this.props.post.title,
-        asanaField: this.props.post.asana,
-        bodyField: this.props.post.body,
-        postId: this.props.post._id
-      })
+      this.props.fetchEditPost(postId) &&
+      this.updatePost()
   }
   componentWillUnmount() {
     document.removeEventListener("keydown", this.handleKey, false)
   }
+  updatePost() {
+    this.setState({
+      titleField: this.props.post.title,
+      asanaField: this.props.post.asana,
+      bodyField: this.props.post.body,
+      postId: this.props.post._id
+    })
+  }
   handleKey(event) {
     if (event.keyCode === 27) {
       this.handleResetForm()
-      this.props.history.push("/dashboard")
+      this.props.history.push("/dashboard/main")
     }
   }
   onFileChange(event) {

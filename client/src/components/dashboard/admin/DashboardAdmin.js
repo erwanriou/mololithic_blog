@@ -6,12 +6,13 @@ import { Link, withRouter } from "react-router-dom"
 import { deletePost } from "@actions/postActions"
 
 // IMPORT COMPONENTS
-import PostList from "../post/PostList"
+import PostList from "../../landing/post/PostList"
 import isEmpty from "@utils/isEmpty"
 import Spinner from "@common/Spinner"
 
 class DashboardAdmin extends React.Component {
   render() {
+    const { translate } = this.props
     const { posts, loading } = this.props.posts
     let postContent
 
@@ -20,6 +21,7 @@ class DashboardAdmin extends React.Component {
       : (postContent = (
           <PostList
             posts={posts}
+            translate={translate}
             pathname={this.props.location.pathname}
             handleDeletePost={this.props.deletePost}
           />

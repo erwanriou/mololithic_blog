@@ -3,7 +3,7 @@ import { Translate } from "react-localize-redux"
 
 import logo from "@utils/images/logobbyogini3.png"
 
-class Banner extends React.Component {
+class HomeBanner extends React.Component {
   render() {
     return (
       <div className="banner">
@@ -24,4 +24,4 @@ class Banner extends React.Component {
     )
   }
 }
-export default Banner
+export default HomeBanner

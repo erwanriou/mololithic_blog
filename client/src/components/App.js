@@ -1,47 +1,30 @@
-import React, { Fragment } from "react"
+import React, { Suspense, Fragment } from "react"
 import { renderToStaticMarkup } from "react-dom/server"
-import { withLocalize } from "react-localize-redux"
-import { Route, Switch, withRouter } from "react-router-dom"
+import { withLocalize, getTranslate } from "react-localize-redux"
+import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 
-// Import Actions
+// IMPORT ACTIONS
 import { logout } from "@actions/authActions"
 import { fetchPosts } from "@actions/postActions"
 
-// Import Translations
+// IMPORT TRANSLATIONS
 import EN from "../translations/en.translations.json"
 import ES from "../translations/es.translations.json"
 
 // IMPORT UTILS
 import isEmpty from "@utils/isEmpty"
 
-// Auth
-import PrivateRoute from "@common/PrivateRoute"
-import PrivateRoleRoute from "@common/PrivateRoleRoute"
-// Components
-import Nav from "./layout/Nav"
-import Landing from "./landing/Landing"
-import Privacy from "./layout/Privacy"
-import Footer from "./layout/Footer"
-import Login from "./auth/Login"
-import Register from "./auth/Register"
-import Dashboard from "./dashboard/Dashboard"
-import PostNew from "./post/PostNew"
-import Posts from "./post/Posts"
-import Post from "./post/Post"
+// IMPORT ROUTES
+import Router from "./Router"
 
-// Styling
-import "../styles/reset.css"
-import "../styles/global.css"
-import "../styles/nav.css"
-import "../styles/dashboard.css"
-import "../styles/landing.css"
-import "../styles/posts.css"
-import "../styles/post-create.css"
-import "../styles/post.css"
-import "../styles/footer.css"
-import "../styles/auth.css"
-import "../styles/responsive.css"
+// IMPORT COMPONENTS
+import Loading from "@common/Loader"
+import Nav from "./layout/Nav"
+import Footer from "./layout/Footer"
+
+// IMPORT STYLES
+import "./../styles"
 
 class App extends React.Component {
   constructor(props) {
@@ -97,40 +80,21 @@ class App extends React.Component {
       }, 300)
   }
   render() {
+    const { translate, location } = this.props
     return (
       <Fragment>
-        <Nav
-          setActiveLanguage={this.props.setActiveLanguage}
-          languages={this.props.languages}
-        />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/privacy-policy" component={Privacy} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/feed" component={Posts} />
-          <Route exact path="/feed/:posttitle" component={Post} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoleRoute
-            exact
-            roles="ROLE_ADMIN"
-            path="/dashboard/new-post"
-            component={PostNew}
-          />
-          <PrivateRoleRoute
-            exact
-            roles="ROLE_ADMIN"
-            path="/dashboard/edit-post/:postid"
-            component={PostNew}
-          />
-        </Switch>
-        <Footer />
+        <Nav translate={translate} />
+        <Suspense fallback={<Loading />}>
+          <Router translate={translate} router={location} />
+        </Suspense>
+        <Footer translate={translate} />
       </Fragment>
     )
   }
 }
 
 const mapStateToProps = state => ({
+  translate: getTranslate(state.localize),
   isActive: state.isActive
 })
 

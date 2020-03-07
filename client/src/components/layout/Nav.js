@@ -14,6 +14,7 @@ class Nav extends React.Component {
     this.props.logout()
   }
   render() {
+    const { translate } = this.props
     const { isAuthenticated, user, loading } = this.props.auth
     let content
 
@@ -34,7 +35,7 @@ class Nav extends React.Component {
       ? (content = <Spinner />)
       : (content = (
           <div className="usermenu">
-            <Link className="noselect" to="/dashboard">
+            <Link className="noselect" to="/dashboard/main">
               <Translate id="nav.dashboard" />
             </Link>
             <img
@@ -64,10 +65,10 @@ class Nav extends React.Component {
               <Link className="noselect" to="/">
                 <Translate id="nav.home" />
               </Link>
-              <Link className="noselect" to="/feed">
+              <Link className="noselect" to={translate("meta.blog.url")}>
                 <Translate id="nav.blog" />
               </Link>
-              <Link className="noselect" to="/about">
+              <Link className="noselect" to={translate("meta.about.url")}>
                 <Translate id="nav.about" />
               </Link>
               <Link className="noselect" to="/yoga">

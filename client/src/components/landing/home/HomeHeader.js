@@ -1,7 +1,7 @@
 import React from "react"
 import { Translate } from "react-localize-redux"
 
-class LandingHeader extends React.Component {
+class HomeHeader extends React.Component {
   render() {
     return (
       <div className="header">
@@ -37,4 +37,4 @@ class LandingHeader extends React.Component {
   }
 }
 
-export default LandingHeader
+export default HomeHeader

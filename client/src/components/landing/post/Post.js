@@ -5,8 +5,8 @@ import { fetchPost } from "@actions/postActions"
 
 class Post extends React.Component {
   componentDidMount() {
-    const { posttitle } = this.props.match.params
-    this.props.fetchPost(posttitle)
+    const { title } = this.props.match.params
+    this.props.fetchPost(title)
   }
   render() {
     const { post } = this.props.posts

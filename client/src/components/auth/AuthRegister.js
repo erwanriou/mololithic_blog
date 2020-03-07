@@ -3,16 +3,18 @@ import { Link, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { Translate } from "react-localize-redux"
 
-import { login } from "@actions/authActions"
+import { register } from "@actions/authActions"
 import InputGroup from "@common/InputGroup"
 
-class Login extends React.Component {
+class AuthRegister extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      name: "",
       email: "",
       password: "",
+      password2: "",
       errors: {}
     }
     this.handleQueryInput = this.handleQueryInput.bind(this)
@@ -31,11 +33,13 @@ class Login extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
-    const userData = {
+    const newUser = {
+      name: this.state.name,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2
     }
-    this.props.login(userData, this.props.history)
+    this.props.register(newUser, this.props.history)
   }
   handleQueryInput(e) {
     e.preventDefault()
@@ -44,7 +48,7 @@ class Login extends React.Component {
     })
   }
   render() {
-    const { email, password, errors } = this.state
+    const { name, email, password, password2, errors } = this.state
     return (
       <div className="layout">
         <div className="opacity">
@@ -52,23 +56,23 @@ class Login extends React.Component {
             <main>
               <div className="title">
                 <h1>
-                  <Translate id="login.title" />
+                  <Translate id="register.title" />
                 </h1>
                 <h2>
-                  <Translate id="login.subtitle" />
+                  <Translate id="register.subtitle" />
                 </h2>
               </div>
-              <div className="auth login">
+              <div className="auth register">
                 {/* <a href="/auth/google" className="google">
                   <i className="fab fa-google-plus-g" />
                   <span>
-                    <Translate id="login.google" />
+                    <Translate id="register.google" />
                   </span>
                 </a>
                 <a href="/auth/facebook" className="facebook">
                   <i className="fab fa-facebook-f" />
                   <span>
-                    <Translate id="login.facebook" />
+                    <Translate id="register.facebook" />
                   </span>
                 </a>
                 <a href="/auth/instagram" className="instagram">
@@ -78,9 +82,16 @@ class Login extends React.Component {
                   </span>
                 </a>
                 <h3>
-                  <Translate id="login.option" />
+                  <Translate id="register.option" />
                 </h3> */}
                 <form className="authform" onSubmit={this.handleSubmit}>
+                  <InputGroup
+                    placeholder="Your name"
+                    name="name"
+                    value={name}
+                    onChange={this.handleQueryInput}
+                    error={errors.name}
+                  />
                   <InputGroup
                     placeholder="Your Email"
                     name="email"
@@ -97,14 +108,22 @@ class Login extends React.Component {
                     onChange={this.handleQueryInput}
                     error={errors.password}
                   />
+                  <InputGroup
+                    placeholder="Confirm your Password"
+                    name="password2"
+                    value={password2}
+                    type="password"
+                    onChange={this.handleQueryInput}
+                    error={errors.password}
+                  />
                   <button type="submit">
-                    <Translate id="login.login" />
+                    <Translate id="register.register" />
                   </button>
                 </form>
                 <span>
-                  <Translate id="login.noaccount" />
-                  <Link to="/register">
-                    <Translate id="login.register" />
+                  <Translate id="register.noaccount" />
+                  <Link to="/login">
+                    <Translate id="register.login" />
                   </Link>
                 </span>
               </div>
@@ -124,6 +143,6 @@ const mapStateToProps = state => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { login }
-  )(Login)
+    { register }
+  )(AuthRegister)
 )

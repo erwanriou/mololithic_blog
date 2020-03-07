@@ -1,7 +1,7 @@
 .layout-create-post {
   position: relative;
   z-index: 1;
-  background: url("../utils/images/yogabackground.jpg") repeat;
+  background: url("../../utils/images/yogabackground.jpg") repeat;
   background-size: auto;
   height: 900px;
   overflow: hidden;

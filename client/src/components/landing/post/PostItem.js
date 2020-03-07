@@ -2,15 +2,18 @@ import React from "react"
 import Timestamp from "react-timestamp"
 import { Link } from "react-router-dom"
 
-class PostLandingItem extends React.Component {
+class PostItem extends React.Component {
   render() {
-    const { post } = this.props
+    const { post, translate } = this.props
     const seoUrl = post.title
       .toLowerCase()
       .split(" ")
       .join("-")
     return (
-      <Link to={`/feed/${seoUrl}`} className="post-landing-item">
+      <Link
+        to={`/${translate("meta.blog-post.fix-url")}/${seoUrl}`}
+        className="post-item"
+      >
         <img
           src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${post.imageUrl}`}
           alt={post.title}
@@ -36,4 +39,4 @@ class PostLandingItem extends React.Component {
   }
 }
 
-export default PostLandingItem
+export default PostItem

@@ -1,4 +1,37 @@
 {
+  "meta": {
+    "home": {
+      "url": "/",
+      "title": "Yoga para principiantes | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "blog": {
+      "url": "/blog",
+      "title": "Blog de yoga | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "blog-post": {
+      "url": "/blog/:title",
+      "title": " | Bebeyogini",
+      "fix-url": "blog",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "contact": {
+      "url": "/contacto",
+      "title": "Contato | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "privacy-policy": {
+      "url": "/politica-privacidad",
+      "title": "Política de Privacidade | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    }
+  },
   "login": {
     "title": "Inicia sesión en Bebe Yogini!",
     "subtitle": "Puede elegir iniciar sesión con google, facebook o correo electrónico",
