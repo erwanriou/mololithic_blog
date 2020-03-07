@@ -2,11 +2,17 @@ import React from "react"
 import { connect } from "react-redux"
 import { getTranslate } from "react-localize-redux"
 
+// IMPORT ACTIONS
+import { fetchPosts } from "@actions/postActions"
+
 import isEmpty from "@utils/isEmpty"
 import Spinner from "@common/Spinner"
 import PostList from "./PostList"
 
 class Posts extends React.Component {
+  componentDidMount() {
+    this.props.fetchPosts()
+  }
   render() {
     let Postcontent
     const { translate } = this.props
@@ -31,4 +37,7 @@ const mapStateToProps = state => ({
   posts: state.posts
 })
 
-export default connect(mapStateToProps)(Posts)
+export default connect(
+  mapStateToProps,
+  { fetchPosts }
+)(Posts)

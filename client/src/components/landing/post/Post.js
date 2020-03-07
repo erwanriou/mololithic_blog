@@ -4,6 +4,12 @@ import { connect } from "react-redux"
 import { fetchPost } from "@actions/postActions"
 
 class Post extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      fetched: false
+    }
+  }
   componentDidMount() {
     const { title } = this.props.match.params
     this.props.fetchPost(title)

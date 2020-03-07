@@ -6,7 +6,6 @@ import { connect } from "react-redux"
 
 // IMPORT ACTIONS
 import { logout } from "@actions/authActions"
-import { fetchPosts } from "@actions/postActions"
 
 // IMPORT TRANSLATIONS
 import EN from "../translations/en.translations.json"
@@ -45,7 +44,6 @@ class App extends React.Component {
     addTranslationForLanguage(EN, "en")
   }
   componentDidMount() {
-    this.props.fetchPosts()
     // SETUP TITLE PAGE VALUE
     this.setState({
       pathname: window.location.pathname
@@ -102,7 +100,7 @@ export default withLocalize(
   withRouter(
     connect(
       mapStateToProps,
-      { logout, fetchPosts }
+      { logout }
     )(App)
   )
 )
