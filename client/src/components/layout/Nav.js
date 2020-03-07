@@ -4,9 +4,9 @@ import { connect } from "react-redux"
 import { Link, withRouter } from "react-router-dom"
 import { Translate, withLocalize } from "react-localize-redux"
 
-import { logout } from "../../actions/authActions"
-import icon from "../../utils/images/logobbyogini.png"
-import Spinner from "../common/Spinner"
+import { logout } from "@actions/authActions"
+import icon from "@utils/images/logobbyogini.png"
+import Spinner from "@common/Spinner"
 
 class Nav extends React.Component {
   handleLogout(e) {
@@ -31,27 +31,27 @@ class Nav extends React.Component {
             </div>
           ))
       : loading === true
-        ? (content = <Spinner />)
-        : (content = (
-            <div className="usermenu">
-              <Link className="noselect" to="/dashboard">
-                <Translate id="nav.dashboard" />
-              </Link>
-              <img
-                className="noselect"
-                src={user.avatar}
-                alt={user.name}
-                title="You must have a Gravatar connect to you email to display an image"
-              />
-              <Link
-                className="noselect"
-                to="/"
-                onClick={this.handleLogout.bind(this)}
-              >
-                <Translate id="nav.logout" />
-              </Link>
-            </div>
-          ))
+      ? (content = <Spinner />)
+      : (content = (
+          <div className="usermenu">
+            <Link className="noselect" to="/dashboard">
+              <Translate id="nav.dashboard" />
+            </Link>
+            <img
+              className="noselect"
+              src={user.avatar}
+              alt={user.name}
+              title="You must have a Gravatar connect to you email to display an image"
+            />
+            <Link
+              className="noselect"
+              to="/"
+              onClick={this.handleLogout.bind(this)}
+            >
+              <Translate id="nav.logout" />
+            </Link>
+          </div>
+        ))
 
     return (
       <div className="nav">

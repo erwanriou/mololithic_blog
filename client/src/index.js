@@ -1,21 +1,20 @@
 import React from "react"
-import ReactDOM from "react-dom"
+import { render } from "react-dom"
 import jwt_decode from "jwt-decode"
+import TagManager from "react-gtm-module"
+import { store } from "./store"
 import { Provider } from "react-redux"
-import { createStore } from "redux"
+import { HelmetProvider } from "react-helmet-async"
 import { LocalizeProvider } from "react-localize-redux"
-import { composeWithDevTools } from "redux-devtools-extension"
 import { BrowserRouter as Router } from "react-router-dom"
 
-import App from "./components/App"
-import middleware from "./middleware"
-import reducer from "./reducers"
+// PWA SERVICE WORKERS
 import * as serviceWorker from "./serviceWorker"
 
-import setAuthToken from "./utils/setAuthToken"
-import { setCurrentUser, logout } from "./actions/authActions"
-
-const store = createStore(reducer, composeWithDevTools(middleware))
+// COMPONENTS
+import App from "./components/App"
+import setAuthToken from "@utils/setAuthToken"
+import { setCurrentUser, logout } from "@actions/authActions"
 
 if (localStorage.jwtToken) {
   const localToken = localStorage.jwtToken
@@ -31,18 +30,30 @@ if (localStorage.jwtToken) {
   }
 }
 
-ReactDOM.render(
+// HANDLING CONTEXT IN REACT
+const helmetContext = {}
+
+// GENERATE AND DECLARE DATALAYER
+const tagManagerArgs = {
+  gtmId: "GTM-PRQSQDZ",
+  dataLayer: {}
+}
+TagManager.initialize(tagManagerArgs)
+
+// DEFINE ROOT ELEMENT
+const rootElement = document.getElementById("bebeyogini")
+
+render(
   <Provider store={store}>
     <LocalizeProvider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <HelmetProvider context={helmetContext}>
+        <Router>
+          <App />
+        </Router>
+      </HelmetProvider>
     </LocalizeProvider>
   </Provider>,
-  document.getElementById("root")
+  rootElement
 )
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister()
+serviceWorker.register()

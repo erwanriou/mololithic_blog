@@ -3,8 +3,8 @@ import { Link, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import { Translate } from "react-localize-redux"
 
-import { login } from "../../actions/authActions"
-import InputGroup from "../common/InputGroup"
+import { login } from "@actions/authActions"
+import InputGroup from "@common/InputGroup"
 
 class Login extends React.Component {
   constructor(props) {

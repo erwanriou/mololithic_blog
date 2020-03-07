@@ -1,10 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import isEmpty from "../../utils/isEmpty"
-import Spinner from "../common/Spinner"
-
-import { fetchPost } from "../../actions/postActions"
+import { fetchPost } from "@actions/postActions"
 
 class Post extends React.Component {
   componentDidMount() {
@@ -19,9 +16,7 @@ class Post extends React.Component {
           <div className="container post-content">
             <div className="post-image">
               <img
-                src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${
-                  post.imageUrl
-                }`}
+                src={`https://s3.eu-west-3.amazonaws.com/bebeyogini/${post.imageUrl}`}
                 alt={post.title}
               />
             </div>

@@ -5,16 +5,19 @@ import { Route, Switch, withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 
 // Import Actions
-import { logout } from "./../actions/authActions"
-import { fetchPosts } from "./../actions/postActions"
+import { logout } from "@actions/authActions"
+import { fetchPosts } from "@actions/postActions"
 
 // Import Translations
-import englishTranslations from "../translations/en.translations.json"
-import frenchTranslations from "../translations/fr.translations.json"
-import spanishTranslations from "../translations/es.translations.json"
+import EN from "../translations/en.translations.json"
+import ES from "../translations/es.translations.json"
+
+// IMPORT UTILS
+import isEmpty from "@utils/isEmpty"
+
 // Auth
-import PrivateRoute from "./common/PrivateRoute"
-import PrivateRoleRoute from "./common/PrivateRoleRoute"
+import PrivateRoute from "@common/PrivateRoute"
+import PrivateRoleRoute from "@common/PrivateRoleRoute"
 // Components
 import Nav from "./layout/Nav"
 import Landing from "./landing/Landing"
@@ -43,23 +46,55 @@ import "../styles/responsive.css"
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.props.initialize({
+    const { initialize, addTranslationForLanguage } = this.props
+    initialize({
       languages: [
-        { name: "English", code: "en" },
-        { name: "Spanish", code: "es" }
+        { name: "Spanish", code: "es" },
+        { name: "English", code: "en" }
       ],
-      translation: englishTranslations,
+      translation: ES,
       options: { renderToStaticMarkup }
     })
-    this.props.addTranslationForLanguage(frenchTranslations, "fr")
-    this.props.addTranslationForLanguage(spanishTranslations, "es")
+    this.state = {
+      pathname: "",
+      origin: window.location.pathname + window.location.search
+    }
+    addTranslationForLanguage(EN, "en")
   }
   componentDidMount() {
     this.props.fetchPosts()
+    // SETUP TITLE PAGE VALUE
+    this.setState({
+      pathname: window.location.pathname
+    })
+    // STORE ORIGIN URL
+    isEmpty(window.location.pathname.match(/dashboard/)) &&
+      localStorage.setItem("origin", this.state.origin)
   }
-  componentDidUpdate(prevProps) {
-    const { isActive } = this.props
+  componentDidUpdate(prevProps, prevState) {
+    const { isActive, location } = this.props
     !isActive && this.props.logout()
+
+    // ENSURE SCROLL POSITION IS RESET WHEN CHANGE ROUTER PAGE
+    if (location.pathname !== prevProps.location.pathname) {
+      window.scrollTo(0, 0)
+    }
+    // DATALAYER UPDATE DATA
+    this.state.pathname !== window.location.pathname &&
+      this.setState({
+        pathname: window.location.pathname
+      })
+    this.state.pathname !== prevState.pathname &&
+      setTimeout(() => {
+        window.dataLayer.push({
+          event: "Pageview",
+          origin: localStorage.getItem("origin"),
+          page: window.location.pathname + window.location.search,
+          url: this.state.pathname,
+          host: window.location.hostname,
+          title: document.title
+        })
+      }, 300)
   }
   render() {
     return (

@@ -3,10 +3,10 @@ import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 //import actions
-import { fetchEditPost, sendPost } from "../../actions/postActions"
+import { fetchEditPost, sendPost } from "@actions/postActions"
 
 import PostField from "./PostField"
-import isEmpty from "../../utils/isEmpty"
+import isEmpty from "@utils/isEmpty"
 
 class PostNew extends React.Component {
   constructor(props) {

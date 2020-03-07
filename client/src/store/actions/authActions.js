@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode"
 
 import { USER_LOGIN, USER_LOGOUT, GET_ERRORS } from "./types"
 import { authLoading, clearLoading } from "./loadingActions"
-import setAuthToken from "../utils/setAuthToken"
+import setAuthToken from "@utils/setAuthToken"
 
 export const login = (userData, history) => async dispatch => {
   dispatch(authLoading())

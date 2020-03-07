@@ -1,33 +1,41 @@
 {
   "name": "client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
-    "http-proxy-middleware": "^0.19.0",
+    "htmr": "^0.8.8",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.22.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-localize-redux": "^3.4.1",
-    "react-moment": "^0.8.2",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.3.0",
-    "react-select": "^2.1.1",
-    "redux": "^4.0.0",
+    "react": "^16.12.0",
+    "react-app-rewire-workbox": "^2.0.1",
+    "react-app-rewired": "^2.1.5",
+    "react-dom": "^16.12.0",
+    "react-gtm-module": "^2.0.8",
+    "react-helmet-async": "^1.0.4",
+    "react-localize-redux": "^3.5.3",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.0",
+    "react-timestamp": "^5.1.0",
+    "redux": "^4.0.4",
     "redux-active": "^1.2.0",
-    "redux-devtools-extension": "^2.13.5",
-    "redux-form": "^7.4.2",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "validator": "^10.8.0"
+    "validator": "^10.11.0",
+    "workbox-webpack-plugin": "^5.0.0"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^0.19.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",

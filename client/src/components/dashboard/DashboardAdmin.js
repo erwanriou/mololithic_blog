@@ -3,12 +3,12 @@ import { connect } from "react-redux"
 import { Link, withRouter } from "react-router-dom"
 
 // IMPORT ACTIONS
-import { deletePost } from "../../actions/postActions"
+import { deletePost } from "@actions/postActions"
 
 // IMPORT COMPONENTS
 import PostList from "../post/PostList"
-import isEmpty from "../../utils/isEmpty"
-import Spinner from "../common/Spinner"
+import isEmpty from "@utils/isEmpty"
+import Spinner from "@common/Spinner"
 
 class DashboardAdmin extends React.Component {
   render() {

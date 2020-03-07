@@ -2,9 +2,9 @@ import React from "react"
 import { Translate } from "react-localize-redux"
 import { Link } from "react-router-dom"
 
-import blog from "../../utils/images/blog.png"
-import school from "../../utils/images/school.png"
-import shop from "../../utils/images/shop.png"
+import blog from "@utils/images/blog.png"
+import school from "@utils/images/school.png"
+import shop from "@utils/images/shop.png"
 
 class LandingLinks extends React.Component {
   render() {

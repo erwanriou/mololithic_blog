@@ -1,6 +1,7 @@
 import React from "react"
+import Timestamp from "react-timestamp"
 import { Link } from "react-router-dom"
-import Moment from "react-moment"
+
 class PostLandingItem extends React.Component {
   render() {
     const { post } = this.props
@@ -21,7 +22,12 @@ class PostLandingItem extends React.Component {
           </div>
           <div className="date">
             <p>
-              <Moment format="YYYY.MM.DD">{post.date}</Moment>
+              <Timestamp
+                className="request-item-timestamp"
+                relative
+                date={post.date}
+                autoUpdate
+              />
             </p>
           </div>
         </div>

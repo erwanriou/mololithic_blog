@@ -2,8 +2,6 @@ import axios from "axios"
 import { POSTS_FETCHED, POST_FETCHED, GET_ERRORS } from "./types"
 import { loading, clearLoading } from "./loadingActions"
 
-import isEmpty from "../utils/isEmpty"
-
 export const fetchPosts = () => async dispatch => {
   dispatch(loading())
   try {

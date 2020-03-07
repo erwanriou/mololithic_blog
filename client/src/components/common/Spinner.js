@@ -1,5 +1,5 @@
 import React from "react"
-import spinner from "../../utils/images/spinner.gif"
+import spinner from "@utils/images/spinner.gif"
 export default () => {
   return (
     <div className="spinner">

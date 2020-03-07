@@ -3,8 +3,8 @@ import {
   CLEAR_LOADING_DATA,
   USER_LOGIN,
   USER_LOGOUT
-} from "../actions/types"
-import isEmpty from "../utils/isEmpty"
+} from "@actions/types"
+import isEmpty from "@utils/isEmpty"
 
 const initialState = {
   isAuthenticated: false,

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 import { connect } from "react-redux"
 
-import isEmpty from "../../utils/isEmpty"
-import Spinner from "../common/Spinner"
+import isEmpty from "@utils/isEmpty"
+import Spinner from "@common/Spinner"
 import PostList from "../post/PostList"
 
 class LandingPosts extends React.Component {

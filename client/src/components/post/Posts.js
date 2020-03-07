@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import isEmpty from "../../utils/isEmpty"
+import isEmpty from "@utils/isEmpty"
 import Spinner from "../common/Spinner"
 import PostList from "./PostList"
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { Translate } from "react-localize-redux"
 
-import logo from "../../utils/images/logobbyogini3.png"
+import logo from "@utils/images/logobbyogini3.png"
 
 class Banner extends React.Component {
   render() {
