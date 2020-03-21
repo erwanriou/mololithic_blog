@@ -16,7 +16,7 @@ const Router = ({ router, translate }) => {
       {Routes.auth.map((page, index) => (
         <Route exact key={index} path={page.path} component={page.component} />
       ))}
-      {Routes.landingPages.map((page, index) => (
+      {Routes.infoPages.map((page, index) => (
         <Route
           exact
           key={index}
@@ -24,12 +24,12 @@ const Router = ({ router, translate }) => {
           component={page.component}
         />
       ))}
-      {Routes.infoPages.map((page, index) => (
+      {Routes.landingPages.map((page, index) => (
         <Route
           exact
           key={index}
           path={translate(page.path)}
-          omponent={page.component}
+          component={page.component}
         />
       ))}
       <Route exact path="/not-found" component={NotFound} />

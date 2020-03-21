@@ -19,6 +19,24 @@
       "meta-desc": "",
       "language": "en"
     },
+    "yoga": {
+      "url": "/yoga",
+      "title": "Yoga | Bebeyogini",
+      "meta-desc": "",
+      "language": "en"
+    },
+    "psychology": {
+      "url": "/psychology",
+      "title": "Psychology | Bebeyogini",
+      "meta-desc": "",
+      "language": "en"
+    },
+    "about": {
+      "url": "/about",
+      "title": "About | Bebeyogini",
+      "meta-desc": "",
+      "language": "en"
+    },
     "contact": {
       "url": "/contacto",
       "title": "Contact | Bebeyogini",
@@ -59,6 +77,7 @@
     "home": "HOME",
     "blog": "BLOG",
     "about": "ABOUT",
+    "yoga": "YOGA",
     "psychology": "PSYCHOLOGY",
     "contact": "CONTACT",
     "dashboard": "dashboard",

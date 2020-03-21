@@ -1,37 +1,49 @@
-import { lazy } from "react"
+import { lazy } from "react";
 
 const Posts = lazy(() =>
   import(/* webpackPrefetch: true */ "./landing/post/Posts")
-)
+);
 const Post = lazy(() =>
   import(/* webpackPrefetch: true */ "./landing/post/Post")
-)
+);
 
 // REGISTER
 const AuthLogin = lazy(() =>
   import(/* webpackPrefetch: true */ "./auth/AuthLogin")
-)
+);
 const AuthRegister = lazy(() =>
   import(/* webpackPrefetch: true */ "./auth/AuthRegister")
-)
+);
 
 // INFO
+const InfoYoga = lazy(() =>
+  import(/* webpackPrefetch: true */ "./info/InfoYoga")
+);
+const InfoPsychology = lazy(() =>
+  import(/* webpackPrefetch: true */ "./info/InfoPsychology")
+);
+const InfoAbout = lazy(() =>
+  import(/* webpackPrefetch: true */ "./info/InfoAbout")
+);
+const InfoContact = lazy(() =>
+  import(/* webpackPrefetch: true */ "./info/InfoContact")
+);
 const InfoPrivacy = lazy(() =>
   import(/* webpackPrefetch: true */ "./info/InfoPrivacy")
-)
+);
 
 // DASHBOARD GLOBAL
 const DashboardMain = lazy(() =>
   import(/* webpackPrefetch: true */ "./dashboard/DashboardMain")
-)
+);
 
 // DASHBOARD ADMIN
 const DashboardAdmin = lazy(() =>
   import(/* webpackPrefetch: true */ "./dashboard/admin/DashboardAdmin")
-)
+);
 const ManagePosts = lazy(() =>
   import(/* webpackPrefetch: true */ "./dashboard/admin/PostNew")
-)
+);
 
 export const Routes = {
   landingPages: [
@@ -45,6 +57,22 @@ export const Routes = {
     }
   ],
   infoPages: [
+    {
+      path: "meta.yoga.url",
+      component: InfoYoga
+    },
+    {
+      path: "meta.psychology.url",
+      component: InfoPsychology
+    },
+    {
+      path: "meta.about.url",
+      component: InfoAbout
+    },
+    {
+      path: "meta.contact.url",
+      component: InfoContact
+    },
     {
       path: "meta.privacy-policy.url",
       component: InfoPrivacy
@@ -87,4 +115,4 @@ export const Routes = {
       }
     ]
   }
-}
+};

@@ -19,6 +19,24 @@
       "meta-desc": "",
       "language": "es"
     },
+    "yoga": {
+      "url": "/yoga",
+      "title": "Yoga | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "psychology": {
+      "url": "/psicologia",
+      "title": "Psicologia | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "about": {
+      "url": "/coneceme",
+      "title": "Conóceme | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
     "contact": {
       "url": "/contacto",
       "title": "Contato | Bebeyogini",
@@ -58,7 +76,8 @@
     "subtitle": "El blog de yoga para principiantes",
     "home": "HOME",
     "blog": "BLOG",
-    "about": "SOBRE",
+    "about": "CONOCEME",
+    "yoga": "YOGA",
     "psychology": "PSICOLOGÍA",
     "contact": "CONTACTO",
     "dashboard": "cuenta",

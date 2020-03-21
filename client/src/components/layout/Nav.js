@@ -68,14 +68,17 @@ class Nav extends React.Component {
               <Link className="noselect" to={translate("meta.blog.url")}>
                 <Translate id="nav.blog" />
               </Link>
+              <Link className="noselect" to={translate("meta.yoga.url")}>
+                <Translate id="nav.yoga" />
+              </Link>
+              <Link className="noselect" to={translate("meta.psychology.url")}>
+                <Translate id="nav.psychology" />
+              </Link>
               <Link className="noselect" to={translate("meta.about.url")}>
                 <Translate id="nav.about" />
               </Link>
-              <Link className="noselect" to="/yoga">
-                YOGA
-              </Link>
-              <Link className="noselect" to="/psychology">
-                <Translate id="nav.psychology" />
+              <Link className="noselect" to={translate("meta.contact.url")}>
+                <Translate id="nav.contact" />
               </Link>
             </div>
             {content}
