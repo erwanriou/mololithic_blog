@@ -35,7 +35,7 @@ const helmetContext = {}
 
 // GENERATE AND DECLARE DATALAYER
 const tagManagerArgs = {
-  gtmId: "GTM-PRQSQDZ",
+  gtmId: "GTM-PWQSQDZ",
   dataLayer: {}
 }
 TagManager.initialize(tagManagerArgs)
