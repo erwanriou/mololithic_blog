@@ -25,6 +25,30 @@
       "meta-desc": "",
       "language": "es"
     },
+    "yoga-mindful": {
+      "url": "/yoga-mindful",
+      "title": "Yoga Mindful | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "yoga-therapeutic": {
+      "url": "/yoga-terapeutico",
+      "title": "Yoga Terapeutico | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "yoga-company": {
+      "url": "/yoga-empresas",
+      "title": "Yoga para Empresas| Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
+    "yoga-hotel": {
+      "url": "/yoga-hotel",
+      "title": "Yoga en Hotel | Bebeyogini",
+      "meta-desc": "",
+      "language": "es"
+    },
     "psychology": {
       "url": "/psicologia",
       "title": "Psicologia | Bebeyogini",
@@ -78,6 +102,10 @@
     "blog": "BLOG",
     "about": "CONOCEME",
     "yoga": "YOGA",
+    "yoga-mindful": "YOGA MINDFUL",
+    "yoga-therapeutic": "YOGA TERAPEUTICO",
+    "yoga-company": "YOGA EMPRESAS",
+    "yoga-hotel": "YOGA HOTELES",
     "psychology": "PSICOLOGÍA",
     "contact": "CONTACTO",
     "dashboard": "cuenta",

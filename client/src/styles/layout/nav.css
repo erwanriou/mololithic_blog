@@ -7,6 +7,7 @@
   height: 3rem;
 }
 .nav a {
+  position: relative;
   color: white;
   transition: color 0.3s ease;
 }
@@ -59,4 +60,35 @@
 .nav .usermenu img {
   width: 2rem;
   border-radius: 5rem;
+}
+/* HOVER BOX MENU */
+.nav .hover-box-wrapper {
+  position: absolute;
+}
+.nav .hover-box {
+  position: relative;
+  top: 2rem;
+  background-color: #343a40;
+  box-shadow: 5px 10px 25px 0 rgba(46, 61, 73, 0.2);
+}
+.nav .hover-box:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #343a40;
+  border-top: 0;
+  border-left: 0;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+.nav .hover-box .hover-content {
+  padding: 1rem;
+  width: 12rem;
+}
+.nav .hover-box .hover-content:not(:last-child) {
+  border-bottom: 1px solid #4d555d;
 }

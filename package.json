@@ -45,11 +45,12 @@
     "passport-google-oauth20": "^1.0.0",
     "passport-instagram": "^1.0.0",
     "passport-jwt": "^4.0.0",
+    "react-hover": "^1.4.0",
     "uuid": "^3.3.2",
     "validator": "^10.6.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^2.0.2"
   },
   "repository": {
     "type": "git",

@@ -9,11 +9,54 @@ import icon from "@utils/images/logobbyogini.png"
 import Spinner from "@common/Spinner"
 
 class Nav extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      hover: false
+    }
+    this.handleHover = this.handleHover.bind(this)
+  }
+  handleHover(hover) {
+    this.setState({ hover })
+  }
   handleLogout(e) {
     e.preventDefault()
     this.props.logout()
   }
+  renderNavYogaOptions() {
+    const { translate } = this.props
+    return (
+      <div className="hover-box-wrapper">
+        <div className="hover-box">
+          <div className="hover-content">
+            <Link className="noselect" to={translate("meta.yoga-mindful.url")}>
+              <Translate id="nav.yoga-mindful" />
+            </Link>
+          </div>
+          <div className="hover-content">
+            <Link
+              className="noselect"
+              to={translate("meta.yoga-therapeutic.url")}
+            >
+              <Translate id="nav.yoga-therapeutic" />
+            </Link>
+          </div>
+          <div className="hover-content">
+            <Link className="noselect" to={translate("meta.yoga-company.url")}>
+              <Translate id="nav.yoga-company" />
+            </Link>
+          </div>
+          <div className="hover-content">
+            <Link className="noselect" to={translate("meta.yoga-hotel.url")}>
+              <Translate id="nav.yoga-hotel" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    )
+  }
   render() {
+    const { hover } = this.state
     const { translate } = this.props
     const { isAuthenticated, user, loading } = this.props.auth
     let content
@@ -68,8 +111,14 @@ class Nav extends React.Component {
               <Link className="noselect" to={translate("meta.blog.url")}>
                 <Translate id="nav.blog" />
               </Link>
-              <Link className="noselect" to={translate("meta.yoga.url")}>
+              <Link
+                onMouseEnter={() => this.handleHover(true)}
+                onMouseLeave={() => this.handleHover(false)}
+                className="noselect"
+                to={translate("meta.yoga.url")}
+              >
                 <Translate id="nav.yoga" />
+                {hover && this.renderNavYogaOptions()}
               </Link>
               <Link className="noselect" to={translate("meta.psychology.url")}>
                 <Translate id="nav.psychology" />

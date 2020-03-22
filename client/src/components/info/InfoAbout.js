@@ -19,7 +19,7 @@ class InfoAbout extends React.Component {
   }
   render() {
     return (
-      <div className="container about-layout">
+      <main className="container about-layout">
         <Head component="about" />
         <section className="about-title">
           <h1>
@@ -27,7 +27,7 @@ class InfoAbout extends React.Component {
           </h1>
         </section>
         <section className="about">{this.renderAbout()}</section>
-      </div>
+      </main>
     )
   }
 }
